@@ -165,4 +165,5 @@ Notes:
 * Native vs original 64-bit SDK: **265/303 (87.5%)** exact on
   `tests/corpus_diff.txt`.
 * Original 32-bit SDK vs 64-bit SDK: **303/303** on the same corpus.
-* wasm32 vs original on the common corpus: **9/9**.
+* wasm32 vs original on `tests/corpus_common.txt`: **11/11**
+  (`python3 tests/run_wasm32.py`).

@@ -35,3 +35,4 @@ tests/*.js
 /tests/one.txt
 /port/exp32/
 /tests/*.tmp
+/tests/port_common32.txt
