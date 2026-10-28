@@ -1,0 +1,1514 @@
+[
+{
+"name": "F1_00",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 5628,
+"sha256": "a1fc6f97e55494e750beda8c156d20c8a0143bfdf17712b29aa640d2a4ed3793"
+},
+{
+"name": "F1_01",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 8268,
+"sha256": "249ed64302a3a4e53f2891613795dd2b3acc5020599c6afc9a4f3d44407ec867"
+},
+{
+"name": "F1_02",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 12268,
+"sha256": "7065f6f4cd78e373be2e670fccf1b6bbeb6fabe936432307a1deb7c9751250c5"
+},
+{
+"name": "F1_03",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 24668,
+"sha256": "668f1f783728245e786ef4a5f9560d1ee5c3b46b16051f64f2e7242a7ba6da2a"
+},
+{
+"name": "F1_04",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 63468,
+"sha256": "8cfe4180ac54c8c9e4a325124a5a7facf39e3bb77d1559e592bc8eaa348a644f"
+},
+{
+"name": "F1_05",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 18588,
+"sha256": "a5dfcaef167fc01b004b18011d088fa53ef53c3d1b974074b3cdee52d5628c85"
+},
+{
+"name": "F1_06",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 19228,
+"sha256": "dad7a18e63347086668c06ddaebc6de32ffcde2104b83ab4ea5559d3267360d8"
+},
+{
+"name": "F1_07",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 22748,
+"sha256": "cf19f802e33478feed04bda02478fb2ac7524884534d2bdbe1b1e0dad3b16ae7"
+},
+{
+"name": "F1_08",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 39948,
+"sha256": "edf49c71bbf5d993a35369e4c06088c326fc7aee9c0fa51df17347a587bbede4"
+},
+{
+"name": "F1_09",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 23948,
+"sha256": "29bd586d50ab97fac4026a5740b679b94ae4570c8f3679f09cfe9fd635bee696"
+},
+{
+"name": "F1_10",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 21228,
+"sha256": "465dc378984fb5e02df1d4b1dad8f9ede6388cb26252b172916c8c019e6e9751"
+},
+{
+"name": "F1_13",
+"voice": [
+0,
+100,
+100,
+100,
+100,
+100,
+100
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 112908,
+"sha256": "942d4b2e29a8d7da014dc56b1b50eba767ed601afaccddb54c34714eb05f39a0"
+},
+{
+"name": "F2_00",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 5628,
+"sha256": "89c14084680e7a3b15e7e5c8f9f51d1093cddd216fe827dc1cdbedf869ac950c"
+},
+{
+"name": "F2_01",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 8268,
+"sha256": "c82cb87a4a9791142ac0827c7b5bba07144d20f115d35a1330e48162b454b46e"
+},
+{
+"name": "F2_02",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 12268,
+"sha256": "0e58e9832a3fd8ec61db91858bb986d4e743eedf377f52999e3c12009cf88a0a"
+},
+{
+"name": "F2_03",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 24668,
+"sha256": "9c8ee05421a85672c29759588b69ee120d73c63102ee3143d293f7be60ece031"
+},
+{
+"name": "F2_04",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 63468,
+"sha256": "ecd53f39e96d6390f68ce21f28cc306e418669b09114232aaf5b701a0461a7c7"
+},
+{
+"name": "F2_05",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 18588,
+"sha256": "66ec94df33467cdca4e880705dde280c14fb3497f15d535813c2b46635be38a1"
+},
+{
+"name": "F2_06",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 19228,
+"sha256": "978961d21134c5704b940dd797aa59f8cd178fbb623a6babb5f679026749d3e2"
+},
+{
+"name": "F2_07",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 22748,
+"sha256": "26805e1b978ceba308de7f53a6cfae45ee95ecdf778b68a496da12e6fdde4882"
+},
+{
+"name": "F2_08",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 39948,
+"sha256": "d0341cb68e8168ca22aaba0a665b77592726184930f3f675cd38c8eb3d6bf343"
+},
+{
+"name": "F2_09",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 23948,
+"sha256": "a3b6079906edd561a4f99440ab711ccf4855d16b30abc2fb80cb451cf482061a"
+},
+{
+"name": "F2_10",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 21228,
+"sha256": "a154d28effc92e56b9d2f62d337caf5388aa79494a05d7fc162903f41a1aaeda"
+},
+{
+"name": "F2_13",
+"voice": [
+1,
+100,
+100,
+77,
+150,
+100,
+100
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 113068,
+"sha256": "509fe8786ee052ff8a3b3a591b1cd3068cfa59f5cf04e9f647ededca39329097"
+},
+{
+"name": "F3_00",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 6768,
+"sha256": "02b68e244a79c5191dc28b68386a54b7d98f566089a91f197c63281ec880757f"
+},
+{
+"name": "F3_01",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 10068,
+"sha256": "66ca95b2f9b5dda97f0282e13276eb175442e774c691a7e2ae3ed8ff2a31c888"
+},
+{
+"name": "F3_02",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 15068,
+"sha256": "c1f59bcd2ce72dc9188320b15e3a570ab745f9f40ba71e0fd3cbffb0ebf81fd8"
+},
+{
+"name": "F3_03",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 30568,
+"sha256": "b7ce7c39787580ae45543ddeecfc6308d95c1b365a3aa82b6f9f0fe319a39b7c"
+},
+{
+"name": "F3_04",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 79068,
+"sha256": "ee8427b106c16e5063b1af80b03ee5730840a6a0e2d96bc63ac02c25f5dc0bfc"
+},
+{
+"name": "F3_05",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 22968,
+"sha256": "79e6398439b69bda35202b2842c7b950071869bf6c6f8a22dd4c85617f4168be"
+},
+{
+"name": "F3_06",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 23768,
+"sha256": "f7d0ee76f552447d6d30b8e9c85a578bf188edd46a01cb1577f6b42f2442f019"
+},
+{
+"name": "F3_07",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 28168,
+"sha256": "82c92b7271835afc13f0b4879cecc3a6e83583c2b063836539dccad20b119db1"
+},
+{
+"name": "F3_08",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 49668,
+"sha256": "e848f665ae6a06f6fdb97477b83b8dfab31c830a15573185f874ac2cb7050738"
+},
+{
+"name": "F3_09",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 29668,
+"sha256": "7016585e9615385b8ea2627dd1ffa6bbbc1cfc3697691bed21251d681ef1acac"
+},
+{
+"name": "F3_10",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 26268,
+"sha256": "f703f4878839ba73c8789af41b33989bfa30cf96d4199f02b85cef84a94d678d"
+},
+{
+"name": "F3_13",
+"voice": [
+0,
+80,
+100,
+100,
+100,
+61,
+148
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 140868,
+"sha256": "daf6b8a7aa0c0104b331256294af699359aa34c7364d3dfde762f29bfe028648"
+},
+{
+"name": "M1_00",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 5628,
+"sha256": "718c9eba16e027f524ecbf171424119b2bebdb1d84e1227c3c79e9278def407a"
+},
+{
+"name": "M1_01",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 8268,
+"sha256": "c37e523f0b6d01fa6b578a9a91f5541f16d898734783bf599a162175dec465fa"
+},
+{
+"name": "M1_02",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 12268,
+"sha256": "181705a6aaa1c273b173f2f9a1294bc9b81d9c5b57304464d0cc351fb6d2548a"
+},
+{
+"name": "M1_03",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 24668,
+"sha256": "290f627f53bbdcfabbf036935a8ff1b9c1fa456f3ad9356bfe8d1bbf1fecb6d4"
+},
+{
+"name": "M1_04",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 64588,
+"sha256": "ec7cbbf78066c08e4b18093fb30899729ecb0777f8fd93b336280ba783d4f00c"
+},
+{
+"name": "M1_05",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 18588,
+"sha256": "b2fd4bc55b1e555ac02a5b566dbe98e0e917de775cd6b59131a673c50967a27e"
+},
+{
+"name": "M1_06",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 19228,
+"sha256": "7dabcf28f9992c2eac2296c38d14aecb4f254fada242eae0df739eb1a08dff6b"
+},
+{
+"name": "M1_07",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 22908,
+"sha256": "5bd2709389e3ece38c53ac079058562f01755f3063c135da927f768ae79a7863"
+},
+{
+"name": "M1_08",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 39788,
+"sha256": "d26eb4e42802c7580381d4a4c3a6f0df81b65bc39b360413c77383ac1dcf6aa5"
+},
+{
+"name": "M1_09",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 23948,
+"sha256": "ac606406cc998c37468803e2be09c66b1bbcdd25b5b2c09ccbeaf1dcb7f0a429"
+},
+{
+"name": "M1_10",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 21228,
+"sha256": "ff5b79bdafde9435adc46f8731caeef858ce95c08792441694106963f62770a7"
+},
+{
+"name": "M1_13",
+"voice": [
+2,
+100,
+100,
+30,
+100,
+100,
+100
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 113548,
+"sha256": "c6215a6aa7ad4b152a839748f1c0bf79c0b5eebd9c47d8c9de862659b5995ba4"
+},
+{
+"name": "M2_00",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 5362,
+"sha256": "bba51a2c59c2643550caa582da5cdc036b75f981c1ac7c22e278d3f2b91aa3ae"
+},
+{
+"name": "M2_01",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 7848,
+"sha256": "282bdf8d1ea693c80cc6c78d33f63ce71c5d0c0915ae909236ad3119f0495d4f"
+},
+{
+"name": "M2_02",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 11610,
+"sha256": "e4d903f1cdc1e8edee0697126aeb6eba88eabb7475879ec256e83990e0324ff1"
+},
+{
+"name": "M2_03",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 23228,
+"sha256": "2d8df3e997d46d749b92b88e279bb9553d6e67dea14937f221c4efe598234df7"
+},
+{
+"name": "M2_04",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 60786,
+"sha256": "f99cb7c2040b853ea7717d993ab4c8b776cf9cfa1bbfb46f8eaae265b0e68952"
+},
+{
+"name": "M2_05",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 17534,
+"sha256": "c6e4781080a5719c3a447505e0ff125c12423d4c0ba2a421ecbbabd9b5742786"
+},
+{
+"name": "M2_06",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 18126,
+"sha256": "62032f335f97412705c225aeefddb24c603c2a2c282fb7de6ccea8eb7967fd20"
+},
+{
+"name": "M2_07",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 21576,
+"sha256": "eca2c151fef47672a283a720370867045efecb9e0e5bd518e0a0363367149571"
+},
+{
+"name": "M2_08",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 37408,
+"sha256": "2a2953cb317793bb4ec86663c74e858a8eb475832e175cc74ba39e43ed71527e"
+},
+{
+"name": "M2_09",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 22560,
+"sha256": "8bc46735e507918b53cad232992d1f6b89ff0105769e356e6b05ed3e257e9df6"
+},
+{
+"name": "M2_10",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 20008,
+"sha256": "d3c489ff2b6cee0c0e93e6d56ee828435da91d74083bec6c01529c7f375c5457"
+},
+{
+"name": "M2_13",
+"voice": [
+2,
+105,
+100,
+45,
+130,
+120,
+100
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 106558,
+"sha256": "d916262b588dfc98e260af4620f8a3b1e004783ae71a9d610387bcd02b0d7429"
+},
+{
+"name": "R1_00",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 5628,
+"sha256": "b55af3e3a235ab57f0f001da3e29200159ea8bf1333fd85b576a3a91492e1343"
+},
+{
+"name": "R1_01",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 8268,
+"sha256": "c829aa2ae7dd5cc71d230ba2668b114947ae051a11425e2e5bbc165b76312e63"
+},
+{
+"name": "R1_02",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 12268,
+"sha256": "1462af2cb95df9ad84c9d415e47da314626e2b0b9e7c978b94b9ecd3fe56d6b0"
+},
+{
+"name": "R1_03",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 24668,
+"sha256": "e1559f71c8bfa8e1a6251ea83ebbb97f59b03598440b35f7a79257650689cfcc"
+},
+{
+"name": "R1_04",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 64588,
+"sha256": "18442a3d2eccc2e3277868e0ab0556d78361bddd541d02f528da53f02aa7a49a"
+},
+{
+"name": "R1_05",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 18588,
+"sha256": "35fd2b617081683777d7588c309146a667c5a4650c9958eef6cc3bef9e667e2e"
+},
+{
+"name": "R1_06",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 19228,
+"sha256": "27edebbde0313544bfd9163eb5b1d4351acaeaf4f60cf05ec333d47a07f46b36"
+},
+{
+"name": "R1_07",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 22908,
+"sha256": "7ef176d0b26c32c54e732730744e203b70ab1714e73e995b98a4b2d175ba271c"
+},
+{
+"name": "R1_08",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 39788,
+"sha256": "10322bef2dca52d32a8edb4001f52cbf23e236e0af6e23abcdc9d723f6826cf3"
+},
+{
+"name": "R1_09",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 23948,
+"sha256": "6f1e5952768fdfdbcc79b0756eccadaabd4141591f10af719df23183dc504457"
+},
+{
+"name": "R1_10",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 21228,
+"sha256": "81b9caf5f2b3cca0937d3826748ce25a753c10b0ad934a69df8516d3293b362e"
+},
+{
+"name": "R1_13",
+"voice": [
+2,
+100,
+100,
+30,
+20,
+190,
+100
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 113548,
+"sha256": "a98d6c5c4018cb6c1cdaf3c343473f05dcfdcd7e163a17e86523606acfc27323"
+},
+{
+"name": "R2_00",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "あ",
+"utf8": "44GC",
+"sjis": "gqA=",
+"utf16": "QjA=",
+"size": 7566,
+"sha256": "951fea723a294563259140a73b9acf2c77dff424e34460fef2de4145850e98bf"
+},
+{
+"name": "R2_01",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "か",
+"utf8": "44GL",
+"sjis": "gqk=",
+"utf16": "SzA=",
+"size": 11328,
+"sha256": "25587055ee3e21578e70b0ea308a1350151109294aeca0b06ceac11f95eba1b6"
+},
+{
+"name": "R2_02",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "アカ",
+"utf8": "44Ki44Kr",
+"sjis": "g0GDSg==",
+"utf16": "ojCrMA==",
+"size": 17028,
+"sha256": "c50dff978665f2ec27764332a6824f462308c2b99dcb60e644cfd31b62d63905"
+},
+{
+"name": "R2_03",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "こんにちは",
+"utf8": "44GT44KT44Gr44Gh44Gv",
+"sjis": "grGC8YLJgr+CzQ==",
+"utf16": "UzCTMGswYTBvMA==",
+"size": 34698,
+"sha256": "8482b63672f2c0a97d3f2142379eb7ffafd9665e4af5fbd11e57f50410640669"
+},
+{
+"name": "R2_04",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "これわ、ごーせー/お'んせーです。",
+"utf8": "44GT44KM44KP44CB44GU44O844Gb44O8L+OBiifjgpPjgZvjg7zjgafjgZnjgII=",
+"sjis": "grGC6oLtgUGCsoFbgrmBWy+CqCeC8YK5gVuCxYK3gUI=",
+"utf16": "UzCMMI8wATBUMPwwWzD8MC8ASjAnAJMwWzD8MGcwWTACMA==",
+"size": 89994,
+"sha256": "00c7efd724cc5e5b63bd9f8c09d3a94cb63db0cafd04be2e265166dca21f3054"
+},
+{
+"name": "R2_05",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "テスト",
+"utf8": "44OG44K544OI",
+"sjis": "g2WDWINn",
+"utf16": "xjC5MMgw",
+"size": 26034,
+"sha256": "8c327a7676390e70ce6033d8c7f6ae0560ef88a8340b7c7bd7b4c4d53573bddc"
+},
+{
+"name": "R2_06",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "おはよう",
+"utf8": "44GK44Gv44KI44GG",
+"sjis": "gqiCzYLmgqQ=",
+"utf16": "SjBvMIgwRjA=",
+"size": 26946,
+"sha256": "2b3c7213be6452a30a50f45e043be3e88f0c01e1f952f6081f2327e4275cbd2b"
+},
+{
+"name": "R2_07",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "ありがとう",
+"utf8": "44GC44KK44GM44Go44GG",
+"sjis": "gqCC6IKqgsaCpA==",
+"utf16": "QjCKMEwwaDBGMA==",
+"size": 31962,
+"sha256": "e7d72586b3683352653bd889009ae4352ab03f6606dc89ccf5ba75c3a9730d35"
+},
+{
+"name": "R2_08",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "なまむぎなまごめ",
+"utf8": "44Gq44G+44KA44GO44Gq44G+44GU44KB",
+"sjis": "gsiC3ILegqyCyILcgrKC3w==",
+"utf16": "ajB+MIAwTjBqMH4wVDCBMA==",
+"size": 56472,
+"sha256": "6f22353c6f0b2f8b2c44f410e39588dcc1a7baa818686cb64e2fe0449747b40a"
+},
+{
+"name": "R2_09",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "こんばんは",
+"utf8": "44GT44KT44Gw44KT44Gv",
+"sjis": "grGC8YLOgvGCzQ==",
+"utf16": "UzCTMHAwkzBvMA==",
+"size": 33672,
+"sha256": "777c1d33b211c68e96bd8ba041500752d26f232472aef4768b79ba86b43263e2"
+},
+{
+"name": "R2_10",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "おやすみ",
+"utf8": "44GK44KE44GZ44G/",
+"sjis": "gqiC4oK3gt0=",
+"utf16": "SjCEMFkwfzA=",
+"size": 29796,
+"sha256": "3024470082a72b2a89c66135ec64407b673a00c8263c29268c2648e607fc6f49"
+},
+{
+"name": "R2_13",
+"voice": [
+1,
+70,
+100,
+50,
+50,
+50,
+180
+],
+"text": "あいうえおかきくけこさしすせそたちつてとなにぬねの",
+"utf8": "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT44GV44GX44GZ44Gb44Gd44Gf44Gh44Gk44Gm44Go44Gq44Gr44Gs44Gt44Gu",
+"sjis": "gqCCooKkgqaCqIKpgquCrYKvgrGCs4K1greCuYK7gr2Cv4LCgsSCxoLIgsmCyoLLgsw=",
+"utf16": "QjBEMEYwSDBKMEswTTBPMFEwUzBVMFcwWTBbMF0wXzBhMGQwZjBoMGowazBsMG0wbjA=",
+"size": 160668,
+"sha256": "f90a68b8df695753c565c6100b8549a444db276189202f9c76e84f613e5e3bb7"
+}
+]
