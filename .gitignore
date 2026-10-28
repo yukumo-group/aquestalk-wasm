@@ -1,0 +1,21 @@
+# generated data image (contains a copy of the original .rodata)
+port/src/image.c
+
+# build outputs
+port/build-native/
+port/web/*.wasm
+port/web/*.js
+
+# Ghidra workspace/caches
+.ghidra-home/
+.ghidra-cache/
+ghidra-proj/
+decomp/FUN_*.c
+
+# test artifacts
+tests/ref/*.wav
+tests/lib/
+tests/orig_harness
+tests/in.txt
+
+*.o
