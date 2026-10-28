@@ -25,3 +25,7 @@ tests/*.js
 /aqk2k_lnx/aq_dic/aqdic.bin
 /aqk2k_lnx/aq_dic/lookup.bin
 /tests/dic_nouser/
+/aqk2k_lnx/build32/
+/tests/port_native.txt
+/tests/port_asan.txt
+/tests/err_asan.txt
