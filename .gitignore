@@ -4,6 +4,8 @@ __pycache__/
 build/
 dist/*
 !dist/aquestalk1.wasm
+!dist/aquestalk1.js
+!dist/demo.html
 wheels/
 *.egg-info
 
