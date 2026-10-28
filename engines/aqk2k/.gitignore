@@ -1,0 +1,38 @@
+# toolchains / third-party checkouts
+/emsdk/
+/bakak2k/
+
+# ghidra working data
+/.ghidra-cache/
+/.ghidra-home/
+/.ghidra-settings/
+/.ghidra-tmp/
+/ghidra-proj/
+/decomp/dump.txt
+/decomp/FUN_*.c
+
+# build outputs
+/port/build-native/
+/port/build-wasm/
+/port/wasm/*.wasm
+/aqk2k_lnx/build/
+tests/*.wasm
+tests/*.js
+*.o
+*.a
+
+# large / proprietary data (regenerate with port/tools/gen_lookup.mjs)
+/aqk2k_lnx/aq_dic/aqdic.bin
+/aqk2k_lnx/aq_dic/lookup.bin
+/tests/dic_nouser/
+/aqk2k_lnx/build32/
+/tests/port_native.txt
+/tests/port_asan.txt
+/tests/err_asan.txt
+/port/build-wasm32/
+/tests/port_wasm32.txt
+/tests/err_wasm32.txt
+/tests/one.txt
+/port/exp32/
+/tests/*.tmp
+/tests/port_common32.txt
