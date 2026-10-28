@@ -5,9 +5,10 @@ cd "$(dirname "$0")/../.."
 CC=${CC:-clang}
 mkdir -p dist
 SRC="recovered/src/api/ot_api.c recovered/src/text/*.c recovered/src/audio/*.c \
-     recovered/src/synth/*.c recovered/src/data/*.c recovered/src/f3/*.c"
+     recovered/src/synth/*.c recovered/src/data/*.c recovered/src/f3/*.c recovered/f3port/src/*.c"
 $CC --target=wasm32 -O2 -nostdlib -ffreestanding -fno-builtin -fno-stack-protector \
-    -D__stdcall= -Irecovered/include -Irecovered/wasm/freestanding \
+    -D__stdcall= -DAQ_FREESTANDING -fpermissive -Wno-int-conversion -Wno-incompatible-pointer-types \
+    -Irecovered/include -Irecovered/f3port/include -Irecovered/wasm/freestanding \
     -Wl,--no-entry -Wl,--export-memory \
     -Wl,--initial-memory=16777216 -Wl,--max-memory=268435456 \
     -Wl,-z,stack-size=1048576 \

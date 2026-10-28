@@ -9,6 +9,7 @@
 #include "ot_internal.h"
 #include "ot_data.h"
 #include "ot_voice.h"
+#include "f3port.h"
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -218,6 +219,9 @@ static unsigned char *ot_synthesize_copied(const char *koe, int speed, int *p_si
         return NULL;
     }
     voice = ot_voice_current();
+    if (voice->engine == OT_ENGINE_F3) {
+        return f3_port_synthe_sjis(koe, speed, p_size);
+    }
     src = (const uint8_t *)koe;
     n = strlen(koe);
     copy = (uint8_t *)malloc(n + 1);
@@ -248,6 +252,9 @@ unsigned char *__stdcall Open_Talk_Synthe_Utf8(const char *koe, int iSpeed, int 
         return NULL;
     }
     voice = ot_voice_current();
+    if (voice->engine == OT_ENGINE_F3) {
+        return f3_port_synthe_utf8(koe, iSpeed, pSize);
+    }
     src = (const uint8_t *)koe;
     n = strlen(koe);
     sjis = (uint8_t *)malloc(n + 1);
@@ -277,6 +284,9 @@ unsigned char *__stdcall Open_Talk_Synthe_Utf16(const unsigned short *koe, int i
         return NULL;
     }
     voice = ot_voice_current();
+    if (voice->engine == OT_ENGINE_F3) {
+        return f3_port_synthe_utf16(koe, iSpeed, pSize);
+    }
     while (koe[units]) {
         units++;
     }
