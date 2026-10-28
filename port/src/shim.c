@@ -1,8 +1,9 @@
 /* shim.c -- runtime support for the decompiled libAqKanji2Koe port. */
 #include "shim.h"
 #include <stdarg.h>
-#include <inttypes.h>
+#ifndef AQK2K_WASM
 #include <execinfo.h>
+#endif
 
 /* ------------------------------------------------------------------ */
 /* Embedded original image + dynamic relocations                      */
@@ -61,9 +62,11 @@ void __cxa_throw(void *obj, void *tinfo, void *dtor)
     (void)obj; (void)tinfo; (void)dtor;
     char *msg = obj ? ((char **)obj)[3] : 0;
     fprintf(stderr, "aqk2k: C++ exception: %s\n", msg ? msg : "(none)");
+#ifndef AQK2K_WASM
     void *bt[32];
     int n = backtrace(bt, 32);
     backtrace_symbols_fd(bt, n, 2);
+#endif
     abort();
 }
 

@@ -5,9 +5,35 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+#ifdef AQK2K_WASM
+/* freestanding declarations (no libc headers on wasm64-unknown-unknown) */
+typedef struct _FILE FILE;
+extern FILE *stderr;
+extern FILE *stdout;
+void *malloc(size_t);
+void *calloc(size_t, size_t);
+void *realloc(void *, size_t);
+void free(void *);
+void *memcpy(void *, const void *, size_t);
+void *memmove(void *, const void *, size_t);
+void *memset(void *, int, size_t);
+size_t strlen(const char *);
+int strcmp(const char *, const char *);
+int strncmp(const char *, const char *, size_t);
+char *strcpy(char *, const char *);
+int fprintf(FILE *, const char *, ...);
+int vfprintf(FILE *, const char *, __builtin_va_list);
+int fputc(int, FILE *);
+void abort(void);
+void exit(int);
+void __stack_chk_fail(void);
+void __assert_fail(const char *, const char *, unsigned int, const char *);
+#else
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {

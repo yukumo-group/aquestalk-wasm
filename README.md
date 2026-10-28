@@ -17,9 +17,11 @@ This is a **work-in-progress**, not a finished port.
 * Dictionary lookups are served by a precomputed surface → record-id table
   (`port/tools/gen_lookup.mjs`) instead of the modified MARISA search code.
   This makes readings match the original for normal text.
-* `port/src/api.cpp` implements the public AqKanji2Koe API (embind).
-  `AqKanji2Koe_Create`, `AqKanji2Koe_Create_Ptr`, `AqKanji2Koe_Convert`,
-  `AqKanji2Koe_ConvRoman`, `AqKanji2Koe_Release`, `AqKanji2Koe_SetDevKey`.
+* `port/src/api.cpp` implements the public AqKanji2Koe API for the native
+  build (embind was removed).
+* `port/src/api_raw.c` + `port/src/lookup_c.c` + `port/src/runtime.c` form a
+  **freestanding C ABI** used by the raw wasm build: no embind, no Emscripten,
+  no libc.  See below.
 
 ### Known gaps
 
@@ -59,6 +61,44 @@ clang++ -O1 -o aqk2k decomp.o shim.o image.o api.o cold.o trie_lookup.o
 echo 音声合成テスト | ./aqk2k ../../aqk2k_lnx/aq_dic
 # オンセーゴーセーテ'_スト。
 ```
+
+## Raw wasm64 build (LLVM only, no embind)
+
+`port/build_wasm.sh` compiles the C sources with
+`clang --target=wasm64-unknown-unknown -nostdlib` and links with `wasm-ld`.
+The result is a self-contained 228 KB module with **no imports** and a plain C
+ABI:
+
+```
+aq_init()
+aq_alloc(n) -> ptr
+aq_free(ptr)
+aq_set_lookup(data, size) -> 0/1
+aq_create(sysDicPtr, userDicPtr, &err) -> handle
+aq_convert(handle, utf8In, utf8Out, outCap) -> 0/error
+aq_conv_roman(handle, utf8In, utf8Out, outCap) -> 0/error
+aq_release(handle)
+aq_set_devkey(key) -> 0/1
+```
+
+`port/../port/wasm_test.mjs` is a Node demo: it loads `aqdic.bin`,
+`aq_user.dic`, and `lookup.bin`, copies them into wasm memory with `aq_alloc`,
+and converts text.
+
+```sh
+cd port && ./build_wasm.sh
+cd ..   && node port/wasm_test.mjs
+```
+
+Notes:
+
+* The module is **wasm64** (memory64, 64-bit `long`/pointers), because the
+  original code is LP64.  Node 24 and current Chromium/Firefox support it.
+* The freestanding build uses an **arena allocator** (`-DAQK2K_LEAK`): memory
+  is not reclaimed.  It is intended for short-lived workers / demos.  A proper
+  allocator is the next step.
+* Dictionary data is not embedded; the caller supplies the system dictionary,
+  user dictionary, and generated lookup table.
 
 ## Analysis artifacts
 

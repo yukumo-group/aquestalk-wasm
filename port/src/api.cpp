@@ -1,4 +1,4 @@
-/* api.cpp -- hand written API layer and embind bindings.
+/* api.cpp -- hand written native API layer (embind removed).
  *
  * The conversion engine itself is the mechanically recompiled C in decomp.c;
  * this file only implements the public AqKanji2Koe ABI around it.
@@ -13,10 +13,6 @@
 
 #if !defined(__EMSCRIPTEN__)
 #include <unistd.h>
-#endif
-
-#ifdef __EMSCRIPTEN__
-#include <emscripten/bind.h>
 #endif
 
 extern "C" void AqKanji2Koe_Release(void *h);
@@ -261,77 +257,6 @@ extern "C" void *AqKanji2Koe_Alloc(unsigned long n)
     return malloc((size_t)n);
 }
 
-#ifdef __EMSCRIPTEN__
-
-class Kanji2Koe {
-public:
-    explicit Kanji2Koe(void *h) : h_(h) {}
-    ~Kanji2Koe() { AqKanji2Koe_Release(h_); }
-
-    static Kanji2Koe *create(const std::string &dicDir)
-    {
-        int err = 0;
-        void *h = AqKanji2Koe_Create(dicDir.c_str(), &err);
-        if (!h) {
-            fprintf(stderr, "AqKanji2Koe_Create failed: %d\n", err);
-            return nullptr;
-        }
-        return new Kanji2Koe(h);
-    }
-
-    static Kanji2Koe *createFromMemory(uintptr_t sysDic, uintptr_t userDic)
-    {
-        int err = 0;
-        void *h = AqKanji2Koe_Create_Ptr((const void *)sysDic,
-                                         (const void *)userDic, &err);
-        if (!h) {
-            fprintf(stderr, "AqKanji2Koe_Create_Ptr failed: %d\n", err);
-            return nullptr;
-        }
-        return new Kanji2Koe(h);
-    }
-
-    std::string convert(const std::string &kanji) const
-    {
-        std::string buf(kanji.size() * 8 + 64, '\0');
-        int err = AqKanji2Koe_Convert(h_, kanji.c_str(), &buf[0], (int)buf.size());
-        if (err != 0) {
-            fprintf(stderr, "AqKanji2Koe_Convert failed: %d\n", err);
-            return std::string();
-        }
-        return std::string(buf.c_str());
-    }
-
-    std::string convRoman(const std::string &kanji) const
-    {
-        std::string buf(kanji.size() * 16 + 64, '\0');
-        int err = AqKanji2Koe_ConvRoman(h_, kanji.c_str(), &buf[0], (int)buf.size());
-        if (err != 0) {
-            fprintf(stderr, "AqKanji2Koe_ConvRoman failed: %d\n", err);
-            return std::string();
-        }
-        return std::string(buf.c_str());
-    }
-
-private:
-    void *h_;
-};
-
-EMSCRIPTEN_BINDINGS(aqk2k) {
-    emscripten::class_<Kanji2Koe>("Kanji2Koe")
-        .constructor<void *>()
-        .class_function("create", &Kanji2Koe::create)
-        .class_function("createFromMemory", &Kanji2Koe::createFromMemory)
-        .function("convert", &Kanji2Koe::convert)
-        .function("convRoman", &Kanji2Koe::convRoman);
-
-    emscripten::function("AqKanji2Koe_SetDevKey", &AqKanji2Koe_SetDevKey);
-    emscripten::function("AqKanji2Koe_LoadLookup", &AqKanji2Koe_LoadLookup);
-    emscripten::function("AqKanji2Koe_Alloc", &AqKanji2Koe_Alloc,
-                         emscripten::allow_raw_pointers());
-}
-
-#else
 
 /* Native test driver: reads UTF-8 lines from stdin, writes kana symbols. */
 int main(int argc, char **argv)
@@ -364,5 +289,3 @@ int main(int argc, char **argv)
     AqKanji2Koe_Release(h);
     return 0;
 }
-
-#endif
