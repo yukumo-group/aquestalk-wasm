@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-#include "ot_preset.h"
+#include "ot_voice.h"
 
 typedef struct OtPcm {
     uint8_t *data;

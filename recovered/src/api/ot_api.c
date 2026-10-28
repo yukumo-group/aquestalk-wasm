@@ -8,7 +8,7 @@
 #include "Open_Talk.h"
 #include "ot_internal.h"
 #include "ot_data.h"
-#include "ot_preset.h"
+#include "ot_voice.h"
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -207,17 +207,7 @@ static unsigned char *ot_synthesize_sjis(const uint8_t *koe, int speed, int *p_s
     return pcm.data;
 }
 
-static const OtVoice *ot_voice_for(const char *preset, int *p_size)
-{
-    int err = 0;
-    const OtVoice *voice = ot_voice_from_path(preset, &err);
-    if (!voice) {
-        *p_size = err ? err : OT_ERR_PRESET;
-    }
-    return voice;
-}
-
-static unsigned char *ot_synthesize_copied(const char *koe, int speed, int *p_size, const char *preset)
+static unsigned char *ot_synthesize_copied(const char *koe, int speed, int *p_size)
 {
     const uint8_t *src;
     uint8_t *copy;
@@ -227,10 +217,7 @@ static unsigned char *ot_synthesize_copied(const char *koe, int speed, int *p_si
     if (!koe || !p_size || koe[0] == 0) {
         return NULL;
     }
-    voice = ot_voice_for(preset, p_size);
-    if (!voice) {
-        return NULL;
-    }
+    voice = ot_voice_current();
     src = (const uint8_t *)koe;
     n = strlen(koe);
     copy = (uint8_t *)malloc(n + 1);
@@ -246,22 +233,10 @@ static unsigned char *ot_synthesize_copied(const char *koe, int speed, int *p_si
 
 unsigned char *__stdcall Open_Talk_Synthe(const char *koe, int iSpeed, int *pSize)
 {
-    return ot_synthesize_copied(koe, iSpeed, pSize, NULL);
-}
-
-unsigned char *__stdcall Open_Talk_Synthe_Preset(const char *koe, int iSpeed, int *pSize,
-                                                 const char *presetPath)
-{
-    return ot_synthesize_copied(koe, iSpeed, pSize, presetPath);
+    return ot_synthesize_copied(koe, iSpeed, pSize);
 }
 
 unsigned char *__stdcall Open_Talk_Synthe_Utf8(const char *koe, int iSpeed, int *pSize)
-{
-    return Open_Talk_Synthe_Utf8_Preset(koe, iSpeed, pSize, NULL);
-}
-
-unsigned char *__stdcall Open_Talk_Synthe_Utf8_Preset(const char *koe, int iSpeed, int *pSize,
-                                                      const char *presetPath)
 {
     const uint8_t *src;
     size_t n;
@@ -272,10 +247,7 @@ unsigned char *__stdcall Open_Talk_Synthe_Utf8_Preset(const char *koe, int iSpee
     if (!koe || !pSize || koe[0] == 0) {
         return NULL;
     }
-    voice = ot_voice_for(presetPath, pSize);
-    if (!voice) {
-        return NULL;
-    }
+    voice = ot_voice_current();
     src = (const uint8_t *)koe;
     n = strlen(koe);
     sjis = (uint8_t *)malloc(n + 1);
@@ -296,12 +268,6 @@ unsigned char *__stdcall Open_Talk_Synthe_Utf8_Preset(const char *koe, int iSpee
 
 unsigned char *__stdcall Open_Talk_Synthe_Utf16(const unsigned short *koe, int iSpeed, int *pSize)
 {
-    return Open_Talk_Synthe_Utf16_Preset(koe, iSpeed, pSize, NULL);
-}
-
-unsigned char *__stdcall Open_Talk_Synthe_Utf16_Preset(const unsigned short *koe, int iSpeed, int *pSize,
-                                                       const char *presetPath)
-{
     int units = 0;
     uint8_t *sjis;
     int err;
@@ -310,10 +276,7 @@ unsigned char *__stdcall Open_Talk_Synthe_Utf16_Preset(const unsigned short *koe
     if (!koe || !pSize || koe[0] == 0) {
         return NULL;
     }
-    voice = ot_voice_for(presetPath, pSize);
-    if (!voice) {
-        return NULL;
-    }
+    voice = ot_voice_current();
     while (koe[units]) {
         units++;
     }
@@ -331,6 +294,21 @@ unsigned char *__stdcall Open_Talk_Synthe_Utf16_Preset(const unsigned short *koe
     wav = ot_synthesize_sjis(sjis, iSpeed, pSize, voice);
     free(sjis);
     return wav;
+}
+
+int __stdcall Open_Talk_SelectVoice(const char *name)
+{
+    return ot_voice_select(name);
+}
+
+int __stdcall Open_Talk_VoiceCount(void)
+{
+    return ot_voice_count();
+}
+
+const char *__stdcall Open_Talk_VoiceName(int index)
+{
+    return ot_voice_name(index);
 }
 
 void __stdcall Open_Talk_FreeWave(unsigned char *wav)

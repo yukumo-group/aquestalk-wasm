@@ -191,7 +191,7 @@ int main(int argc, char **argv)
 {
     const char *in_path;
     const char *out_path;
-    const char *preset = NULL;
+    const char *voice = NULL;
     FILE *f;
     uint8_t *src;
     uint8_t *sjis = NULL;
@@ -202,13 +202,13 @@ int main(int argc, char **argv)
     int size = 0;
     size_t nread;
     if (argc != 3 && argc != 4) {
-        fprintf(stderr, "usage: ot_say input.txt output.wav [preset.bin]\n");
+        fprintf(stderr, "usage: ot_say input.txt output.wav [voice]\n");
         return 1;
     }
     in_path = argv[1];
     out_path = argv[2];
     if (argc == 4) {
-        preset = argv[3];
+        voice = argv[3];
     }
     f = fopen(in_path, "rb");
     if (!f) {
@@ -246,7 +246,12 @@ int main(int argc, char **argv)
         fprintf(stderr, "prepare failed %d\n", prep);
         return 1;
     }
-    wav = Open_Talk_Synthe_Preset((const char *)sjis, 100, &size, preset);
+    if (voice && Open_Talk_SelectVoice(voice) != 0) {
+        fprintf(stderr, "unknown voice %s\n", voice);
+        free(sjis);
+        return 1;
+    }
+    wav = Open_Talk_Synthe((const char *)sjis, 100, &size);
     free(sjis);
     if (!wav || size < 44) {
         fprintf(stderr, "synth failed code %d\n", size);

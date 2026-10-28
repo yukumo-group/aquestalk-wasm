@@ -17,5 +17,3 @@ extern const OtDictEnt ot_dict[];
 extern const int ot_dict_count;
 extern const uint8_t ot_letter_rows[26 * 12];
 extern const uint8_t ot_punct_rows[21 * 8];
-extern const int16_t ot_period[4096];
-extern const int16_t ot_pulse[0x255];

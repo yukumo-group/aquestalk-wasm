@@ -66,6 +66,8 @@ This file describes those checks because they are the exported functions. It is 
 - `recovered/include/ot_text_int.h` — calls between the kana scan, the tag lexer, and the number readers
 - `recovered/include/ot_synth.h` — diphone token, frame, and phrase-chunk types
 - `recovered/include/ot_speak.h`, `ot_data.h`, `ot_frame_data.h`, `ot_dur_data.h` — internal table and synth declarations
+- `recovered/include/ot_voice.h` — voice descriptor and the embedded voice registry
+- `recovered/include/ot_f3.h` — f3-specific hooks
 - `recovered/src/api/ot_api.c` — the six exports, UTF conversion, license marks, WAV entry
 - `recovered/src/text/ot_kana.c` — dictionary scan, youon and vowel rewrite
 - `recovered/src/text/ot_tag.c` — `<NUM>`, `<NUMK>`, `<ALPHA>` lexer, including decimals
@@ -77,26 +79,36 @@ This file describes those checks because they are the exported functions. It is 
 - `recovered/src/synth/ot_duration.c` — per-slot duration and the `+` join
 - `recovered/src/synth/ot_expand.c` — frame expansion
 - `recovered/src/synth/ot_speak.c` — phrase driver
-- `recovered/src/data/` — dictionary, frame tables, and duration tables (`ot_data.c`, `ot_frame_data.c`, `ot_dur_data.c`). Those tables are the only sources allowed to stay long.
+- `recovered/src/data/` — dictionary/UTF tables (`ot_data.c`), phoneme names (`ot_frame_data.c`), duration tables, the per-voice raw dumps (`voice_<name>.c`) and the registry (`ot_voices.c`). Those tables are the only sources allowed to stay long.
+- `recovered/src/f3/ot_f3.c` — f3 token adjustments (the f3 build is a different symbol vocabulary)
+- `recovered/wasm/` — freestanding wasm32 build (runtime, exports, JS wrapper, demo)
+- `recovered/tools/linux/` — native build, rawdump, corpus generator and parity harness
 - `recovered/tools/ot_cmp.c` — compares reconstructed PCM with `Open_Talk_Synthe_Utf8` from `lib64/Open_Talk.dll`
 - `recovered/decompiled/*.c` — Hex-Rays listing of each application function, one file per function
 
 ## Layout
 
-The former `recovered/open_talk.c` is gone. There is one implementation, compiled as:
+The engine now targets the current Linux `aqtk1_lnx/lib64/*` builds.  Voice
+tables are raw-dumped into C (no preset files): `voice_<name>.c` per voice,
+`ot_voices.c` as the registry, `ot_f3.c` for the f3-specific token rules.
 
 ```
-gcc -std=c11 -Wall -Wextra -Werror -O2 -Irecovered/include -o recovered/tools/ot_cmp.exe ^
-  recovered/tools/ot_cmp.c recovered/src/api/ot_api.c ^
-  recovered/src/text/ot_kana.c recovered/src/text/ot_tag.c recovered/src/text/ot_num.c ^
-  recovered/src/text/ot_numk.c recovered/src/text/ot_counter.c ^
-  recovered/src/audio/ot_audio.c ^
-  recovered/src/synth/ot_speak.c recovered/src/synth/ot_tokens.c ^
-  recovered/src/synth/ot_duration.c recovered/src/synth/ot_expand.c ^
-  recovered/src/data/ot_data.c recovered/src/data/ot_frame_data.c recovered/src/data/ot_dur_data.c
+gcc -std=c11 -Wall -Wextra -Werror -O2 -Irecovered/include -c <each source>
 ```
 
-No logic source is 1000 lines or longer. The dictionary and frame tables in `recovered/src/data/` are the long files.
+Build and test with:
+
+```
+./recovered/tools/linux/build.sh     # native engine + parity tools
+./recovered/tools/linux/run_bench.sh # 290-case suite vs aqtk1_lnx/lib64
+./recovered/wasm/build.sh            # dist/aquestalk1.wasm (+ js/demo)
+node recovered/wasm/verify.mjs       # wasm vs native
+```
+
+No logic source is 1000 lines or longer. The dumped voice tables and the
+dictionary in `recovered/src/data/` are the long files.  See
+`recovered/LINUX_PARITY.md` for the Ghidra findings and the current match
+results.
 
 ## Function-by-function
 
@@ -266,20 +278,6 @@ The DLL is a kana-to-WAV synthesizer with a license-mark check. It is not a load
 
 ## Voice presets
 
-`lib64` has ten `Open_Talk.dll` files. Only `lib64/f1/Open_Talk.dll` has the same `.text` bytes as `lib64/Open_Talk.dll`. The others differ in code as well as in voice data. Table addresses were taken from the instructions that load them (formant disp, symbol LEA and its end pointer, phoneme-word disp, period and pulse indexed loads, duration-scale LEA, duration-key LEA, duration-value LEA). Phoneme-name strings are the same in every DLL.
-
-`recovered/presets/*.bin` is an OTPR version-1 file: magic `OTPR`, `uint16` version, `uint16` chunk count, then chunks of `uint16` id, `uint16` reserved 0, `uint32` length, payload. Ids are 1 formant, 2 symbols (6-byte records; f3 has 211, the others 209), 3 phoneme_word, 4 period, 5 pulse (`int16[0x255]`, or `int16[0x87B]` when that DLL's pulse limit is `0x87B`), 6 dur_scale, 7 dur_key, 8 dur_val, 9 constants. Chunk 9 is four `uint16`s: pitch ceiling, question-mark addend, render mode, duration base. A missing chunk keeps the compiled-in table (ceiling 309, question add 6400, mode 0, duration base 13248, boundary `';'`, vowel mark `'-'`). `default.bin` and `f1.bin` are an 8-byte header. `Open_Talk_Synthe_Utf8_Preset` (and the SJIS and UTF-16 twins) take the path; NULL or `""` uses the compiled tables. A missing or bad file sets `*pSize` to 109. `ot_say` accepts an optional preset path.
-
-UTF-8 あ at speed 100, after matching each DLL's immediates. cdb (live `LoadLibrary` plus `cdb -z`) on f2, dvd, jgr, and f3.
-
-The sample loop in f2 and imd1 is the same code as the root once relocations are masked. The first PCM miss was sample 39, and the first diverging intermediate was the token duration at `Open_Talk+0x21be`: f2 passes duration 10624 (pitch 385) where the root passes 13248 (pitch 309). That 10624 is `mov eax, 2980h` (f2 `Open_Talk+0x3c75`), the same slot base the root loads as `mov r13d, 33C0h`. Each voice's pitch ceiling (`mov r14d` in `sub_180003290`) is `0x3E8000 / dur_base`. Both numbers are chunk 9, not a new code path. The question-mark addend (`0x1900` in the root, `Open_Talk+0x3250`) is the third field of the same chunk so a closing `?` uses that DLL's immediate.
-
-dvd and jgr really do different sample instructions, selected by chunk 9's render mode. Mode 1 (dvd) negates the mixed excitation for 8 of every 16 samples (`Open_Talk+0x5b30`). Mode 2 (jgr) mutes the excitation when the counter at `[rbx+48h]` is 0 and wraps that counter at 8 (`Open_Talk+0x5b36`). Both then scale the finished sample by the envelope gain at `[rbx+50h]` (`Open_Talk+0x5c84`): gain is `0xC00` while the envelope is below `0x800`, otherwise `0x400000 / envelope + 0x400`. dvd, m1, and m2 also index the pulse table to `0x87B` rather than `0x255`, so chunk 5 is that longer table and the limit is the chunk length. m1 and m2 stay on render mode 0.
-
-f3's symbol scan (`Open_Talk+0x1c38`) looks up `..`, `.a`, `a.`, then `..` again for あ. A live dump of the token array at `Open_Talk+0x2464` is four records, each pitch `0x8118` (280 with class `0x8000`): `..`, `.a`, `a.`, `..`. The expander at `Open_Talk+0x31da` stops at count−1, so the last `..` is only the next-symbol lookahead. The first `..` is class 0, count 15 (`Open_Talk+0x24f5`): fifteen frames of formant 0. At speed 100 that is 900 samples of silence, and the period phase and pitch phase keep advancing, which is why the vowel that follows is not the 1636-sample buffer with a pad in front. The symbol chunk already contains class-0 `..` and not `;;`, so the token builder emits that pair at both ends and forces `0x8000` on the last four pitch words (`Open_Talk+0x335a`) only when that record is loaded. No new chunk. UTF-8 あ is then 2536 samples and matches `lib64/f3/Open_Talk.dll`.
-
-| Preset | Samples | Result |
-|---|---|---|
-| built-in, default.bin, f1.bin | 1636 | identical to `lib64/Open_Talk.dll` and `lib64/f1/Open_Talk.dll` |
-| f2, imd1, r1, m1, m2, dvd, jgr | 1636 | identical to that folder's DLL |
-| f3 | 2536 | identical to `lib64/f3/Open_Talk.dll` |
+The OTPR preset loader is gone.  `recovered/tools/linux/rawdump.py` dumps the
+tables out of each `libAquesTalk.so` into `recovered/src/data/voice_<name>.c`;
+`Open_Talk_SelectVoice("f2")` selects one at runtime.  See LINUX_PARITY.md.

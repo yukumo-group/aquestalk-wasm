@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 
-#include "ot_preset.h"
+#include "ot_voice.h"
 
 enum { OT_TOKEN_MAX = 1024, OT_FRAME_MAX = 26624 };
 

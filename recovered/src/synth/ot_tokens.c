@@ -7,6 +7,7 @@
 
 #include "ot_internal.h"
 #include "ot_frame_data.h"
+#include "ot_f3.h"
 
 #include <stdint.h>
 #include <string.h>
@@ -571,6 +572,9 @@ int ot_tokens_from_phonemes(const uint8_t *ph, int count, OtToken *tok, int *n, 
         if (rc) {
             return rc;
         }
+    }
+    if (voice->engine == OT_ENGINE_F3) {
+        ot_f3_adjust_tokens(tok, n);
     }
     ot_fill_pitch(tok, *n, voice->base_pitch);
     ot_tag_tail(tok, *n, voice->vowel_mark, voice->boundary);
