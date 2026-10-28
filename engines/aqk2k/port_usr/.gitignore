@@ -1,0 +1,5 @@
+/build-wasm32/
+!/build-wasm32/aqusr_check.wasm
+/src/image.c
+/src/decomp.c
+/src/decomp_check.c
