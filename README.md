@@ -113,3 +113,21 @@ Notes:
 `libAqKanji2Koe.so.*`, the headers, and `aqdic.bin` are AQUEST proprietary
 files; they are only included here for interoperability research. The port
 code itself follows the same restrictions as the original SDK.
+
+## Differential tests
+
+`tests/corpus_diff.txt` contains 240 random dictionary words, 40 generated
+sentences, and 23 fixed edge cases (punctuation, English, numbers).  The
+expected output is produced by the original 64-bit library
+(`tests/expected64.txt`); the 32-bit SDK produces byte-identical output on this
+corpus (`tests/expected32.txt`).
+
+```sh
+python3 tests/gen_diff_corpus.py     # rebuild corpus from lookup.bin
+python3 tests/run_diff.py            # run native port and compare
+```
+
+Current status: **265/303 exact matches (87.5%)**.  The remaining differences
+are in sentence-final punctuation (、/。), accent nucleus placement, rare-word
+segmentation, and the numeric `<NUMK>`/`<NUM>` tags.  The harness is the
+baseline for closing those gaps.

@@ -88,6 +88,8 @@ void aq_init_image(void);
 int aq_lookup_load(const char *path);
 int aq_lookup_prefix(const uint16_t *key, int units, int *outLen, uint32_t *outId);
 int aq_lookup_ready(void);
+void aq_lookup_register_slot(void *slot);
+int aq_lookup_slot_ok(void *slot);
 
 /* Original data-global used as thread pointer base for the stack canary. */
 extern long aq_fs_offset;

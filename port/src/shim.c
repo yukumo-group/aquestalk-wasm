@@ -231,7 +231,10 @@ size_t aqstr_find(void *self, const char *needle, size_t pos)
 int aqstr_compare(void *self, size_t pos, size_t n1, const char *src)
 {
     AqStr *s = AQS(self);
-    aqs_check(s, pos, n1);
+    if (pos > s->len)
+        return -1;
+    if (n1 > s->len - pos)
+        n1 = s->len - pos;
     size_t n2 = strlen(src);
     size_t n = n1 < n2 ? n1 : n2;
     int r = n ? memcmp(s->p + pos, src, n) : 0;

@@ -515,7 +515,7 @@ LAB_00109ee3:
       uVar12 = 0;
       do {
         while( true ) {
-          uVar9 = aqstr_find((char *)param_1,0x117063,uVar12);
+          uVar9 = aqstr_find((char *)param_1,(char *)(aq_image + 0x17063),uVar12);
           if (uVar9 == 0xffffffffffffffff) goto LAB_0010a076;
           uVar12 = uVar9 + 3;
           bVar1 = *(byte *)(*param_1 + 3 + uVar9);
@@ -1367,6 +1367,8 @@ undefined4 FUN_0010b080(long *param_1,char *param_2)
       iVar2 = strncmp(param_2 + (iVar1 + 8),"TOK1",4);
       if (iVar2 == 0) {
         param_1[2] = (long)(param_2 + (iVar1 + 8) + 8);
+        if (strncmp((char *)*param_1, "AqK2K Ver2 system dic.", 22) == 0)
+          aq_lookup_register_slot(param_1 + 3);
         uVar3 = 0;
       }
       else {
@@ -2342,35 +2344,35 @@ LAB_0010bc0a:
     goto LAB_0010bc18;
   }
 LAB_0010bd16:
-  lVar9 = aqstr_find((char *)param_2,0x117c44,0);
+  lVar9 = aqstr_find((char *)param_2,(char *)(aq_image + 0x17c44),0);
   if (lVar9 != -1) {
     uVar10 = param_2[1];
     uVar19 = lVar9 + 2;
     if (uVar10 < uVar19) goto LAB_0010c2fc;
     aqstr_erase((ulong)param_2,uVar19);
   }
-  lVar9 = aqstr_find((char *)param_2,0x117c5e,0);
+  lVar9 = aqstr_find((char *)param_2,(char *)(aq_image + 0x17c5e),0);
   if (lVar9 != -1) {
     uVar10 = param_2[1];
     uVar19 = lVar9 + 1;
     if (uVar10 < uVar19) goto LAB_0010c2fc;
     aqstr_erase((ulong)param_2,uVar19);
   }
-  lVar9 = aqstr_find((char *)param_2,0x117c61,0);
+  lVar9 = aqstr_find((char *)param_2,(char *)(aq_image + 0x17c61),0);
   if (lVar9 != -1) {
     uVar10 = param_2[1];
     uVar19 = lVar9 + 1;
     if (uVar10 < uVar19) goto LAB_0010c2fc;
     aqstr_erase((ulong)param_2,uVar19);
   }
-  lVar9 = aqstr_find((char *)param_2,0x117c64,0);
+  lVar9 = aqstr_find((char *)param_2,(char *)(aq_image + 0x17c64),0);
   if (lVar9 != -1) {
     uVar10 = param_2[1];
     uVar19 = lVar9 + 1;
     if (uVar10 < uVar19) goto LAB_0010c2fc;
     aqstr_erase((ulong)param_2,uVar19);
   }
-  lVar9 = aqstr_find((char *)param_2,0x117c67,0);
+  lVar9 = aqstr_find((char *)param_2,(char *)(aq_image + 0x17c67),0);
   if (lVar9 != -1) {
     uVar10 = param_2[1];
     uVar19 = lVar9 + 1;
@@ -2439,7 +2441,7 @@ undefined8 FUN_0010c430(undefined8 *param_1,char *param_2)
   long local_30;
   
   local_30 = *(long *)(in_FS_OFFSET + 0x28);
-  aqstr_replace((ulong)param_2,0,*(char **)(param_2 + 8),0x117c6d);
+  aqstr_replace((ulong)param_2,0,*(char **)(param_2 + 8),(char *)(aq_image + 0x17c6d));
   pcVar3 = (char *)*param_1;
   if (*pcVar3 != '\0') {
     do {
@@ -2476,48 +2478,38 @@ undefined8 FUN_0010c520(short *param_1,undefined8 param_2)
 {
   short *psVar1;
   short sVar2;
+  AqStr tmp, tmp2;
 
-  undefined1 *local_78;
-  ulong local_70;
-  undefined1 local_68 [16];
-  undefined1 *local_58;
-  undefined8 local_50;
-  undefined1 local_48 [24];
-  long local_30;
-  
   sVar2 = *param_1;
-  local_30 = *(long *)(in_FS_OFFSET + 0x28);
-  local_68[0] = 0;
-  local_70 = 0;
-  local_78 = local_68;
+  memset(&tmp, 0, sizeof(tmp));
+  tmp.p = tmp.u.buf;
+  tmp.len = 0;
+  tmp.u.buf[0] = 0;
   while (sVar2 != 0) {
     while (0x19 < (ushort)(sVar2 + 0xdfU)) {
       sVar2 = param_1[1];
       param_1 = param_1 + 1;
       if (sVar2 == 0) goto LAB_0010c5bb;
     }
-    aqstr_replace_aux((ulong)&local_78,((AqStr *)&local_78)->len,0,1,(char)(sVar2 + 0x20));
+    aqstr_replace_aux((ulong)&tmp,tmp.len,0,1,(char)(sVar2 + 0x20));
     psVar1 = param_1 + 1;
     param_1 = param_1 + 1;
     sVar2 = *psVar1;
   }
 LAB_0010c5bb:
-  local_48[0] = 0;
-  local_50 = 0;
-  local_58 = local_48;
-  FUN_0010b970(local_78,&local_58);
-  FUN_0010c430(&local_58,param_2);
-  if (local_58 != local_48) {
-    operator_delete(local_58);
+  memset(&tmp2, 0, sizeof(tmp2));
+  tmp2.p = tmp2.u.buf;
+  tmp2.len = 0;
+  tmp2.u.buf[0] = 0;
+  FUN_0010b970((char *)tmp.p,(long *)&tmp2);
+  FUN_0010c430((undefined8 *)&tmp2,param_2);
+  if (tmp2.p != tmp2.u.buf) {
+    operator_delete(tmp2.p);
   }
-  if (local_78 != local_68) {
-    operator_delete(local_78);
+  if (tmp.p != tmp.u.buf) {
+    operator_delete(tmp.p);
   }
-  if (local_30 == *(long *)(in_FS_OFFSET + 0x28)) {
-    return 0;
-  }
-                    /* WARNING: Subroutine does not return */
-  __stack_chk_fail();
+  return 0;
 }
 
 
@@ -3218,7 +3210,7 @@ void FUN_0010d4a0(undefined8 param_1,long *param_2,long *param_3,int *param_4)
     do {
       while( true ) {
         __s = (char *)FUN_0010d3d0(param_1,lVar2 + lVar1 * 2,uVar6,uVar5,&local_70);
-        if (local_70 == 0) break;
+        if (local_70 == 0 || __s == 0) break;
         *param_4 = (int)str.len + 1;
         sVar4 = strlen(__s);
         if (0x3fffffffffffffff - str.len < sVar4) {
@@ -5944,25 +5936,20 @@ void FUN_00111080(undefined8 param_1,long *param_2)
 
   int local_a4;
   ulong local_90;
-  undefined4 local_88 [2];
-  undefined *local_80;
-  undefined *puStack_78;
-  undefined *local_70;
-  undefined4 local_68 [2];
-  undefined *local_60;
-  undefined *puStack_58;
-  undefined *local_50;
+  struct { unsigned int v; unsigned int pad; void *p8, *p10, *p18; unsigned int pad2; } t1, t2;
   long local_40;
   
   local_40 = *(long *)(in_FS_OFFSET + 0x28);
-  local_88[0] = 0x230;
-  local_68[0] = 0x2648;
-  local_70 = &DAT_00118cbc;
-  local_50 = &DAT_00118ab4;
-  local_80 = &DAT_00118c68;
-  puStack_78 = &DAT_00118cb0;
-  local_60 = &DAT_0011854c;
-  puStack_58 = &DAT_00118a18;
+  memset(&t1, 0, sizeof(t1));
+  memset(&t2, 0, sizeof(t2));
+  t1.v = 0x230;
+  t2.v = 0x2648;
+  t1.p18 = &DAT_00118cbc;
+  t2.p18 = &DAT_00118ab4;
+  t1.p8 = &DAT_00118c68;
+  t1.p10 = &DAT_00118cb0;
+  t2.p8 = &DAT_0011854c;
+  t2.p10 = &DAT_00118a18;
   if (1 < (int)(param_2[1] - *param_2 >> 3)) {
     iVar10 = 0;
 LAB_00111153:
@@ -5994,7 +5981,7 @@ LAB_001112ca:
             uVar6 = (ulong)uVar9;
             if ((*(short *)(lVar5 + 0x58) == 2) && (10 < (int)uVar9)) {
               if ((int)uVar9 < (int)local_90 + -10) {
-                iVar2 = FUN_00110d30(param_1,param_2,iVar10,local_88,local_68);
+                iVar2 = FUN_00110d30(param_1,param_2,iVar10,(long)&t1,(long)&t2);
                 if (iVar3 < iVar2) {
                   local_a4 = iVar10;
                   iVar3 = iVar2;
@@ -10053,7 +10040,7 @@ undefined1 FUN_00116cc0(long *param_1,long param_2)
 {
   undefined8 *puVar1;
 
-  if (aq_lookup_ready()) {
+  if (aq_lookup_ready() && aq_lookup_slot_ok(param_1)) {
     uint16_t *q = *(uint16_t **)param_2;
     long bytes = *(long *)(param_2 + 8);
     long qlen = bytes / 2;

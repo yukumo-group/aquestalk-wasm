@@ -1,0 +1,24 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==12==ERROR: AddressSanitizer: SEGV on unknown address 0x7aff661172ef (pc 0x7efe6c1b471d bp 0x7ffd1c8a0270 sp 0x7ffd1c89fa28 T0)
+==12==The signal is caused by a READ memory access.
+    #0 0x7efe6c1b471d  (/usr/lib/libc.so.6+0x1b471d) (BuildId: e363db7c8fcc7c06c6f0d2839b2a8ad875b75406)
+    #1 0x5645af826529 in strlen (/home/lc-022/Documents/GitHub/aqk2k/port/build-native/aqk2k_asan+0x4b529) (BuildId: 02681354f240907eeb13d1565dad277409ee7e4a)
+    #2 0x5645af948a4b in FUN_0010d4a0 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:3223:17
+    #3 0x5645af949073 in FUN_0010d610 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:3284:11
+    #4 0x5645af947543 in FUN_001128b0 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:7043:3
+    #5 0x5645af945805 in FUN_0010cfe0 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:2999:5
+    #6 0x5645af96ae04 in AqKanji2Koe_Convert /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/api.cpp:186:20
+    #7 0x5645af96be87 in main /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/api.cpp:282:25
+    #8 0x7efe6c027d0d  (/usr/lib/libc.so.6+0x27d0d) (BuildId: e363db7c8fcc7c06c6f0d2839b2a8ad875b75406)
+    #9 0x7efe6c027e4a in __libc_start_main (/usr/lib/libc.so.6+0x27e4a) (BuildId: e363db7c8fcc7c06c6f0d2839b2a8ad875b75406)
+    #10 0x5645af80b654 in _start (/home/lc-022/Documents/GitHub/aqk2k/port/build-native/aqk2k_asan+0x30654) (BuildId: 02681354f240907eeb13d1565dad277409ee7e4a)
+
+==12==Register values:
+rax = 0x00000000000002ef  rbx = 0x0000000000000001  rcx = 0x0000000000000001  rdx = 0x00007aff661172ef  
+rdi = 0x00007aff661172ef  rsi = 0x00007afe69d02b40  rbp = 0x00007ffd1c8a0270  rsp = 0x00007ffd1c89fa28  
+ r8 = 0x00000f5fcd3c0897   r9 = 0x000000000000000e  r10 = 0x00007fffffffff01  r11 = 0x0000000000000001  
+r12 = 0x0000000000000000  r13 = 0x0000000000000002  r14 = 0x00007aff661172ef  r15 = 0x00007aff661172ef  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/usr/lib/libc.so.6+0x1b471d) (BuildId: e363db7c8fcc7c06c6f0d2839b2a8ad875b75406) 
+==12==ABORTING

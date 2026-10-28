@@ -14,6 +14,8 @@ typedef struct {
 } Lookup;
 
 static Lookup g_lookup;
+static void *g_slots[16];
+static int g_nslots;
 
 static uint32_t rd32(const unsigned char *p)
 {
@@ -95,6 +97,22 @@ int aq_lookup_init(const void *data, unsigned size)
     g_lookup.maxLen = maxlen;
     g_lookup.slots = slots;
     g_lookup.ready = 1;
+    return 0;
+}
+
+void aq_lookup_register_slot(void *slot)
+{
+    if (!slot) return;
+    for (int i = 0; i < g_nslots; i++)
+        if (g_slots[i] == slot) return;
+    if (g_nslots < 16)
+        g_slots[g_nslots++] = slot;
+}
+
+int aq_lookup_slot_ok(void *slot)
+{
+    for (int i = 0; i < g_nslots; i++)
+        if (g_slots[i] == slot) return 1;
     return 0;
 }
 
