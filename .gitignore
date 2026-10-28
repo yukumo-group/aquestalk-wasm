@@ -13,3 +13,7 @@ Thumbs.db
 # the AqKanji2Koe tab (aq_user.dic and CREDITS are committed).
 /engines/aqk2k/aqk2k_lnx/aq_dic/aqdic.bin
 /engines/aqk2k/aqk2k_lnx/aq_dic/lookup.bin
+
+# local aqk2k debugging artifacts
+/engines/aqk2k/.tmp/
+/engines/aqk2k/port/build-native-dbg/

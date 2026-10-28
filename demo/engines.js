@@ -65,32 +65,32 @@ const KANJI_SAMPLES = [
 ];
 
 const AQTK1_VOICES = [
-  { id: 'f1', label: 'f1 · 女声' },
-  { id: 'f2', label: 'f2 · 女声' },
-  { id: 'm1', label: 'm1 · 男声' },
-  { id: 'm2', label: 'm2 · 男声' },
-  { id: 'r1', label: 'r1 · ロボット' },
+  { id: 'f1', label: 'f1 · Female' },
+  { id: 'f2', label: 'f2 · Female' },
+  { id: 'm1', label: 'm1 · Male' },
+  { id: 'm2', label: 'm2 · Male' },
+  { id: 'r1', label: 'r1 · Robot' },
   { id: 'imd1', label: 'imd1' },
   { id: 'jgr', label: 'jgr' },
   { id: 'dvd', label: 'dvd' },
-  { id: 'f3', label: 'f3 · 女声（新版）' },
+  { id: 'f3', label: 'f3 · Female (new)' },
 ];
 
 const AQTK2_VOICES = [
-  { id: '', label: '内蔵デフォルト (aq_defo1)' },
-  { id: 'aq_defo1.phont', label: 'デフォルト (phont ファイル)' },
-  { id: 'aq_rm.phont', label: '女声 (aq_rm)' },
-  { id: 'aq_f1c.phont', label: '女声 (aq_f1c)' },
-  { id: 'aq_f3a.phont', label: '女声 (aq_f3a)' },
-  { id: 'aq_m4b.phont', label: '男声 (aq_m4b)' },
-  { id: 'aq_mf1.phont', label: '男声 (aq_mf1)' },
-  { id: 'aq_momo1.phont', label: 'もも (aq_momo1)' },
-  { id: 'aq_huskey.phont', label: 'ハスキー (aq_huskey)' },
-  { id: 'aq_rb2.phont', label: 'ロボット (aq_rb2)' },
-  { id: 'aq_rb3.phont', label: 'ロボット (aq_rb3)' },
-  { id: 'aq_robo.phont', label: 'ロボット (aq_robo)' },
-  { id: 'aq_teto1.phont', label: 'テト (aq_teto1)' },
-  { id: 'aq_yukkuri.phont', label: 'ゆっくり (aq_yukkuri)' },
+  { id: '', label: 'Built-in default (aq_defo1)' },
+  { id: 'aq_defo1.phont', label: 'Default (phont file)' },
+  { id: 'aq_rm.phont', label: 'Female (aq_rm)' },
+  { id: 'aq_f1c.phont', label: 'Female (aq_f1c)' },
+  { id: 'aq_f3a.phont', label: 'Female (aq_f3a)' },
+  { id: 'aq_m4b.phont', label: 'Male (aq_m4b)' },
+  { id: 'aq_mf1.phont', label: 'Male (aq_mf1)' },
+  { id: 'aq_momo1.phont', label: 'Momo (aq_momo1)' },
+  { id: 'aq_huskey.phont', label: 'Husky (aq_huskey)' },
+  { id: 'aq_rb2.phont', label: 'Robot (aq_rb2)' },
+  { id: 'aq_rb3.phont', label: 'Robot (aq_rb3)' },
+  { id: 'aq_robo.phont', label: 'Robot (aq_robo)' },
+  { id: 'aq_teto1.phont', label: 'Teto (aq_teto1)' },
+  { id: 'aq_yukkuri.phont', label: 'Yukkuri (aq_yukkuri)' },
   { id: 'ar_f4.phont', label: 'ar_f4' },
   { id: 'ar_m5.phont', label: 'ar_m5' },
   { id: 'ar_mf2.phont', label: 'ar_mf2' },
@@ -98,13 +98,13 @@ const AQTK2_VOICES = [
 ];
 
 const AQTK10_VOICE_INFO = [
-  { id: 'F1', label: 'F1 · 女声' },
-  { id: 'F2', label: 'F2 · 女声' },
-  { id: 'F3', label: 'F3 · 女声（高め）' },
-  { id: 'M1', label: 'M1 · 男声' },
-  { id: 'M2', label: 'M2 · 男声' },
-  { id: 'R1', label: 'R1 · ロボット' },
-  { id: 'R2', label: 'R2 · ロボット' },
+  { id: 'F1', label: 'F1 · Female' },
+  { id: 'F2', label: 'F2 · Female' },
+  { id: 'F3', label: 'F3 · Female (high)' },
+  { id: 'M1', label: 'M1 · Male' },
+  { id: 'M2', label: 'M2 · Male' },
+  { id: 'R1', label: 'R1 · Robot' },
+  { id: 'R2', label: 'R2 · Robot' },
 ];
 
 export const ENGINES = [
@@ -114,10 +114,10 @@ export const ENGINES = [
     subtitle: '9 voices',
     badge: '9 voices',
     kind: 'tts',
-    voiceLabel: '声庫',
-    textLabel: '音声記号列（ひらがな・カタカナ）',
+    voiceLabel: 'Voice',
+    textLabel: 'Kana symbols (hiragana / katakana)',
     description:
-      'AquesTalk1 Linux（f1/f2/m1/m2/r1/imd1/jgr/dvd + f3）の再コンパイル版。9 声庫を内蔵し、8 kHz / 16 bit / mono の WAV を生成します。',
+      'Recompiled from the AquesTalk1 Linux engines (f1/f2/m1/m2/r1/imd1/jgr/dvd + f3). Nine built-in voices; 8 kHz / 16-bit / mono WAV.',
     voices: AQTK1_VOICES,
     defaultVoice: 'f1',
     samples: KANA_SAMPLES,
@@ -128,10 +128,10 @@ export const ENGINES = [
     subtitle: '18 phonts',
     badge: '18 voices',
     kind: 'tts',
-    voiceLabel: '声質 (phont)',
-    textLabel: '音声記号列（ひらがな・カタカナ）',
+    voiceLabel: 'Voice (phont)',
+    textLabel: 'Kana symbols (hiragana / katakana)',
     description:
-      '評価用 libAquesTalk2Eva.so.2.3 の再コンパイル版。18 種類の phont を切り替えられ、8 kHz / 16 bit / mono の WAV を生成します。',
+      'Recompiled from the evaluation build of libAquesTalk2Eva.so.2.3. 18 switchable phonts; 8 kHz / 16-bit / mono WAV.',
     voices: AQTK2_VOICES,
     defaultVoice: '',
     samples: KANA_SAMPLES,
@@ -142,10 +142,10 @@ export const ENGINES = [
     subtitle: '7 presets',
     badge: '7 presets',
     kind: 'tts',
-    voiceLabel: '声種プリセット',
-    textLabel: '音声記号列（ひらがな・カタカナ）',
+    voiceLabel: 'Voice preset',
+    textLabel: 'Kana symbols (hiragana / katakana)',
     description:
-      'libAquesTalk10.so.1.1 の再コンパイル版。7 つの声種プリセットと bas / vol / pit / acc / lmd / fsc の詳細パラメータを持ちます。',
+      'Recompiled from libAquesTalk10.so.1.1. Seven voice presets plus bas / vol / pit / acc / lmd / fsc parameters.',
     voices: AQTK10_VOICE_INFO,
     defaultVoice: 'F1',
     samples: KANA_SAMPLES,
@@ -154,13 +154,13 @@ export const ENGINES = [
   {
     id: 'k2k',
     name: 'AqKanji2Koe',
-    subtitle: 'kanji → kana',
+    subtitle: 'kanji/kana → kana',
     badge: '4.1',
     kind: 'converter',
     voiceLabel: '',
-    textLabel: '漢字かな交じり文（UTF-8）',
+    textLabel: 'Kanji/kana mixed text (UTF-8)',
     description:
-      'libAqKanji2Koe.so.4.1 の wasm32 版。漢字かな交じり文を、アクセント記号付きの AquesTalk 音声記号列に変換します。',
+      'wasm32 build of libAqKanji2Koe.so.4.1. Converts kanji/kana mixed text into AquesTalk kana symbols with accent marks.',
     voices: [],
     defaultVoice: '',
     samples: KANJI_SAMPLES,
@@ -187,27 +187,27 @@ export class EngineError extends Error {
 }
 
 const ERROR_TEXT = {
-  100: 'バッファが不足しました',
-  101: 'メモリを確保できません',
-  102: '内部エラー',
-  103: 'かな記号が見つかりません',
-  104: '音声記号列が空です',
-  105: '不正な音声記号列です',
-  106: 'タグが空です',
-  107: 'タグが閉じていません',
-  109: '引数が不正です',
-  120: '内部バッファがあふれました',
-  122: '出力サイズの上限を超えました',
-  200: '音素バッファがあふれました',
-  201: '音素リストが満杯です',
-  202: 'チャンク結合に失敗しました',
-  203: 'ワークバッファを確保できません',
-  204: 'フレームリストが満杯です',
+  100: 'Buffer too small',
+  101: 'Out of memory',
+  102: 'Internal error',
+  103: 'Kana symbol not found',
+  104: 'Empty kana string',
+  105: 'Invalid kana symbol string',
+  106: 'Empty tag',
+  107: 'Unclosed tag',
+  109: 'Invalid argument',
+  120: 'Internal buffer overflow',
+  122: 'Output size limit exceeded',
+  200: 'Phoneme buffer overflow',
+  201: 'Phoneme list full',
+  202: 'Chunk join failed',
+  203: 'Work buffer allocation failed',
+  204: 'Frame list full',
 };
 
 function errorText(code) {
   if (code == null) return '';
-  return ERROR_TEXT[code] ? `${ERROR_TEXT[code]}（${code}）` : `エラーコード ${code}`;
+  return ERROR_TEXT[code] ? `${ERROR_TEXT[code]} (${code})` : `Error code ${code}`;
 }
 
 function throwEngineError(engine, code) {
@@ -223,7 +223,7 @@ const encoder = new TextEncoder();
 async function instantiateWasm(url) {
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`wasm を取得できません: ${url} (${res.status})`);
+    throw new Error(`Could not fetch wasm: ${url} (${res.status})`);
   }
   const type = res.headers.get('content-type') || '';
   if (typeof WebAssembly.instantiateStreaming === 'function' &&
@@ -240,7 +240,7 @@ async function instantiateWasm(url) {
 async function fetchBytes(url, what) {
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`${what} を取得できません: ${url} (${res.status})`);
+    throw new Error(`Could not fetch ${what}: ${url} (${res.status})`);
   }
   return new Uint8Array(await res.arrayBuffer());
 }
@@ -259,7 +259,7 @@ async function makeAqtk1() {
     async synth(text, { voice = 'f1', speed = 100 } = {}) {
       if (current !== voice) {
         if (!aq.select(voice)) {
-          throw new EngineError('AquesTalk1', null, `声庫 ${voice} を選択できません`);
+          throw new EngineError('AquesTalk1', null, `Could not select voice ${voice}.`);
         }
         current = voice;
       }
@@ -318,7 +318,7 @@ async function makeAqtk10() {
         return tts.synthe(text, merged);
       } catch (e) {
         if (e instanceof AquesTalkError) {
-          throw new EngineError('AquesTalk10', e.code, `AquesTalk10 ${e.message}（${e.code}）`);
+          throw new EngineError('AquesTalk10', e.code, `AquesTalk10 ${e.message} (code ${e.code})`);
         }
         throw e;
       }
@@ -358,7 +358,7 @@ class Kanji2Koe {
 
     const alloc = (bytes) => {
       const p = e.aq_alloc(bytes.length);
-      if (!p) throw new EngineError('AqKanji2Koe', 101, 'wasm メモリを確保できません');
+      if (!p) throw new EngineError('AqKanji2Koe', 101, 'Could not allocate wasm memory.');
       new Uint8Array(e.memory.buffer).set(bytes, p);
       return p;
     };
@@ -370,16 +370,16 @@ class Kanji2Koe {
     const lookupRc = e.aq_set_lookup(lookupPtr, this.lookup.length);
     if (lookupRc) {
       throw new EngineError('AqKanji2Koe', lookupRc,
-        'lookup.bin を初期化できません（aqdic.bin と組み合わせを確認してください）');
+        'Could not initialise lookup.bin (check that it matches aqdic.bin).');
     }
 
     const errPtr = e.aq_alloc(4);
-    if (!errPtr) throw new EngineError('AqKanji2Koe', 101, 'wasm メモリを確保できません');
+    if (!errPtr) throw new EngineError('AqKanji2Koe', 101, 'Could not allocate wasm memory.');
     const h = e.aq_create(sysPtr, userPtr, errPtr);
     const err = new DataView(e.memory.buffer).getInt32(errPtr, true);
     if (!h || err) {
       throw new EngineError('AqKanji2Koe', err || 101,
-        `辞書を読み込めません${err ? `（${err}）` : ''}`);
+        `Could not load the dictionaries${err ? ` (code ${err})` : ''}.`);
     }
 
     this.e = e;
@@ -398,7 +398,7 @@ class Kanji2Koe {
       if (!inPtr || !outPtr) {
         if (inPtr) e.aq_free(inPtr);
         if (outPtr) e.aq_free(outPtr);
-        throw new EngineError('AqKanji2Koe', 101, 'wasm メモリを確保できません');
+        throw new EngineError('AqKanji2Koe', 101, 'Could not allocate wasm memory.');
       }
 
       let bytes = new Uint8Array(e.memory.buffer);
@@ -423,7 +423,7 @@ class Kanji2Koe {
 
       if (rc) {
         throw new EngineError('AqKanji2Koe', rc,
-          `AqKanji2Koe 変換エラー（コード ${rc}）`);
+          `AqKanji2Koe conversion error (code ${rc}).`);
       }
       return out;
     });
@@ -444,8 +444,8 @@ export async function loadKanji2Koe() {
     ]);
   } catch (e) {
     throw new EngineError('AqKanji2Koe', null,
-      `AqKanji2Koe の辞書を読み込めません。engines/aqk2k/aqk2k_lnx/aq_dic/ に ` +
-      `aqdic.bin と lookup.bin を配置してください。（${e.message}）`);
+      `Could not load the AqKanji2Koe dictionaries. Place aqdic.bin and lookup.bin in ` +
+      `engines/aqk2k/aqk2k_lnx/aq_dic/. (${e.message})`);
   }
   const k2k = new Kanji2Koe(wasm, sys, user, lookup);
   await k2k._boot();

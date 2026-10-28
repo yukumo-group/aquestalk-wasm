@@ -31,15 +31,25 @@ await page.addInitScript(() => {
   };
 });
 
+async function clearMeta() {
+  await page.evaluate(() => {
+    for (const id of ['metaSize', 'metaTime', 'metaVoice']) {
+      document.getElementById(id).textContent = '';
+    }
+  });
+}
+
 async function waitSynth(label) {
-  const status = await page.locator('#status').textContent();
-  if (/エラー|失敗/.test(status)) throw new Error(`${label}: ${status}`);
   await page.waitForFunction(() => {
-    const el = document.getElementById('metaSize');
-    return el && el.textContent.trim().length > 0;
+    const status = document.getElementById('status');
+    return status.classList.contains('err') ||
+      document.getElementById('metaSize').textContent.trim().length > 0;
   }, { timeout: 30000 });
+  const status = (await page.locator('#status').textContent()).trim();
+  const kind = await page.locator('#status').getAttribute('class');
+  if (kind.includes('err')) throw new Error(`${label}: ${status}`);
   const meta = await page.locator('#metaSize').textContent();
-  console.log(`${label}: ${status.trim()} | ${meta.trim()}`);
+  console.log(`${label}: ${status} | ${meta.trim()}`);
 }
 
 await page.goto(url, { waitUntil: 'networkidle' });
@@ -47,11 +57,13 @@ await page.waitForTimeout(300);
 await page.screenshot({ path: new URL('01-aqtk2.png', outDir).pathname, fullPage: true });
 
 // AquesTalk2 (default)
+await clearMeta();
 await page.click('#synth');
 await waitSynth('AquesTalk2');
 
 // AquesTalk1
 await page.click('[data-engine="aqtk1"]');
+await clearMeta();
 await page.click('#synth');
 await waitSynth('AquesTalk1');
 
@@ -60,6 +72,7 @@ await page.click('[data-engine="aqtk10"]');
 await page.selectOption('#voice', 'F3');
 await page.fill('#speed', '120');
 await page.dispatchEvent('#speed', 'input');
+await clearMeta();
 await page.click('#synth');
 await waitSynth('AquesTalk10');
 await page.screenshot({ path: new URL('02-aqtk10.png', outDir).pathname, fullPage: true });
@@ -67,10 +80,10 @@ await page.screenshot({ path: new URL('02-aqtk10.png', outDir).pathname, fullPag
 // AqKanji2Koe
 await page.click('[data-engine="k2k"]');
 await page.waitForFunction(() =>
-  document.getElementById('k2kState').textContent.includes('読込済'), { timeout: 30000 });
+  document.getElementById('k2kState').textContent.includes('Dictionary loaded'), { timeout: 30000 });
 await page.click('#k2kConvert');
 await page.waitForFunction(() =>
-  !document.getElementById('k2kOut').textContent.includes('まだ'), { timeout: 30000 });
+  !document.getElementById('k2kOut').textContent.includes('not converted'), { timeout: 30000 });
 const kana = await page.locator('#k2kOut').textContent();
 console.log('AqKanji2Koe:', kana.trim());
 
@@ -88,6 +101,7 @@ if (!(await page.locator('#k2kPlay').isDisabled())) {
 await page.click('#k2kConvert');
 await page.waitForFunction(() => /[ぁ-ヿ]/.test(document.getElementById('k2kOut').textContent), { timeout: 30000 });
 
+await clearMeta();
 await page.click('#k2kPlay');
 await waitSynth('AqKanji2Koe -> AquesTalk2');
 await page.screenshot({ path: new URL('03-k2k.png', outDir).pathname, fullPage: true });
@@ -97,10 +111,11 @@ await page.click('[data-engine="aqtk2"]');
 await page.check('#k2kPre');
 await page.fill('#text', '明日の天気は晴れでしょう。');
 await page.dispatchEvent('#text', 'input');
+await clearMeta();
 await page.click('#synth');
 await waitSynth('AquesTalk2 + k2k');
 const preview = await page.locator('#kanaPreview').textContent();
-console.log('k2k 読み:', preview.trim());
+console.log('k2k reading:', preview.trim());
 await page.screenshot({ path: new URL('04-pipeline.png', outDir).pathname, fullPage: true });
 
 if (errors.length) {

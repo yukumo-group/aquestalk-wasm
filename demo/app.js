@@ -239,7 +239,7 @@ function stopPlayback() {
 
 async function playWav(wav, label, ms) {
   const info = parseWav(wav);
-  if (!info) throw new Error('生成された WAV を解析できません');
+  if (!info) throw new Error('Could not parse the generated WAV.');
 
   state.lastWav = wav;
   state.lastLabel = label;
@@ -259,15 +259,15 @@ async function playWav(wav, label, ms) {
   stopBtn.disabled = false;
   audio.onended = () => {
     stopBtn.disabled = true;
-    setStatus('完了', 'ok');
+    setStatus('Done', 'ok');
   };
-  audio.onerror = () => setStatus('音声の再生に失敗しました', 'err');
+  audio.onerror = () => setStatus('Audio playback failed.', 'err');
 
   try {
     await audio.play();
-    setStatus('再生中…', 'ok');
+    setStatus('Playing…', 'ok');
   } catch (e) {
-    setStatus('再生できませんでした: ' + e.message, 'err');
+    setStatus('Playback failed: ' + e.message, 'err');
   }
 }
 
@@ -292,20 +292,20 @@ function downloadWav() {
 function updateK2kChip() {
   if (state.k2k) {
     k2kChip.className = 'chip ok';
-    k2kChip.textContent = '辞書読込済';
-    k2kChip.title = 'AqKanji2Koe の辞書は読み込み済みです';
+    k2kChip.textContent = 'Dictionary loaded';
+    k2kChip.title = 'The AqKanji2Koe dictionaries are loaded.';
   } else if (state.k2kLoading) {
     k2kChip.className = 'chip busy';
-    k2kChip.textContent = '読込中…';
-    k2kChip.title = '辞書（約 15 MB）を読み込み中です';
+    k2kChip.textContent = 'Loading…';
+    k2kChip.title = 'Loading the dictionaries (~15 MB)…';
   } else if (state.k2kError) {
     k2kChip.className = 'chip err';
-    k2kChip.textContent = '辞書なし';
+    k2kChip.textContent = 'No dictionary';
     k2kChip.title = formatError(state.k2kError);
   } else {
     k2kChip.className = 'chip';
-    k2kChip.textContent = '未読込';
-    k2kChip.title = 'チェックすると辞書を読み込みます';
+    k2kChip.textContent = 'Not loaded';
+    k2kChip.title = 'Check to load the dictionaries.';
   }
 }
 
@@ -314,20 +314,20 @@ function ensureK2k() {
   if (state.k2kLoading) return state.k2kLoading;
 
   state.k2kError = null;
-  setStatus('AqKanji2Koe の辞書（約 15 MB）を読み込み中…', 'busy');
+  setStatus('Loading AqKanji2Koe dictionaries (~15 MB)…', 'busy');
   state.k2kLoading = loadKanji2Koe().then(
     (k2k) => {
       state.k2k = k2k;
       state.k2kLoading = null;
       updateK2kChip();
-      setStatus('AqKanji2Koe 準備完了', 'ok');
+      setStatus('AqKanji2Koe ready.', 'ok');
       return k2k;
     },
     (e) => {
       state.k2kError = e;
       state.k2kLoading = null;
       updateK2kChip();
-      setStatus(formatError(e), 'err');
+      setStatus('Error: ' + formatError(e), 'err');
       throw e;
     },
   );
@@ -338,7 +338,7 @@ function ensureK2k() {
 async function convertCurrent(roman = false) {
   const text = textEl.value.trim();
   if (!text) {
-    setStatus('テキストを入力してください。', 'err');
+    setStatus('Enter some text.', 'err');
     return;
   }
   if (state.busy) return;
@@ -347,25 +347,25 @@ async function convertCurrent(roman = false) {
   setBusy(true);
   try {
     const k2k = await ensureK2k();
-    setStatus(roman ? 'ローマ字に変換中…' : 'かなに変換中…', 'busy');
+    setStatus(roman ? 'Converting to romaji…' : 'Converting to kana…', 'busy');
     const t0 = performance.now();
     const out = roman ? await k2k.convertRoman(text) : await k2k.convert(text);
     const ms = performance.now() - t0;
 
     state.k2kShown = out;
     state.k2kShownKind = roman ? 'roman' : 'kana';
-    k2kOut.textContent = out || '（空）';
+    k2kOut.textContent = out || '(empty)';
     k2kCopy.disabled = !out;
     if (!roman) state.lastKana = out;
     k2kPlay.disabled = roman || !state.lastKana;
     if (roman && out) {
-      setStatus(`変換完了 — ${out.length} 文字, ${ms.toFixed(1)} ms（ローマ字は AquesTalk2 では再生できません）`, 'ok');
+      setStatus(`Converted — ${out.length} chars in ${ms.toFixed(1)} ms (romaji cannot be played with AquesTalk2)`, 'ok');
     } else {
-      setStatus(`変換完了 — ${out.length} 文字, ${ms.toFixed(1)} ms`, 'ok');
+      setStatus(`Converted — ${out.length} chars in ${ms.toFixed(1)} ms`, 'ok');
     }
   } catch (e) {
     console.error(e);
-    setStatus(formatError(e), 'err');
+    setStatus('Error: ' + formatError(e), 'err');
   } finally {
     state.busy = false;
     setBusy(false);
@@ -380,14 +380,14 @@ async function playKana() {
   setBusy(true);
   try {
     const engine = await loadEngine('aqtk2');
-    setStatus('AquesTalk2 で合成中…', 'busy');
+    setStatus('Synthesizing with AquesTalk2…', 'busy');
     const t0 = performance.now();
     const wav = await engine.synth(kana, { voice: '', speed: 100 });
     const ms = performance.now() - t0;
     await playWav(wav, 'AqKanji2Koe → AquesTalk2', ms);
   } catch (e) {
     console.error(e);
-    setStatus(formatError(e), 'err');
+    setStatus('Error: ' + formatError(e), 'err');
   } finally {
     state.busy = false;
     setBusy(false);
@@ -404,7 +404,7 @@ async function synthesize() {
 
   const text = textEl.value.trim();
   if (!text) {
-    setStatus('音声記号列を入力してください。', 'err');
+    setStatus('Enter some kana symbols.', 'err');
     return;
   }
 
@@ -414,14 +414,14 @@ async function synthesize() {
     let koe = text;
     if (state.k2kPre) {
       const k2k = await ensureK2k();
-      setStatus('AqKanji2Koe で変換中…', 'busy');
+      setStatus('Converting with AqKanji2Koe…', 'busy');
       koe = await k2k.convert(text);
       state.lastKana = koe;
       state.k2kShown = koe;
       state.k2kShownKind = 'kana';
-      kanaPreview.textContent = koe || '（空）';
+      kanaPreview.textContent = koe || '(empty)';
       kanaBox.hidden = false;
-      if (!koe) throw new Error('AqKanji2Koe の変換結果が空です');
+      if (!koe) throw new Error('AqKanji2Koe returned an empty reading.');
     }
 
     const engine = await loadEngine(state.engineId);
@@ -429,7 +429,7 @@ async function synthesize() {
     const voice = voiceEl.value;
     const params = info.advanced ? { ...state.params } : undefined;
 
-    setStatus('合成中…', 'busy');
+    setStatus('Synthesizing…', 'busy');
     const t0 = performance.now();
     const wav = await engine.synth(koe, { voice, speed, params });
     const ms = performance.now() - t0;
@@ -438,7 +438,7 @@ async function synthesize() {
     await playWav(wav, `${info.name} / ${voiceLabel}`, ms);
   } catch (e) {
     console.error(e);
-    setStatus(formatError(e), 'err');
+    setStatus('Error: ' + formatError(e), 'err');
   } finally {
     state.busy = false;
     setBusy(false);
@@ -507,6 +507,16 @@ function applyAqtk10Preset() {
   syncAdvanced();
 }
 
+function textLabelForPreprocessor(info) {
+  if (info.kind !== 'tts') {
+    $('textLabel').textContent = info.textLabel;
+    return;
+  }
+  $('textLabel').textContent = state.k2kPre
+    ? 'Kanji/kana mixed text (UTF-8)'
+    : info.textLabel;
+}
+
 function selectEngine(id, { updateHash = true } = {}) {
   const info = getEngineInfo(id);
   state.engineId = id;
@@ -538,15 +548,16 @@ function selectEngine(id, { updateHash = true } = {}) {
     speedEl.value = String(state.speed[id] ?? 100);
     speedOut.textContent = speedEl.value;
     if (info.advanced) syncAdvanced();
+    textLabelForPreprocessor(info);
     kanaBox.hidden = !(state.k2kPre && state.lastKana);
-    setStatus('「合成して再生」を押すと wasm を読み込みます。');
+    setStatus('Press "Synthesize & play" to load the wasm module.');
     loadEngine(id).catch(() => {});
   } else {
     kanaBox.hidden = true;
-    k2kOut.textContent = state.k2kShown || '（まだ変換していません）';
+    k2kOut.textContent = state.k2kShown || '(not converted yet)';
     k2kCopy.disabled = !state.k2kShown;
     k2kPlay.disabled = state.k2kShownKind !== 'kana' || !state.lastKana;
-    setStatus('「かなに変換」を押すと辞書を読み込みます。');
+    setStatus('Press "Convert to kana" to load the dictionaries.');
     ensureK2k().catch(() => {});
   }
 
@@ -621,12 +632,14 @@ k2kPre.addEventListener('change', async () => {
   } else {
     kanaBox.hidden = true;
   }
+  const info = getEngineInfo(state.engineId);
+  if (info.kind === 'tts') textLabelForPreprocessor(info);
 });
 
 synthBtn.addEventListener('click', synthesize);
 stopBtn.addEventListener('click', () => {
   stopPlayback();
-  setStatus('停止', '');
+  setStatus('Stopped', '');
 });
 dlBtn.addEventListener('click', downloadWav);
 
@@ -636,9 +649,9 @@ k2kPlay.addEventListener('click', playKana);
 k2kCopy.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(k2kOut.textContent);
-    setStatus('クリップボードにコピーしました', 'ok');
+    setStatus('Copied to clipboard.', 'ok');
   } catch (e) {
-    setStatus('コピーできませんでした: ' + e.message, 'err');
+    setStatus('Copy failed: ' + e.message, 'err');
   }
 });
 

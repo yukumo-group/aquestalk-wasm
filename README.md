@@ -51,12 +51,12 @@ node port/tools/gen_lookup.mjs \
   aqk2k_lnx/aq_dic/lookup.bin
 ```
 
-缺词典时 demo 仍可正常使用 AquesTalk1/2/10，AqKanji2Koe 标签会显示“辞書なし”。
+缺词典时 demo 仍可正常使用 AquesTalk1/2/10，AqKanji2Koe 标签会显示 “No dictionary”。
 
 ## 统一 demo
 
 `demo/` 以 AquesTalk2 的 demo 为底（声质选择、50–300% 话速、波形、WAV 下载），
-加上引擎切换和 AqKanji2Koe 文本前端：
+加上引擎切换和 AqKanji2Koe 文本前端；界面文案为英文（示例语音仍是日文）：
 
 - **AquesTalk1**：9 个内置声库（f1/f2/m1/m2/r1/imd1/jgr/dvd/f3）。
 - **AquesTalk2**：18 个 phont，内置默认 + `phont/` 文件。
@@ -64,8 +64,8 @@ node port/tools/gen_lookup.mjs \
   `bas / vol / pit / acc / lmd / fsc`；话速滑块覆盖 `spd`。
 - **AqKanji2Koe**：汉字假名混合文 → 假名（带アクセント记号）或罗马字；
   可一键用 AquesTalk2 播放。
-- **流水线**：在任意合成标签勾选“AqKanji2Koe で変換”，输入汉字文本会先转成
-  假名再合成，转换结果显示在“読み”栏。
+- **流水线**：在任意合成标签勾选 k2k 预处理，输入汉字文本会先转成假名再合成，
+  转换结果显示在 “Reading” 栏。
 - 合成失败时显示引擎名和原始错误码；波形、时长、采样率、合成耗时都会显示。
 - 所有引擎按需加载；AqKanji2Koe 词典只在第一次用到时拉取（约 15 MB）。
 
