@@ -1,0 +1,21 @@
+#ifndef AQ_CXX_LIMITS
+#define AQ_CXX_LIMITS
+#include <stddef.h>
+namespace std {
+template <typename T> struct numeric_limits {
+  static constexpr T max() noexcept { return (T)~(T)0; }
+};
+template <> struct numeric_limits<int> {
+  static constexpr int max() noexcept { return 2147483647; }
+};
+template <> struct numeric_limits<long> {
+  static constexpr long max() noexcept { return 2147483647L; }
+};
+template <> struct numeric_limits<unsigned int> {
+  static constexpr unsigned int max() noexcept { return 4294967295U; }
+};
+template <> struct numeric_limits<size_t> {
+  static constexpr size_t max() noexcept { return (size_t)~(size_t)0; }
+};
+}
+#endif

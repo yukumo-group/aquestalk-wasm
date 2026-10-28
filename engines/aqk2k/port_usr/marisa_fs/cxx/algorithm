@@ -1,0 +1,25 @@
+#ifndef AQ_CXX_ALGORITHM
+#define AQ_CXX_ALGORITHM
+#include <stddef.h>
+namespace std {
+#ifndef AQ_CXX_SWAP_DEFINED
+#define AQ_CXX_SWAP_DEFINED
+template <typename T> void swap(T &a, T &b) { T t(a); a = b; b = t; }
+#endif
+template <typename T> const T &min(const T &a, const T &b) { return (b < a) ? b : a; }
+template <typename T> const T &max(const T &a, const T &b) { return (a < b) ? b : a; }
+template <typename It> void reverse(It b, It e) {
+  while (b != e) { --e; if (b == e) break; swap(*b, *e); ++b; }
+}
+template <typename It> void sort(It b, It e) {
+  for (It i = b; i != e; ++i)
+    for (It j = i; j != b && *j < *(j - 1); --j) swap(*j, *(j - 1));
+}
+template <typename It, typename Cmp> void sort(It b, It e, Cmp cmp) {
+  for (It i = b; i != e; ++i)
+    for (It j = i; j != b && cmp(*j, *(j - 1)); --j) swap(*j, *(j - 1));
+}
+template <typename It> void stable_sort(It b, It e) { sort(b, e); }
+template <typename It, typename Cmp> void stable_sort(It b, It e, Cmp cmp) { sort(b, e, cmp); }
+}
+#endif

@@ -1,0 +1,5 @@
+#ifndef AQ_CXX_CSTDLIB
+#define AQ_CXX_CSTDLIB
+#include <stdlib.h>
+namespace std { using ::malloc; using ::free; using ::realloc; using ::calloc; using ::abort; }
+#endif

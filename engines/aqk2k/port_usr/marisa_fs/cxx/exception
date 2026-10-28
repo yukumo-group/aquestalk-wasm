@@ -1,0 +1,11 @@
+#ifndef AQ_CXX_EXCEPTION
+#define AQ_CXX_EXCEPTION
+namespace std {
+class exception {
+ public:
+  exception() noexcept {}
+  virtual ~exception() {}
+  virtual const char *what() const noexcept { return ""; }
+};
+}
+#endif

@@ -1,0 +1,6 @@
+#ifndef AQ_CXX_CFLOAT
+#define AQ_CXX_CFLOAT
+#define DBL_MAX 1.7976931348623157e+308
+#define FLT_MAX 3.402823466e+38F
+#define FLT_MIN 1.17549435e-38F
+#endif

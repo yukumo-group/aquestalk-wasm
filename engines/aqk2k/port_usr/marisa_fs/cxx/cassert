@@ -1,0 +1,4 @@
+#ifndef AQ_CXX_CASSERT
+#define AQ_CXX_CASSERT
+#include <assert.h>
+#endif

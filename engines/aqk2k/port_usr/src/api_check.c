@@ -30,8 +30,3 @@ int aus_check(const char *surface, const char *yomi, int posCode)
                           (uint64_t)(uintptr_t)yomi, posCode);
 }
 
-const char *aus_error(void)
-{
-    AqStr *err = (AqStr *)(aq_image + 0x33220);
-    return (const char *)AQSTR_DATA(*err);
-}

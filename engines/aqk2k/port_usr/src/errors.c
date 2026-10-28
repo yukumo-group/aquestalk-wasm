@@ -51,3 +51,9 @@ void FUN_00108cf0(int code, unsigned index)
     aqstr_append(s, num);
     aqstr_append(s, error_message(code));
 }
+
+const char *aus_error(void)
+{
+    AqStr *s = (AqStr *)(aq_image + 0x33220);
+    return (const char *)AQSTR_DATA(*s);
+}

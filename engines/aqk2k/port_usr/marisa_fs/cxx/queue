@@ -1,0 +1,33 @@
+#ifndef AQ_CXX_QUEUE
+#define AQ_CXX_QUEUE
+#include <stddef.h>
+#include <stdlib.h>
+namespace std {
+template <typename T> class queue {
+ public:
+  queue() : buf_(0), cap_(0), head_(0), size_(0) {}
+  ~queue() { free(buf_); }
+  bool empty() const { return size_ == 0; }
+  size_t size() const { return size_; }
+  T &front() { return buf_[head_]; }
+  const T &front() const { return buf_[head_]; }
+  void push(const T &v) {
+    if (size_ == cap_) grow();
+    buf_[(head_ + size_) % cap_] = v;
+    ++size_;
+  }
+  void pop() { head_ = (head_ + 1) % cap_; --size_; }
+ private:
+  void grow() {
+    size_t ncap = cap_ ? cap_ * 2 : 16;
+    T *nb = (T *)malloc(ncap * sizeof(T));
+    if (!nb) abort();
+    for (size_t i = 0; i < size_; i++) nb[i] = buf_[(head_ + i) % cap_];
+    free(buf_);
+    buf_ = nb; cap_ = ncap; head_ = 0;
+  }
+  T *buf_; size_t cap_, head_, size_;
+  queue(const queue &); queue &operator=(const queue &);
+};
+}
+#endif

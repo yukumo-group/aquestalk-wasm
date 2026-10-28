@@ -1,0 +1,27 @@
+#ifndef AQ_CXX_STRING_VIEW
+#define AQ_CXX_STRING_VIEW
+#include <stddef.h>
+#include <string.h>
+namespace std {
+class string_view {
+ public:
+  string_view() : ptr_(0), len_(0) {}
+  string_view(const char *s) : ptr_(s), len_(s ? strlen(s) : 0) {}
+  string_view(const char *s, size_t n) : ptr_(s), len_(n) {}
+  const char *data() const { return ptr_; }
+  size_t size() const { return len_; }
+  size_t length() const { return len_; }
+  bool empty() const { return len_ == 0; }
+  char operator[](size_t i) const { return ptr_[i]; }
+  const char *begin() const { return ptr_; }
+  const char *end() const { return ptr_ + len_; }
+  string_view substr(size_t pos, size_t n = (size_t)-1) const {
+    if (pos > len_) return string_view();
+    size_t m = len_ - pos; if (n < m) m = n;
+    return string_view(ptr_ + pos, m);
+  }
+ private:
+  const char *ptr_; size_t len_;
+};
+}
+#endif
