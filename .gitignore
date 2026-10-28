@@ -29,3 +29,9 @@ tests/*.js
 /tests/port_native.txt
 /tests/port_asan.txt
 /tests/err_asan.txt
+/port/build-wasm32/
+/tests/port_wasm32.txt
+/tests/err_wasm32.txt
+/tests/one.txt
+/port/exp32/
+/tests/*.tmp

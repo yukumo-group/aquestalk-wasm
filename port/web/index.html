@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<title>aqk2k wasm32 (Safari-compatible)</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 780px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.25rem; }
+  textarea { width: 100%; box-sizing: border-box; font-size: 1.1rem; padding: .6rem; }
+  button { font-size: 1rem; padding: .5rem 1rem; margin: .5rem .5rem .5rem 0; }
+  #out { white-space: pre-wrap; background: #f4f4f4; padding: .8rem; min-height: 3rem; border-radius: 4px; }
+  #status { color: #555; font-size: .9rem; }
+  .err { color: #b00020; }
+</style>
+<h1>libAqKanji2Koe → wasm32</h1>
+<p id="status">loading…</p>
+<textarea id="in" rows="3">音声合成テスト。東京は日本の首都です。</textarea>
+<button id="go" disabled>Convert</button>
+<button id="roman" disabled>ConvRoman</button>
+<div id="out"></div>
+<script type="module">
+const DIC = '../../aqk2k_lnx/aq_dic/';
+const status = document.getElementById('status');
+const out = document.getElementById('out');
+const btn = document.getElementById('go');
+const btnR = document.getElementById('roman');
+let e, mem, u8, h;
+
+function alloc(bytes) {
+  const p = e.aq_alloc(bytes.length);
+  if (!p) throw new Error('wasm alloc failed');
+  new Uint8Array(mem.buffer).set(bytes, p);
+  return p;
+}
+function readCStr(p) {
+  const a = new Uint8Array(mem.buffer);
+  let n = p;
+  while (a[n]) n++;
+  return new TextDecoder().decode(a.subarray(p, n));
+}
+try {
+  const [wasm, sys, user, lookup] = await Promise.all([
+    fetch('../build-wasm32/aqk2k32.wasm').then(r => r.arrayBuffer()),
+    fetch(DIC + 'aqdic.bin').then(r => r.arrayBuffer()),
+    fetch(DIC + 'aq_user.dic').then(r => r.arrayBuffer()),
+    fetch(DIC + 'lookup.bin').then(r => r.arrayBuffer()),
+  ]);
+  const { instance } = await WebAssembly.instantiate(wasm, {});
+  e = instance.exports;
+  mem = e.memory;
+  const sp = alloc(new Uint8Array(sys));
+  const up = alloc(new Uint8Array(user));
+  const lp = alloc(new Uint8Array(lookup));
+  if (e.aq_set_lookup(lp, lookup.byteLength)) throw new Error('lookup init failed');
+  const errP = e.aq_alloc(4);
+  h = e.aq_create(sp, up, errP);
+  const err = new DataView(mem.buffer).getInt32(errP, true);
+  if (!h || err) throw new Error('AqKanji2Koe_Create failed: ' + err);
+  status.textContent = 'ready (wasm32)';
+  btn.disabled = btnR.disabled = false;
+} catch (err) {
+  status.textContent = 'load failed: ' + err;
+  status.className = 'err';
+}
+function convert(roman) {
+  const text = document.getElementById('in').value;
+  const inBytes = new TextEncoder().encode(text);
+  const inP = alloc(inBytes);
+  const outP = e.aq_alloc(65536);
+  const r = roman ? e.aq_conv_roman(h, inP, outP, 65536)
+                  : e.aq_convert(h, inP, outP, 65536);
+  out.textContent = r ? ('error ' + r) : readCStr(outP);
+  e.aq_free(inP); e.aq_free(outP);
+}
+btn.onclick = () => convert(false);
+btnR.onclick = () => convert(true);
+</script>
+</html>

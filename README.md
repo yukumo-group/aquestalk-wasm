@@ -131,3 +131,38 @@ Current status: **265/303 exact matches (87.5%)**.  The remaining differences
 are in sentence-final punctuation (、/。), accent nucleus placement, rare-word
 segmentation, and the numeric `<NUMK>`/`<NUM>` tags.  The harness is the
 baseline for closing those gaps.
+
+## Safari-compatible wasm32 (no Memory64)
+
+Safari does not support WebAssembly memory64 (as of 2026), so
+`port/build_wasm32.sh` emits a **wasm32** module (226 KB, zero imports,
+no threads/SIMD).  It keeps the original LP64 field layout by storing
+`long`/`ulong` values, pointers and the `std::string`/`u16string` layout in
+64-bit cells while native pointers are 32-bit; all addresses stay below 4 GB.
+
+```sh
+./port/build_wasm32.sh          # clang --target=wasm32-unknown-unknown
+node port/wasm32_test.mjs       # smoke test
+node port/wasm32_corpus.mjs tests/corpus1.txt
+```
+
+`port/web/index.html` is a browser demo (serve the repo root over HTTP, e.g.
+`python3 -m http.server`), loading `aqdic.bin`, `aq_user.dic`, `lookup.bin`
+and the wasm32 module.
+
+Notes:
+
+* The 32-bit SDK (`aqk2k_lnx/lib32`) is included for reference; its output is
+  byte-identical to the 64-bit SDK on the whole differential corpus.
+* The wasm32 build uses the arena allocator (`-DAQK2K_LEAK`) and a fresh
+  module per batch in `wasm32_corpus.mjs`; a long-lived instance currently
+  needs a proper allocator.
+* Same conversion gaps as the native port: sentence-final `、/。`, accent
+  position for some words, and `<NUMK>`/`<NUM>` number tags.
+
+## Test status
+
+* Native vs original 64-bit SDK: **265/303 (87.5%)** exact on
+  `tests/corpus_diff.txt`.
+* Original 32-bit SDK vs 64-bit SDK: **303/303** on the same corpus.
+* wasm32 vs original on the common corpus: **9/9**.
