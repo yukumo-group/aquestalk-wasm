@@ -1,0 +1,14 @@
+# build caches / intermediates (regenerable)
+.emcache/
+.ghidra-home/
+ghidra-proj/
+port/build-native/
+port/build-wasm/
+work/
+__pycache__/
+*.o
+
+# per-function Ghidra dumps are redundant with decomp/all.c
+decomp/FUN_*.c
+
+# keep dist/ (deployable build) checked in
