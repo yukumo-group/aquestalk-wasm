@@ -8,8 +8,9 @@ a proprietary speech synthesis library by AQUEST Corp. (株式会社アクエス
 * `decomp/` and `port/src/decomp.c` are derived from the machine code of that
   library by decompilation. They are not original work and carry the same
   licensing restrictions as the binary.
-* `port/src/{shim,api}.cpp`, `port/tools/`, `port/web/` and the build scripts are
-  the porting glue written for this project.
+* `port/src/shim.[ch]`, `port/src/runtime.c`, `port/src/wasm_api.c`,
+  `port/tools/`, `port/web/` and the build scripts are the porting glue written
+  for this project.
 * The `phont/` voice data is part of the SDK and is likewise proprietary.
 
 No license to AquesTalk2 is granted here. Running, distributing or commercially

@@ -28,7 +28,8 @@ void aq_init_image(void)
          * changes, the addend has to be resolved to the recompiled function
          * instead of an offset in the data image. */
         if (addend >= 0xdc0 && addend < 0xc9c8) {
-            fprintf(stderr, "aquestalk2: relocation into .text at %#x\n", (unsigned)addend);
+            /* Would mean the recovered code needs a real function pointer
+             * relocation, which this port does not support. */
             abort();
         }
         aq_put64(off, (uint64_t)(uintptr_t)(aq_image + addend));

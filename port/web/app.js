@@ -1,11 +1,11 @@
-/* Browser demo for the WebAssembly build.
+/* Browser demo for the raw WebAssembly build.
  *
- * Uses the embind surface:
+ * Uses the hand-written wrapper (aquestalk2.js):
  *   synthe(text, speed)                  -> Uint8Array | null
  *   syntheWithPhont(text, speed, phont)  -> Uint8Array | null
  *   lastError()                          -> error code of the last call
  */
-import createModule from './aquestalk2.js';
+import { createAquesTalk2 } from './aquestalk2.js';
 
 const VOICES = [
   ['', '内蔵デフォルト (aq_defo1)'],
@@ -67,7 +67,7 @@ function setStatus(msg, kind = '') {
 function getModule() {
   if (!modulePromise) {
     setStatus('WebAssembly モジュールを読み込み中…');
-    modulePromise = createModule().then((m) => {
+    modulePromise = createAquesTalk2().then((m) => {
       setStatus('準備完了');
       return m;
     }).catch((e) => {

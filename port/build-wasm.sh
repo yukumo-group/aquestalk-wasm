@@ -1,52 +1,55 @@
 #!/usr/bin/env bash
-# Build the WebAssembly + embind module.
+# Build the freestanding WebAssembly module with clang/LLVM directly.
 #
-# Requires an activated emsdk (emcc/em++ in PATH) or EMSDK pointing at one.
-# Set AQ_EMSDK to override the auto-detected SDK location.
+# No Emscripten, no embind, no libc: the module has zero imports and exports
+# the AquesTalk2 C ABI plus a tiny host API (aq_malloc/aq_free/...).  The
+# hand-written wrapper in web/aquestalk2.js is copied next to it.
 set -euo pipefail
 cd "$(dirname "$0")"
 ROOT=$(cd .. && pwd)
 
-if ! command -v emcc >/dev/null 2>&1; then
-    for cand in "${AQ_EMSDK:-}" "${EMSDK:-}" \
-                "$ROOT/emsdk" "/home/lc-022/Documents/GitHub/aqk2k/emsdk"; do
-        if [ -n "$cand" ] && [ -f "$cand/emsdk_env.sh" ]; then
-            # shellcheck disable=SC1090
-            source "$cand/emsdk_env.sh" >/dev/null 2>&1 || true
-            break
-        fi
-    done
+CLANG=${CLANG:-}
+if [ -z "$CLANG" ]; then
+    if command -v clang >/dev/null 2>&1; then
+        CLANG=$(command -v clang)
+    else
+        for cand in "${AQ_EMSDK:-}" "${EMSDK:-}" \
+                    "$ROOT/emsdk" "/home/lc-022/Documents/GitHub/aqk2k/emsdk"; do
+            if [ -n "$cand" ] && [ -x "$cand/upstream/bin/clang" ]; then
+                CLANG="$cand/upstream/bin/clang"
+                break
+            fi
+        done
+    fi
 fi
-if ! command -v emcc >/dev/null 2>&1; then
-    echo "emcc not found; install/activate emsdk (https://emscripten.org)" >&2
+if [ -z "$CLANG" ] || [ ! -x "$CLANG" ]; then
+    echo "clang not found; install LLVM with the wasm32 target" >&2
     exit 1
 fi
 
-# The SDK checkout may be read-only; keep emscripten's cache in the project.
-export EM_CACHE="$ROOT/.emcache"
-mkdir -p "$EM_CACHE" build-wasm "$ROOT/dist"
-
 CFLAGS=${CFLAGS:--O2}
-CXXFLAGS=${CXXFLAGS:--O2}
-COMMON="-sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=web,node \
-        -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=64MB -sSTACK_SIZE=1MB \
-        -sEXPORTED_RUNTIME_METHODS=ccall,cwrap,HEAPU8,HEAP16,HEAP32 \
-        -sEXPORTED_FUNCTIONS=_AquesTalk2_Synthe,_AquesTalk2_Synthe_Euc,_AquesTalk2_Synthe_Utf8,_AquesTalk2_Synthe_Utf16,_AquesTalk2_Synthe_Roman,_AquesTalk2_FreeWave,_malloc,_free"
+INITIAL_MEMORY=${INITIAL_MEMORY:-8388608}
+MAX_MEMORY=${MAX_MEMORY:-536870912}
+STACK_SIZE=${STACK_SIZE:-524288}
 
-emcc $CFLAGS -I. -c src/decomp.c -o build-wasm/decomp.o \
-    -Wno-incompatible-pointer-types -Wno-int-conversion
-emcc $CFLAGS -I. -c src/image.c -o build-wasm/image.o
-emcc $CFLAGS -I. -c src/shim.c -o build-wasm/shim.o
-em++ $CXXFLAGS -I. -c src/api.cpp -o build-wasm/api.o
+mkdir -p "$ROOT/dist"
 
-em++ $CXXFLAGS --bind $COMMON \
-    build-wasm/decomp.o build-wasm/image.o build-wasm/shim.o build-wasm/api.o \
-    -o "$ROOT/dist/aquestalk2.js"
+"$CLANG" --target=wasm32 $CFLAGS \
+    -nostdlib -ffreestanding -fno-builtin -fno-stack-protector \
+    -DAQ_FREESTANDING -I src \
+    -Wno-incompatible-pointer-types -Wno-int-conversion \
+    -Wl,--no-entry -Wl,--export-memory \
+    -Wl,--initial-memory="$INITIAL_MEMORY" \
+    -Wl,--max-memory="$MAX_MEMORY" \
+    -Wl,-z,stack-size="$STACK_SIZE" \
+    src/decomp.c src/image.c src/shim.c src/runtime.c src/wasm_api.c \
+    -o "$ROOT/dist/aquestalk2-core.wasm"
 
-# Ship the demo and the voice files next to the module.
+# Ship the wrapper + demo + voices next to the module.
+rm -f "$ROOT/dist/aquestalk2.wasm"          # leftover from the emscripten build
 cp -r web/. "$ROOT/dist/"
 mkdir -p "$ROOT/dist/phont"
 cp "$ROOT"/aqtk2-lnx/phont/*.phont "$ROOT/dist/phont/"
 
-echo "built $ROOT/dist/aquestalk2.js + aquestalk2.wasm"
+echo "built $ROOT/dist/aquestalk2-core.wasm"
 ls -l "$ROOT/dist"

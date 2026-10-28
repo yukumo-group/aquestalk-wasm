@@ -1,7 +1,8 @@
 # Port internals
 
 Technical notes on how `libAquesTalk2Eva.so.2.3` became `port/src/decomp.c`
-and a wasm module.  See `../README.md` for the user-facing overview.
+and a freestanding wasm module.  See `../README.md` for the user-facing
+overview.
 
 ## Pipeline
 
@@ -15,14 +16,18 @@ aqtk2-lnx/lib64/libAquesTalk2Eva.so.2.3
         │
         └─ tools/gen_image.py ───────────► src/image.c    (.rodata/.data + relocs)
 
-src/decomp.c + src/image.c + src/shim.c + src/api.cpp
+src/decomp.c + src/image.c + src/shim.c + src/runtime.c + src/wasm_api.c
         │
-        ├─ gcc / g++  ───────────────────► build-native/aqtest   (differential test)
-        └─ emcc / em++ + embind ─────────► dist/aquestalk2.{js,wasm}
+        ├─ gcc ──────────────────────────► build-native/aqtest       (differential test)
+        └─ clang --target=wasm32 ───────► dist/aquestalk2-core.wasm  (0 imports)
+
+dist/aquestalk2.js + dist/aquestalk2-core.wasm
+        └─ hand-written JS wrapper (web/aquestalk2.js) + demo
 ```
 
-Nothing in the runtime interprets x86: `decomp.c` is ordinary C with branches and
-loops, compiled to wasm by clang.
+Nothing in the runtime interprets x86: `decomp.c` is ordinary C with branches
+and loops, compiled to wasm by clang.  There is no Emscripten runtime and no
+embind: the wasm module imports nothing and exports plain C functions.
 
 ## What is recompiled
 
@@ -35,8 +40,8 @@ Excluded from `decomp.c`:
 | --- | --- |
 | `0x100d50`–`0x100dc0` | `_init`, PLT stubs, `_start` |
 | `0x100de0`, `0x100e60` | `__do_global_dtors_aux`, `frame_dummy` |
-| `0x100e8c`…`0x101211` (5) | public `AquesTalk2_Synthe*` wrappers, rewritten in `api.cpp` |
-| `0x101589` | `AquesTalk2_FreeWave`, rewritten in `api.cpp` |
+| `0x100e8c`…`0x101211` (5) | public `AquesTalk2_Synthe*` wrappers, rewritten in `wasm_api.c` |
+| `0x101589` | `AquesTalk2_FreeWave`, rewritten in `wasm_api.c` |
 | `0x10c990`, `0x10c9c8` | `.fini_array` walker and `_fini` |
 | `>= 0x300000` | Ghidra's "bad instruction" pseudo-functions in `.data.rel.ro` |
 
@@ -59,7 +64,8 @@ page-aligned at `0x200000`), so `image.c` places bytes at their VMA:
 * `.bss`         `0x217028` .. `0x217038`  (zero)
 
 `aq_image[0x217038]` mirrors the original address space, which is why
-`DAT_00110640` is simply `*(char *)(aq_image + 0x10640)`.
+`DAT_00110640` is simply `*(char *)(aq_image + 0x10640)`.  In the wasm module
+this is a 2.2 MB `.bss` region filled at start-up by `aq_init_image()`.
 
 ### Relocations
 
@@ -70,7 +76,7 @@ page-aligned at `0x200000`), so `image.c` places bytes at their VMA:
   `memcpy`, `__cxa_finalize`, `__gmon_start__`, `_Jv_RegisterClasses`
 
 No relocation points into `.text`, so no address-to-function mapping is needed
-(the code contains no indirect calls through data).  `shim.c` aborts at startup
+(the code contains no indirect calls through data).  `shim.c` traps at start-up
 if that assumption is ever violated.
 
 The relocation writes always store a full 64-bit value (`aq_put64`).  On wasm32
@@ -110,8 +116,8 @@ sites ignored the result:
 | `FUN_00108397` | returns result of `FUN_00104f65` in `eax` |
 | `FUN_001082aa` | returns result of `FUN_00104f65` in `eax` |
 
-Everything else is untouched Ghidra output.  The 44 compiler warnings are
-harmless pointer-signedness/implicit-conversion differences inherited from the
+Everything else is untouched Ghidra output.  The compiler warnings are harmless
+pointer-signedness/implicit-conversion differences inherited from the
 decompiler; builds pass `-Wno-incompatible-pointer-types -Wno-int-conversion`.
 
 ## wasm32 and the original LP64 ABI
@@ -120,24 +126,74 @@ The port keeps all pointer-sized *data* 64-bit where the decompiled code treats
 it as integer (`undefined8`, `PTR_…` slots), and only uses real C pointers at
 the point of dereference.  Because every address in the image is < 4 GiB,
 zero-extension/truncation round-trips are lossless.  The native and wasm builds
-produce identical bytes over the whole test matrix, which is the practical
-proof that no layout mismatch remains.
+produce identical bytes over the whole test matrix.
 
-## API layer
+## Freestanding runtime (`runtime.c`)
 
-The five public wrappers in `api.cpp` are hand-written but mirror the original
-control flow exactly (see `decomp/all.c`, `AquesTalk2_Synthe*`):
+The module is linked with `-nostdlib`, so there is no libc and no imports:
+
+* `memcpy`, `memmove`, `memset` are implemented in C (`-fno-builtin` avoids
+  turning them into calls to themselves).  Clang may emit calls to these
+  symbols for struct copies in `decomp.c`, so they must exist with the standard
+  ABI.
+* `abort()` traps (`__builtin_trap`).
+* `malloc`/`free` is a boundary-tag first-fit allocator:
+  * 8-byte block header `{ uint32_t size; uint32_t prev; }`; payloads are
+    8-byte aligned; minimum block 32 bytes.
+  * free list is doubly linked through the payload; free blocks coalesce with
+    their physical neighbours.
+  * allocation from the top grows the heap with `memory.grow` (64 KB pages) and
+    starts at the linker-provided `__heap_base`.  With wasm-ld's default layout
+    the stack sits below the data segment, so growing upwards is safe.
+  * freeing the top block moves the break back, so repeated synthesis at
+    varying sizes does not accumulate memory.
+  * `AQ_RT_TEST` swaps the wasm memory back end for a static host arena so the
+    allocator can be fuzzed natively (the wasm build fuzzes it through
+    `aq_malloc`/`aq_free` instead; see `tools/stress_test.mjs`).
+
+Build flags used (`build-wasm.sh`):
+
+```
+clang --target=wasm32 -O2 -nostdlib -ffreestanding -fno-builtin
+      -fno-stack-protector -DAQ_FREESTANDING
+      -Wl,--no-entry -Wl,--export-memory
+      -Wl,--initial-memory=8M -Wl,--max-memory=512M
+      -Wl,-z,stack-size=512K
+```
+
+Result: 79 KB wasm, 0 imports, 12 exports (`memory` + 11 functions).
+
+## Host API (`wasm_api.c`)
+
+The five public wrappers mirror the original control flow exactly (see
+`decomp/all.c`, `AquesTalk2_Synthe*`):
 
 * `AquesTalk2_Synthe` — Shift-JIS input, no conversion.
 * `_Euc`, `_Utf8`, `_Utf16`, `_Roman` — convert to Shift-JIS with the recovered
   conversion routines (`FUN_001019f0`, `FUN_00101b2f`, `FUN_00101c6e`,
   `FUN_00101dd6`) and call the core `FUN_001012f4`.
-* `_Utf16` expects host byte order (wasm = little endian); `utf16LittleEndian()`
-  reports this to JS.
+* `_Utf16` expects host byte order (wasm = little endian).
 * `AquesTalk2_FreeWave` is `free()`.
+* `aq_malloc`, `aq_free`, `aq_last_error`, `aq_sample_rate`, `aq_image_base`
+  are the small host-facing helpers used by the JS wrapper.
 
-`aq_init_image()` must run before *any* recovered function; the public wrappers
-call it first (the conversion routines also read `.rodata`).
+`aq_init_image()` runs before any recovered function; the public wrappers call
+it first (the conversion routines also read `.rodata`).
+
+## JavaScript wrapper (`web/aquestalk2.js`)
+
+`createAquesTalk2(source)` instantiates the module with an empty import object
+(accepts a URL, `ArrayBuffer`, typed array or precompiled `Module`).  All
+allocation and marshalling is explicit:
+
+1. `aq_malloc` a NUL-terminated string (UTF-8 bytes, Shift-JIS/EUC bytes,
+   Latin-1 bytes, or UTF-16 code units), plus the optional phont blob and a
+   4-byte size slot.
+2. Take fresh typed-array views *after* all allocations (the heap may have
+   grown and detached earlier views).
+3. Call the exported function, read `*pSize`, copy the WAV out, then
+   `AquesTalk2_FreeWave` and `aq_free` everything.
+4. Return `null` on failure; `lastError()` reads the exported error code.
 
 ## Verification
 
@@ -147,6 +203,9 @@ call it first (the conversion routines also read `.rodata`).
 * `tools/check_expected.py` is the same idea with hashes recorded in
   `tests/expected.json`, usable without the original library.
 * `--wasm` switches the port side to `node tools/wasm_run.mjs`.
+* `tools/stress_test.mjs` fuzzes the allocator (20 000 random malloc/free with
+  pattern verification) and synthesises 400 phrases in one instance, checking
+  determinism and memory stability.
 
 ## Notes on the provided binary
 
@@ -157,3 +216,9 @@ Ghidra's CFG stops at the `jmp`, so the generated C matches the patched
 behaviour.  With the pristine `.bak`, `な`/`ぬ`/`ま`/`む` all synthesise the
 same waveform (the SDK's evaluation restriction); with the supplied `.so` they
 are distinct.  The port reproduces the supplied binary.
+
+## History
+
+Commit `ffd5303` is the earlier Emscripten + embind implementation.  The
+current tree replaces it with the freestanding LLVM build described above; the
+old `src/api.cpp` binding layer only exists in git history.

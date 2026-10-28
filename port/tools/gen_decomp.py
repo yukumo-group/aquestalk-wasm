@@ -15,7 +15,7 @@ DECOMP = os.path.join(ROOT, 'decomp', 'all.c')
 DATATSV = os.path.join(ROOT, 'decomp', 'data.tsv')
 OUT = os.path.join(ROOT, 'port', 'src', 'decomp.c')
 
-# Code that is replaced by hand written C (api.cpp) or is pure ELF/PLT glue.
+# Code that is replaced by hand written C (wasm_api.c) or is pure ELF/PLT glue.
 EXCLUDE = {
     0x100d50,  # _init
     0x100d68,  # PLT stub
@@ -26,12 +26,12 @@ EXCLUDE = {
     0x100dc0,  # _start
     0x100de0,  # __do_global_dtors_aux
     0x100e60,  # frame_dummy / Jv registration
-    0x100e8c,  # AquesTalk2_Synthe            (api.cpp)
-    0x100f5a,  # AquesTalk2_Synthe_Euc        (api.cpp)
-    0x10103a,  # AquesTalk2_Synthe_Utf8       (api.cpp)
-    0x10111a,  # AquesTalk2_Synthe_Utf16      (api.cpp)
-    0x101211,  # AquesTalk2_Synthe_Roman      (api.cpp)
-    0x101589,  # AquesTalk2_FreeWave          (api.cpp)
+    0x100e8c,  # AquesTalk2_Synthe            (wasm_api.c)
+    0x100f5a,  # AquesTalk2_Synthe_Euc        (wasm_api.c)
+    0x10103a,  # AquesTalk2_Synthe_Utf8       (wasm_api.c)
+    0x10111a,  # AquesTalk2_Synthe_Utf16      (wasm_api.c)
+    0x101211,  # AquesTalk2_Synthe_Roman      (wasm_api.c)
+    0x101589,  # AquesTalk2_FreeWave          (wasm_api.c)
     0x10c990,  # .fini_array walker (only reachable through _fini)
     0x10c9c8,  # _fini
 }

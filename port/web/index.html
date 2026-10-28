@@ -12,7 +12,8 @@
     <h1>AquesTalk2 <span>WebAssembly</span></h1>
     <p class="sub">
       規則音声合成エンジン <code>libAquesTalk2Eva.so.2.3</code> の再コンパイル版。
-      Ghidra で復元した C を clang で wasm にコンパイルしています（エミュレーションではありません）。
+      Ghidra で復元した C を <code>clang --target=wasm32</code> + <code>wasm-ld</code>
+      で直接 wasm にしています（Emscripten・embind 不使用、imports ゼロ）。
     </p>
   </header>
 
