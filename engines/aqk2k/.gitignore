@@ -29,7 +29,8 @@ tests/*.js
 /tests/port_native.txt
 /tests/port_asan.txt
 /tests/err_asan.txt
-/port/build-wasm32/
+/port/build-wasm32/*
+!/port/build-wasm32/aqk2k32.wasm
 /tests/port_wasm32.txt
 /tests/err_wasm32.txt
 /tests/one.txt

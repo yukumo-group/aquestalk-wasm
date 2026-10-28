@@ -1,0 +1,15 @@
+# tooling / test caches (not part of the repo)
+node_modules/
+.npm-cache/
+.playwright-browsers/
+.test-artifacts/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# The AqKanji2Koe dictionaries are licensed SDK data and stay out of git.
+# Put aqdic.bin + lookup.bin in engines/aqk2k/aqk2k_lnx/aq_dic/ to enable
+# the AqKanji2Koe tab (aq_user.dic and CREDITS are committed).
+/engines/aqk2k/aqk2k_lnx/aq_dic/aqdic.bin
+/engines/aqk2k/aqk2k_lnx/aq_dic/lookup.bin

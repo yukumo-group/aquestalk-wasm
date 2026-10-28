@@ -150,6 +150,12 @@ node port/wasm32_corpus.mjs tests/corpus1.txt
 `python3 -m http.server`), loading `aqdic.bin`, `aq_user.dic`, `lookup.bin`
 and the wasm32 module.
 
+Both `AqKanji2Koe_Convert` and `AqKanji2Koe_ConvRoman` work in the wasm32
+build.  The roman table is an array of 16-byte `{kana, roman}` entries;
+`port/tools/gen_wasm32.py` rewrites the decompiled pointer walk to use that
+stride explicitly, because wasm32 pointers are 4 bytes.  `port/wasm32_test.mjs`
+asserts a roman sample.
+
 Notes:
 
 * The 32-bit SDK (`aqk2k_lnx/lib32`) is included for reference; its output is

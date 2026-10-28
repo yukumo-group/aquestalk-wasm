@@ -85,6 +85,18 @@ def main():
     for v in ('sb', 'sc', 'sa'):
         s = s.replace(f'{v}.p[', f'((uint16_t *)(uintptr_t){v}.p)[')
         s = s.replace(f'*{v}.p', f'*((uint16_t *)(uintptr_t){v}.p)')
+
+    # FUN_00109e90 (kana -> roman table walk) indexes an array of 16-byte
+    # entries: { const char *kana; const char *roman; }.  The decompiled
+    # source uses pointer arithmetic, which is 8 bytes per step on LP64 but
+    # only 4 bytes on wasm32.  Address the table with explicit 16-byte strides
+    # (and read the low half of each 64-bit pointer cell).
+    s = s.replace('      ppuVar13 = &PTR_DAT_0011ee60;',
+                  '      ppuVar13 = (undefined **)(aq_image + 0x1ee60);')
+    s = s.replace('        ppuVar13 = ppuVar13 + 2;',
+                  '        ppuVar13 = (undefined **)((char *)ppuVar13 + 16);')
+    s = s.replace('      pcVar11 = (&PTR_DAT_0011ee68)[uVar12 * 2];',
+                  '      pcVar11 = *(char **)(aq_image + 0x1ee68 + uVar12 * 16);')
     open(p, 'w').write(s)
 
     # --- api_raw.c: pointer/size signatures and casts ----------------------

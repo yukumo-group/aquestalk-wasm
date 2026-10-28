@@ -23,4 +23,15 @@ for (const text of ['テスト','こんにちは','東京','私','日本語','�
   let end = outP; while (u8[end]) end++;
   console.log(text, '=>', dec.decode(u8.subarray(outP, end)), 'rc', r);
 }
+// ConvRoman walks a 16-byte {kana, roman} table; wasm32 needs an explicit
+// stride (see port/tools/gen_wasm32.py).  Guard that path here.
+const romanIn = alloc(enc.encode('音声合成テスト。'));
+const romanOut = e.aq_alloc(65536);
+const rr = e.aq_conv_roman(h, romanIn, romanOut, 65536);
+u8 = new Uint8Array(mem.buffer);
+let rend = romanOut; while (u8[rend]) rend++;
+const roman = dec.decode(u8.subarray(romanOut, rend));
+console.log('roman =>', roman, 'rc', rr);
+if (rr !== 0 || roman !== "onnse-go-se-te'_suto.") process.exit(1);
+
 e.aq_release(h);
