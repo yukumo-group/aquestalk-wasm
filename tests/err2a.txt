@@ -1,0 +1,139 @@
+d300 magic=MTX1£*
+162f0: before swap target=0x7bf98f3f0020 streamptr=0x7bf98dd4e1c8 size=1074040 local=0x7bf98dd4e1c8/1074040
+162f0: after swap target0=0x7bf98dd4e1c8 target1=1074040
+16bb0 new trie=0x7d89907e0080 e0=0x7bf98dd6bd70 400=0x7bf98de51538
+162f0: before swap target=0x7bf98f3f00a0 streamptr=0x7e09907e2964 size=4264 local=0x7e09907e2964/4264
+162f0: after swap target0=0x7e09907e2964 target1=4264
+16bb0 new trie=0x7d89907e1480 e0=0x7e09907e29d4 400=0x7e09907e2e04
+d300 magic=MTX1£*
+d9f0 d300 -> 0 magic=HDR1
+162f0: before swap target=0x7bf98f3f0120 streamptr=0x7bf98da9aed0 size=10456 local=0x7bf98da9aed0/10456
+162f0: after swap target0=0x7bf98da9aed0 target1=10456
+16bb0 new trie=0x7d89907e2880 e0=0x7bf98da9b448 400=0x7bf98da9cba0
+10c6d0 -> 0
+15360 trie=0x7d89907e0080 state=0x7c59907e00e0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e00e0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e00e0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e0560 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e0560 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e0560 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e0980 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e0980 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e0980 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e0f20 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e0f20 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e0f20 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e1340 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e1340 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e1340 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e18e0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e18e0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e18e0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e1ca0 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e1ca0 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e1d00 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e1d00 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e1dc0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e1dc0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e1dc0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e25a0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e25a0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e25a0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e2cc0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e2cc0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e2cc0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e30e0 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e30e0 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e3140 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e2880 state=0x7c59907e3140 e0=0x7bf98da9b448 400=0x7bf98da9cba0 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e3200 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e3200 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e3200 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e3860 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e3860 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e3860 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e3e00 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e3e00 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e3e00 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4280 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4280 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4280 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e4280 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e44c0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e44c0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e44c0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4b20 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4b20 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4b20 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e4b20 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4dc0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e4dc0 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e4dc0 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e5420 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e5420 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e5420 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e5420 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+15360 trie=0x7d89907e0080 state=0x7c59907e5600 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e0080 state=0x7c59907e5600 e0=0x7bf98dd6bd70 400=0x7bf98de51538 420=3ff
+15360 trie=0x7d89907e1480 state=0x7c59907e5600 e0=0x7e09907e29d4 400=0x7e09907e2e04 420=ff
+=================================================================
+==3==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7bf98f5f00c8 at pc 0x55fbf18eac3c bp 0x7ffeb9bce220 sp 0x7ffeb9bce218
+READ of size 8 at 0x7bf98f5f00c8 thread T0
+    #0 0x55fbf18eac3b in FUN_0010d130 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:3029:33
+    #1 0x55fbf18f5ee0 in FUN_0010ef60 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:5206:5
+    #2 0x55fbf18f74ac in FUN_00110780 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:5544:13
+    #3 0x55fbf18f7ed0 in FUN_00110a60 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:5637:9
+    #4 0x55fbf18ed8ce in FUN_001128b0 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:7054:3
+    #5 0x55fbf18eba95 in FUN_0010cfe0 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:3000:5
+    #6 0x55fbf1908d94 in AqKanji2Koe_Convert /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/api.cpp:184:20
+    #7 0x55fbf1909e17 in main /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/api.cpp:345:25
+    #8 0x7ff991627d0d  (/usr/lib/libc.so.6+0x27d0d) (BuildId: e363db7c8fcc7c06c6f0d2839b2a8ad875b75406)
+    #9 0x7ff991627e4a in __libc_start_main (/usr/lib/libc.so.6+0x27e4a) (BuildId: e363db7c8fcc7c06c6f0d2839b2a8ad875b75406)
+    #10 0x55fbf17b2534 in _start (/home/lc-022/Documents/GitHub/aqk2k/port/build-native/aqk2k_asan+0x35534) (BuildId: 2fc01da5fb8f37c14ad0a4f096db1f4edb0b610b)
+
+Address 0x7bf98f5f00c8 is located in stack of thread T0 at offset 200 in frame
+    #0 0x55fbf18f4aef in FUN_0010ef60 /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:4546
+
+  This frame has 7 object(s):
+    [32, 40) 'local_b0' (line 4573)
+    [64, 72) 'local_a8' (line 4574)
+    [96, 112) 'auStack_98' (line 4576)
+    [128, 136) 'local_88' (line 4577)
+    [160, 176) 'aq_s' (line 4579)
+    [192, 200) 'local_68' (line 4580) <== Memory access at offset 200 overflows this variable
+    [224, 264) 'local_58' (line 4582)
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow /home/lc-022/Documents/GitHub/aqk2k/port/build-native/../src/decomp.c:3029:33 in FUN_0010d130
+Shadow bytes around the buggy address:
+  0x7bf98f5efe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7bf98f5efe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7bf98f5eff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7bf98f5eff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7bf98f5f0000: f1 f1 f1 f1 00 f2 f2 f2 00 f2 f2 f2 00 00 f2 f2
+=>0x7bf98f5f0080: 00 f2 f2 f2 00 00 f2 f2 00[f2]f2 f2 00 00 00 00
+  0x7bf98f5f0100: 00 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0x7bf98f5f0180: f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0x7bf98f5f0200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7bf98f5f0280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7bf98f5f0300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==3==ABORTING
