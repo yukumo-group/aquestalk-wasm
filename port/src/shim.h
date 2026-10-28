@@ -11,9 +11,23 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+#ifdef AQTK_FREESTANDING
+/* raw wasm build: no libc headers, declarations only */
+void *malloc(size_t);
+void free(void *);
+void *calloc(size_t, size_t);
+void *memcpy(void *, const void *, size_t);
+void *memset(void *, int, size_t);
+void *memmove(void *, const void *, size_t);
+int memcmp(const void *, const void *, size_t);
+size_t strlen(const char *);
+void abort(void);
+#else
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {

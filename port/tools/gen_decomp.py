@@ -95,6 +95,29 @@ def manual_fixes(head, body):
     body = body.replace(
         '  FUN_0010947c(param_1,*param_1 + (long)param_2 * 4);\n  return;',
         '  return FUN_0010947c(param_1,*param_1 + (long)param_2 * 4);')
+    # Ghidra misread two zero-extended byte loads as sign-extended 16-bit
+    # elements of the ushort frame struct.  The original is:
+    #   FUN_0010b896(p, byte[p+5], byte[p+6]);
+    #   FUN_0010daec(p+0x20, byte[p+4], ushort[p+2] >> 1);
+    # (see movzx eax,BYTE PTR [rax+0x6] / [rax+0x4] at 0x104d6/0x1050c).
+    body = body.replace(
+        'FUN_0010b896(param_1,*(undefined1 *)((long)param_2 + 5),(char)param_2[3]);',
+        'FUN_0010b896(param_1,*(undefined1 *)((long)param_2 + 5),'
+        '*(undefined1 *)((long)param_2 + 6));')
+    body = body.replace(
+        'FUN_0010daec(param_1 + 0x20,(char)param_2[2],param_2[1] >> 1);',
+        'FUN_0010daec(param_1 + 0x20,*(undefined1 *)((char *)param_2 + 4),'
+        'param_2[1] >> 1);')
+
+    # SJIS is an unsigned byte pair.  Ghidra compared signed `char` bytes
+    # against the unsigned table, so every high-bit (multibyte) character
+    # failed to match.  The original does a byte-wise (unsigned) compare.
+    body = body.replace(
+        'if ((*param_1 == (&DAT_00110960)[(long)(int)local_c * 10]) &&\n'
+        '       (param_1[1] == (&DAT_00110961)[(long)(int)local_c * 10])) break;',
+        'if (((undefined1)*param_1 == (&DAT_00110960)[(long)(int)local_c * 10]) &&\n'
+        '       ((undefined1)param_1[1] == (&DAT_00110961)[(long)(int)local_c * 10])) break;')
+
     head = head.replace('void FUN_00109390(', 'undefined2 FUN_00109390(')
 
     # The public key setters and their helpers return the validation result
@@ -113,46 +136,116 @@ def manual_fixes(head, body):
     return head, body
 
 
-def group_3byte_pairs(body):
-    """Group `undefined2 local_X; undefined1 local_{X-2};` declarations.
+SMALL1 = {'undefined': 1, 'undefined1': 1, 'char': 1, 'byte': 1,
+          'bool': 1, 'sbyte': 1}
+SMALL2 = {'undefined2': 2, 'short': 2, 'ushort': 2}
 
-    The original code passes &local_X to functions that read 3 bytes, so the
-    two stack slots must stay adjacent.  An anonymous struct guarantees that.
-    """
-    decls = {}
-    for m in re.finditer(r'^  (undefined2|undefined1) (local_[0-9a-f]+);\n', body, re.M):
-        decls[m.group(2)] = (m.group(1), int(m.group(2)[6:], 16), m.start(), m.end())
 
-    groups = []
-    used = set()
-    for name, (typ, off, s, e) in sorted(decls.items(), key=lambda kv: -kv[1][1]):
-        if typ != 'undefined2' or '&' + name not in body:
+def parse_decls(body):
+    """Return (decl lines, code) for a function body."""
+    if '\n  \n' not in body:
+        return None, body
+    decl, code = body.split('\n  \n', 1)
+    items = []
+    for line in decl.split('\n'):
+        s = line.strip()
+        if not s:
             continue
-        nb = 'local_%x' % (off - 2)
-        if nb in decls and decls[nb][0] == 'undefined1' and nb not in used:
-            groups.append((name, nb))
-            used.add(name); used.add(nb)
-
-    for a, b in groups:
-        da = decls[a]; db = decls[b]
-        old_a = '  %s %s;\n' % (da[0], a)
-        old_b = '  %s %s;\n' % (db[0], b)
-        if da[3] < db[3]:
-            seq = old_a + old_b
-        elif db[3] < da[3]:
-            seq = old_b + old_a
+        if '=' in s or '(*' in s:
+            items.append({'line': line, 'name': None, 'size': 0, 'off': None})
+            continue
+        m = re.match(r'^(.+?)\s+(\w+)\s*(\[[^\]]*\])?;$', s)
+        if not m:
+            items.append({'line': line, 'name': None, 'size': 0, 'off': None})
+            continue
+        typ, name, arr = m.group(1).strip(), m.group(2), m.group(3)
+        if '*' in typ:
+            size = 8
         else:
+            base = typ.strip()
+            if base in SMALL1:
+                size = 1
+            elif base in SMALL2:
+                size = 2
+            elif base in ('undefined4', 'int', 'uint', 'float'):
+                size = 4
+            elif base in ('undefined8', 'long', 'ulong', 'double', 'uint64_t',
+                          'int64_t', 'uintptr_t'):
+                size = 8
+            elif base == 'uint3':
+                size = 3
+            else:
+                size = 0
+        if arr and size:
+            size *= int(arr[1:-1])
+        mo = re.search(r'^(?:local|uStack|iStack|pStack)_([0-9a-f]+)$', name)
+        items.append({'line': line, 'name': name, 'size': size,
+                      'off': int(mo.group(1), 16) if mo else None})
+    return items, code
+
+
+def group_small_runs(body):
+    """Keep runs of small stack slots contiguous.
+
+    The original compiler packed adjacent byte/short locals together and the
+    engine passes &first to functions that read 2, 3 or 7 bytes across the
+    neighbouring slots (kana codes, prosody records).  C does not guarantee
+    the relative order/placement of separate locals, so such runs are put in
+    one struct.  Only runs of 1/2-byte members are grouped: their natural
+    alignment reproduces the original offsets exactly.
+    """
+    items, code = parse_decls(body)
+    if items is None:
+        return body
+    named = [x for x in items if x['name'] and x['off'] is not None and x['size']]
+    ordered = sorted(named, key=lambda x: -x['off'])
+    runs = []
+    cur = []
+    for x in ordered:
+        if cur and cur[-1]['off'] - cur[-1]['size'] == x['off']:
+            cur.append(x)
+        else:
+            if cur:
+                runs.append(cur)
+            cur = [x]
+    if cur:
+        runs.append(cur)
+
+    groups = {}
+    for r in runs:
+        if len(r) < 2 or not all(x['size'] <= 2 for x in r):
             continue
-        if seq not in body:
+        if not any(('&' + x['name']) in code for x in r):
             continue
-        g = 'aq_g_%s' % a
-        marker = '@@AQPAIR_%s@@' % a
-        body = body.replace(seq, marker, 1)
-        for n in (a, b):
-            body = re.sub(r'\b%s\b' % n, '%s.%s' % (g, n), body)
-        new = '  struct { %s %s; %s %s; } %s;\n' % (da[0], a, db[0], b, g)
-        body = body.replace(marker, new, 1)
-    return body
+        gname = 'aq_s_%x' % r[0]['off']
+        for x in r:
+            groups[x['name']] = (gname, x)
+        r.sort(key=lambda x: -x['off'])       # ascending address
+        for x in r:
+            g = groups[x['name']][0]
+            groups[x['name']] = (g, x, r)
+
+    if not groups:
+        return body
+
+    # one struct declaration per group, at the position of its first member
+    emitted = set()
+    out_decls = []
+    for item in items:
+        name = item['name']
+        if name in groups:
+            g, x, members_list = groups[name]
+            if g in emitted:
+                continue
+            emitted.add(g)
+            mem = ' '.join(y['line'].strip() for y in members_list)
+            out_decls.append('  struct { %s } %s;' % (mem, g))
+        else:
+            out_decls.append(item['line'])
+
+    for name, (g, _, _) in groups.items():
+        code = re.sub(r'\b%s\b' % re.escape(name), '%s.%s' % (g, name), code)
+    return '\n'.join(out_decls) + '\n  \n' + code
 
 
 def data_defs(body):
@@ -165,7 +258,9 @@ def data_defs(body):
             continue
         off = int(m.group(1), 16) - BASE
         if s.startswith('PTR_'):
-            lines.append('#define %s (*(undefined **)(aq_image + 0x%x))' % (s, off))
+            # 8-byte relocation slots.  A plain `undefined *` would be only
+            # 4 bytes on wasm32 and every table index would stride wrong.
+            lines.append('#define %s (*(uint64_t *)(aq_image + 0x%x))' % (s, off))
             continue
         typ = DATA_TYPE.get(s, 'undefined1')
         lines.append('#define %s (*(%s *)(aq_image + 0x%x))' % (s, typ, off))
@@ -183,7 +278,7 @@ def main():
         head = fix_16byte_return(head)
         body = fix_16byte_return(body)
         body = fix_bitfields(body)
-        body = group_3byte_pairs(body)
+        body = group_small_runs(body)
         # uninitialized incoming stack slot: make it deterministic
         body = re.sub(r'\bin_stack_[0-9a-f]+\b', 'in_stack_unused', body)
         body = body.replace('  undefined8 in_stack_unused;', '  undefined8 in_stack_unused = 0;')

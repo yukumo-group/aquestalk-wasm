@@ -3,8 +3,6 @@ port/src/image.c
 
 # build outputs
 port/build-native/
-port/web/*.wasm
-port/web/*.js
 
 # Ghidra workspace/caches
 .ghidra-home/
@@ -17,5 +15,8 @@ tests/ref/*.wav
 tests/lib/
 tests/orig_harness
 tests/in.txt
+tests/out*.wav
+tests/samp_*.txt
+tests/exc_*.txt
 
 *.o
