@@ -1,0 +1,5544 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-28T05:08:02.578Z",
+  "durationMs": 12012,
+  "dataset": {
+    "name": "kana-daily-v1",
+    "file": "data/kana-corpus.js",
+    "entries": 151,
+    "characters": 2597,
+    "categories": {
+      "greeting": 12,
+      "weather": 12,
+      "food": 12,
+      "shopping": 12,
+      "transit": 12,
+      "work": 12,
+      "home": 12,
+      "health": 12,
+      "numbers": 12,
+      "request": 12,
+      "katakana": 12,
+      "long": 6,
+      "notation": 8,
+      "prosody": 5
+    },
+    "demoIds": 8,
+    "problems": []
+  },
+  "catalogue": [
+    {
+      "engine": "aqtk1",
+      "expected": [
+        "f1",
+        "f2",
+        "m1",
+        "m2",
+        "r1",
+        "imd1",
+        "jgr",
+        "dvd",
+        "f3"
+      ],
+      "actual": [
+        "f1",
+        "f2",
+        "m1",
+        "m2",
+        "r1",
+        "imd1",
+        "jgr",
+        "dvd",
+        "f3"
+      ],
+      "ok": true
+    },
+    {
+      "engine": "aqtk2",
+      "expected": [
+        "",
+        "aq_defo1.phont",
+        "aq_rm.phont",
+        "aq_f1c.phont",
+        "aq_f3a.phont",
+        "aq_m4b.phont",
+        "aq_mf1.phont",
+        "aq_momo1.phont",
+        "aq_huskey.phont",
+        "aq_rb2.phont",
+        "aq_rb3.phont",
+        "aq_robo.phont",
+        "aq_teto1.phont",
+        "aq_yukkuri.phont",
+        "ar_f4.phont",
+        "ar_m5.phont",
+        "ar_mf2.phont",
+        "ar_rm3.phont"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "engine": "aqtk10",
+      "expected": [
+        "F1",
+        "F2",
+        "F3",
+        "M1",
+        "M2",
+        "R1",
+        "R2"
+      ],
+      "ok": true
+    }
+  ],
+  "summary": {
+    "engines": 3,
+    "voices": 34,
+    "syntheses": 5134,
+    "accepted": 5134,
+    "rejected": 0,
+    "audioSeconds": 11515.798685810809,
+    "wavBytes": 227752330,
+    "nativeAvailable": [
+      "aqtk2",
+      "aqtk10"
+    ],
+    "nativeMissing": [
+      "aqtk1"
+    ],
+    "nativeMatched": 3912,
+    "nativeMismatched": 0,
+    "nativeKnownMismatched": 13
+  },
+  "native": {
+    "available": [
+      "aqtk2",
+      "aqtk10"
+    ],
+    "missing": [
+      "aqtk1"
+    ],
+    "aq1Root": null
+  },
+  "nativeParity": {
+    "available": [
+      "aqtk2",
+      "aqtk10"
+    ],
+    "missing": [
+      "aqtk1"
+    ],
+    "aq1Root": null,
+    "matched": 3912,
+    "mismatched": 0,
+    "knownMismatched": 13,
+    "knownList": [
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_defo1",
+        "caseId": "prosody-05",
+        "bytes": 21538,
+        "wasmHash": "662fd132dd5d3951006920107390fbcb0fb1e532f324ab739c8ef7b3b6c42a20",
+        "nativeHash": "eb464bfa83273a5f9058bdbf6f271fd257a944d87f47ec223814884caf44fe39"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_rm",
+        "caseId": "prosody-05",
+        "bytes": 22836,
+        "wasmHash": "b43f06525120b908bedcd645cff2c7b56e05e75adb4b4f0c3ab3906d01972308",
+        "nativeHash": "7e0b89ebd0e5df7f7950b5100278c1ad7898e571c374405fa44968a6cd6831bd"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_f1c",
+        "caseId": "prosody-05",
+        "bytes": 22476,
+        "wasmHash": "98b8e9a828fca153ee4511e5c635f1f41acf0f37234618992a6b7bfa5ce5a5fa",
+        "nativeHash": "ef64c0444ee8b3cc91887762af04cfcd88cdd12aa3929493770f912f9af9f6e6"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_f3a",
+        "caseId": "prosody-05",
+        "bytes": 22476,
+        "wasmHash": "53f40b3223df1b7778a58c2adb039acd51bb5afc0a5a8e7ee77dca539e8598bf",
+        "nativeHash": "5ce0172c91136776f96e4b888bf23a622eb800d4bc3f586460df12a1c3257525"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_m4b",
+        "caseId": "prosody-05",
+        "bytes": 22836,
+        "wasmHash": "5b107568d6bd9987b6ffbaeef16ac7685b7290e84e0aa260789ebe0d9c197ac3",
+        "nativeHash": "d596dd13af49e33544f3269ea141b3023f59b72b05bd59e323ec2551bf435e9e"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_mf1",
+        "caseId": "prosody-05",
+        "bytes": 22476,
+        "wasmHash": "0570c5e88d950ed004c08721953a2e5712e66fd8780c84b773c30b8bf8642941",
+        "nativeHash": "41d58129ef76ee6050cdec76284c083467befc4814d0b81a49322e27b98269d0"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_momo1",
+        "caseId": "prosody-05",
+        "bytes": 20772,
+        "wasmHash": "cb4ad15c51f5d3904c935ee5329c5e225f1d2c3155083e7e996739a516f3fe47",
+        "nativeHash": "8f470bafe91e24b9d185251a3d6969f39be5e1224d6937c731b8f6bad06c0df1"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_huskey",
+        "caseId": "prosody-05",
+        "bytes": 27416,
+        "wasmHash": "411417f00b27b65ea78856cb8005d87a65437da0fd362a7c7773ed01fcdb268b",
+        "nativeHash": "89f30c76b3d645ae8514ea48f7d626f64bdf5299d87d7e7c52285094423a338f"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_rb2",
+        "caseId": "prosody-05",
+        "bytes": 18990,
+        "wasmHash": "010583602a037ec83633f72dd8cea0c660209bec34739c6a4f6a5900b6254fca",
+        "nativeHash": "34dc1bd9524b4000231340a8c12f92af7cd52da169485f0484e040ff860be40d"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_rb3",
+        "caseId": "prosody-05",
+        "bytes": 22476,
+        "wasmHash": "fb205b78f5d9996e1c42596f4e92fa348928370cffb775b08c61bdeea66f6482",
+        "nativeHash": "f5558a83c13e476b9022d5e98cb467b765a427d9d5fb9d343865d390c7c1bcbc"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_robo",
+        "caseId": "prosody-05",
+        "bytes": 22836,
+        "wasmHash": "c59828c1579b040c991aeb16b882f3fa2300b8144df30629fa7d0d425b4792f9",
+        "nativeHash": "ac4a9e296a2503faa80ba267c53f278c0f8a38a7cc1f5ba2b475411fd9902454"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_teto1",
+        "caseId": "prosody-05",
+        "bytes": 19638,
+        "wasmHash": "c4a379f389e48769c658acbbcc28c4e18e192ba4045066066275044f41fd65d1",
+        "nativeHash": "fd8919f44d8a022c5ea096bf903e70d2bd8b9786038b34c35f84ea7a81f666da"
+      },
+      {
+        "engineId": "aqtk2",
+        "voice": "aq_yukkuri",
+        "caseId": "prosody-05",
+        "bytes": 28336,
+        "wasmHash": "45df697efeddc8d748ccaafd1892d200fca6bf9ea9a427719de7e6cc74e9ab55",
+        "nativeHash": "f8d53bc4eb07c6968f9b83bd2e496cc9ba53f75da62c4b8e3157e9a0648e0ef7"
+      }
+    ],
+    "engines": {
+      "aqtk2": {
+        "default": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "aq_defo1": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 21538B/662fd132dd5d native 21538B/eb464bfa8327"
+          ]
+        },
+        "aq_rm": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22836B/b43f06525120 native 22836B/7e0b89ebd0e5"
+          ]
+        },
+        "aq_f1c": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22476B/98b8e9a828fc native 22476B/ef64c0444ee8"
+          ]
+        },
+        "aq_f3a": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22476B/53f40b3223df native 22476B/5ce0172c9113"
+          ]
+        },
+        "aq_m4b": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22836B/5b107568d6bd native 22836B/d596dd13af49"
+          ]
+        },
+        "aq_mf1": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22476B/0570c5e88d95 native 22476B/41d58129ef76"
+          ]
+        },
+        "aq_momo1": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 20772B/cb4ad15c51f5 native 20772B/8f470bafe91e"
+          ]
+        },
+        "aq_huskey": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 27416B/411417f00b27 native 27416B/89f30c76b3d6"
+          ]
+        },
+        "aq_rb2": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 18990B/010583602a03 native 18990B/34dc1bd9524b"
+          ]
+        },
+        "aq_rb3": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22476B/fb205b78f5d9 native 22476B/f5558a83c13e"
+          ]
+        },
+        "aq_robo": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 22836B/c59828c1579b native 22836B/ac4a9e296a25"
+          ]
+        },
+        "aq_teto1": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 19638B/c4a379f389e4 native 19638B/fd8919f44d8a"
+          ]
+        },
+        "aq_yukkuri": {
+          "matched": 150,
+          "mismatched": 0,
+          "knownMismatched": 1,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": [
+            "KNOWN prosody-05: wasm 28336B/45df697efedd native 28336B/f8d53bc4eb07"
+          ]
+        },
+        "ar_f4": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "ar_m5": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "ar_mf2": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "ar_rm3": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        }
+      },
+      "aqtk10": {
+        "F1": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "F2": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "F3": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "M1": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "M2": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "R1": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        },
+        "R2": {
+          "matched": 151,
+          "mismatched": 0,
+          "knownMismatched": 0,
+          "speedMatched": 6,
+          "speedMismatched": 0,
+          "details": []
+        }
+      }
+    },
+    "details": [
+      "aqtk2/aq_defo1 KNOWN prosody-05: wasm 21538B/662fd132dd5d native 21538B/eb464bfa8327",
+      "aqtk2/aq_rm KNOWN prosody-05: wasm 22836B/b43f06525120 native 22836B/7e0b89ebd0e5",
+      "aqtk2/aq_f1c KNOWN prosody-05: wasm 22476B/98b8e9a828fc native 22476B/ef64c0444ee8",
+      "aqtk2/aq_f3a KNOWN prosody-05: wasm 22476B/53f40b3223df native 22476B/5ce0172c9113",
+      "aqtk2/aq_m4b KNOWN prosody-05: wasm 22836B/5b107568d6bd native 22836B/d596dd13af49",
+      "aqtk2/aq_mf1 KNOWN prosody-05: wasm 22476B/0570c5e88d95 native 22476B/41d58129ef76",
+      "aqtk2/aq_momo1 KNOWN prosody-05: wasm 20772B/cb4ad15c51f5 native 20772B/8f470bafe91e",
+      "aqtk2/aq_huskey KNOWN prosody-05: wasm 27416B/411417f00b27 native 27416B/89f30c76b3d6",
+      "aqtk2/aq_rb2 KNOWN prosody-05: wasm 18990B/010583602a03 native 18990B/34dc1bd9524b",
+      "aqtk2/aq_rb3 KNOWN prosody-05: wasm 22476B/fb205b78f5d9 native 22476B/f5558a83c13e",
+      "aqtk2/aq_robo KNOWN prosody-05: wasm 22836B/c59828c1579b native 22836B/ac4a9e296a25",
+      "aqtk2/aq_teto1 KNOWN prosody-05: wasm 19638B/c4a379f389e4 native 19638B/fd8919f44d8a",
+      "aqtk2/aq_yukkuri KNOWN prosody-05: wasm 28336B/45df697efedd native 28336B/f8d53bc4eb07"
+    ]
+  },
+  "engines": [
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voices": 9,
+      "syntheses": 1359,
+      "accepted": 1359,
+      "rejected": 0,
+      "bytes": 50409084,
+      "seconds": 3146.830499999998
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voices": 18,
+      "syntheses": 2718,
+      "accepted": 2718,
+      "rejected": 0,
+      "bytes": 99296410,
+      "seconds": 6198.551125
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voices": 7,
+      "syntheses": 1057,
+      "accepted": 1057,
+      "rejected": 0,
+      "bytes": 78046836,
+      "seconds": 2170.4170608108107
+    }
+  ],
+  "voices": [
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "f1",
+      "label": "f1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 52.57866800000011
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "f2",
+      "label": "f2",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 49.101629000000315
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "m1",
+      "label": "m1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 47.301907
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "m2",
+      "label": "m2",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 48.45004500000027
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "r1",
+      "label": "r1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 45.24048999999968
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "imd1",
+      "label": "imd1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 47.931159000000605
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "jgr",
+      "label": "jgr",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 53.665466999999865
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "dvd",
+      "label": "dvd",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5565976,
+      "seconds": 347.4582499999998,
+      "meanSeconds": 2.301048013245032,
+      "distinctHashes": 150,
+      "totalMs": 52.07885299999958
+    },
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voice": "f3",
+      "label": "f3",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5881276,
+      "seconds": 367.16450000000015,
+      "meanSeconds": 2.431552980132451,
+      "distinctHashes": 150,
+      "totalMs": 38.70508600000062
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "",
+      "label": "default",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5383716,
+      "seconds": 336.0670000000001,
+      "meanSeconds": 2.2256092715231794,
+      "distinctHashes": 151,
+      "totalMs": 48.983253000000786
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_defo1.phont",
+      "label": "aq_defo1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5372484,
+      "seconds": 335.36499999999995,
+      "meanSeconds": 2.220960264900662,
+      "distinctHashes": 150,
+      "totalMs": 44.352863999999954
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_rm.phont",
+      "label": "aq_rm",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5675196,
+      "seconds": 354.28450000000004,
+      "meanSeconds": 2.3462549668874173,
+      "distinctHashes": 150,
+      "totalMs": 43.19083399999931
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_f1c.phont",
+      "label": "aq_f1c",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5628336,
+      "seconds": 351.3557499999999,
+      "meanSeconds": 2.326859271523178,
+      "distinctHashes": 150,
+      "totalMs": 57.46579300000053
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_f3a.phont",
+      "label": "aq_f3a",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5630336,
+      "seconds": 351.48074999999994,
+      "meanSeconds": 2.327687086092715,
+      "distinctHashes": 150,
+      "totalMs": 41.02864199999976
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_m4b.phont",
+      "label": "aq_m4b",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5677196,
+      "seconds": 354.40950000000004,
+      "meanSeconds": 2.3470827814569537,
+      "distinctHashes": 150,
+      "totalMs": 41.023944999999
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_mf1.phont",
+      "label": "aq_mf1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5630336,
+      "seconds": 351.48074999999994,
+      "meanSeconds": 2.327687086092715,
+      "distinctHashes": 150,
+      "totalMs": 40.02911999999958
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_momo1.phont",
+      "label": "aq_momo1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5194196,
+      "seconds": 324.22200000000004,
+      "meanSeconds": 2.1471655629139077,
+      "distinctHashes": 150,
+      "totalMs": 44.161103999998545
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_huskey.phont",
+      "label": "aq_huskey",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 6741072,
+      "seconds": 420.90174999999994,
+      "meanSeconds": 2.7874288079470193,
+      "distinctHashes": 150,
+      "totalMs": 62.91602300000022
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_rb2.phont",
+      "label": "aq_rb2",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 4781052,
+      "seconds": 298.4005,
+      "meanSeconds": 1.9761622516556292,
+      "distinctHashes": 150,
+      "totalMs": 37.36510700000065
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_rb3.phont",
+      "label": "aq_rb3",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5630336,
+      "seconds": 351.48074999999994,
+      "meanSeconds": 2.327687086092715,
+      "distinctHashes": 150,
+      "totalMs": 34.9486009999996
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_robo.phont",
+      "label": "aq_robo",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5675196,
+      "seconds": 354.28450000000004,
+      "meanSeconds": 2.3462549668874173,
+      "distinctHashes": 150,
+      "totalMs": 33.94466700000203
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_teto1.phont",
+      "label": "aq_teto1",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 4931734,
+      "seconds": 307.818125,
+      "meanSeconds": 2.038530629139073,
+      "distinctHashes": 150,
+      "totalMs": 39.17314100000044
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "aq_yukkuri.phont",
+      "label": "aq_yukkuri",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 6883282,
+      "seconds": 429.78987500000017,
+      "meanSeconds": 2.8462905629139086,
+      "distinctHashes": 150,
+      "totalMs": 54.734041999998
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "ar_f4.phont",
+      "label": "ar_f4",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5383716,
+      "seconds": 336.0670000000001,
+      "meanSeconds": 2.2256092715231794,
+      "distinctHashes": 151,
+      "totalMs": 40.37064899999996
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "ar_m5.phont",
+      "label": "ar_m5",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5224170,
+      "seconds": 326.09537500000005,
+      "meanSeconds": 2.15957201986755,
+      "distinctHashes": 151,
+      "totalMs": 41.525504999999384
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "ar_mf2.phont",
+      "label": "ar_mf2",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 4470340,
+      "seconds": 278.9809999999998,
+      "meanSeconds": 1.8475562913907273,
+      "distinctHashes": 151,
+      "totalMs": 42.41017700000248
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voice": "ar_rm3.phont",
+      "label": "ar_rm3",
+      "rate": 8000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 5383716,
+      "seconds": 336.0670000000001,
+      "meanSeconds": 2.2256092715231794,
+      "distinctHashes": 151,
+      "totalMs": 46.90010900000016
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "F1",
+      "label": "F1",
+      "rate": 16000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11124028,
+      "seconds": 347.41825,
+      "meanSeconds": 2.3007831125827813,
+      "distinctHashes": 150,
+      "totalMs": 271.97759100000076
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "F2",
+      "label": "F2",
+      "rate": 16000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11124668,
+      "seconds": 347.43825,
+      "meanSeconds": 2.3009155629139073,
+      "distinctHashes": 150,
+      "totalMs": 245.8861150000007
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "F3",
+      "label": "F3",
+      "rate": 23680,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11124028,
+      "seconds": 234.74206081081087,
+      "meanSeconds": 1.5545831841775555,
+      "distinctHashes": 150,
+      "totalMs": 249.60337099999788
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "M1",
+      "label": "M1",
+      "rate": 16000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11183148,
+      "seconds": 349.26575,
+      "meanSeconds": 2.31301821192053,
+      "distinctHashes": 150,
+      "totalMs": 232.51399800000036
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "M2",
+      "label": "M2",
+      "rate": 16000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11183148,
+      "seconds": 349.26575,
+      "meanSeconds": 2.31301821192053,
+      "distinctHashes": 150,
+      "totalMs": 233.4286909999978
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "R1",
+      "label": "R1",
+      "rate": 16000,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11183148,
+      "seconds": 349.26575,
+      "meanSeconds": 2.31301821192053,
+      "distinctHashes": 150,
+      "totalMs": 259.9203209999955
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voice": "R2",
+      "label": "R2",
+      "rate": 28800,
+      "cases": 151,
+      "accepted": 151,
+      "rejected": 0,
+      "bytes": 11124668,
+      "seconds": 193.0212499999999,
+      "meanSeconds": 1.278286423841059,
+      "distinctHashes": 150,
+      "totalMs": 256.8678889999983
+    }
+  ],
+  "partialCases": [],
+  "determinism": [
+    {
+      "engineId": "aqtk1",
+      "voice": "f1",
+      "label": "f1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f2",
+      "label": "f2",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m1",
+      "label": "m1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m2",
+      "label": "m2",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "r1",
+      "label": "r1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "imd1",
+      "label": "imd1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "jgr",
+      "label": "jgr",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "dvd",
+      "label": "dvd",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f3",
+      "label": "f3",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "",
+      "label": "default",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_defo1.phont",
+      "label": "aq_defo1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rm.phont",
+      "label": "aq_rm",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f1c.phont",
+      "label": "aq_f1c",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f3a.phont",
+      "label": "aq_f3a",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_m4b.phont",
+      "label": "aq_m4b",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_mf1.phont",
+      "label": "aq_mf1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_momo1.phont",
+      "label": "aq_momo1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_huskey.phont",
+      "label": "aq_huskey",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb2.phont",
+      "label": "aq_rb2",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb3.phont",
+      "label": "aq_rb3",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_robo.phont",
+      "label": "aq_robo",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_teto1.phont",
+      "label": "aq_teto1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_yukkuri.phont",
+      "label": "aq_yukkuri",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_f4.phont",
+      "label": "ar_f4",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_m5.phont",
+      "label": "ar_m5",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_mf2.phont",
+      "label": "ar_mf2",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_rm3.phont",
+      "label": "ar_rm3",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F1",
+      "label": "F1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F2",
+      "label": "F2",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F3",
+      "label": "F3",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M1",
+      "label": "M1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M2",
+      "label": "M2",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R1",
+      "label": "R1",
+      "cases": 3,
+      "mismatches": []
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R2",
+      "label": "R2",
+      "cases": 3,
+      "mismatches": []
+    }
+  ],
+  "distinctness": {
+    "aqtk1": {
+      "voices": 9,
+      "averageDistinct": 9,
+      "casesWithDuplicates": []
+    },
+    "aqtk2": {
+      "voices": 18,
+      "averageDistinct": 17,
+      "casesWithDuplicates": [
+        {
+          "caseId": "greet-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "greet-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "weather-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "food-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "shop-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "transit-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "work-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "home-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "health-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "number-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "request-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-09",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-10",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-11",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "katakana-12",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "long-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "long-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "long-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "long-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "long-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "long-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-06",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-07",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "notation-08",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "prosody-01",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "prosody-02",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "prosody-03",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "prosody-04",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        },
+        {
+          "caseId": "prosody-05",
+          "distinct": 17,
+          "voices": 18,
+          "duplicates": [
+            [
+              "default",
+              "ar_f4"
+            ]
+          ]
+        }
+      ]
+    },
+    "aqtk10": {
+      "voices": 7,
+      "averageDistinct": 7,
+      "casesWithDuplicates": []
+    }
+  },
+  "correlation": [
+    {
+      "a": "aqtk1",
+      "b": "aqtk2",
+      "r": 0.9947951499199997
+    },
+    {
+      "a": "aqtk1",
+      "b": "aqtk10",
+      "r": 0.999313811479996
+    },
+    {
+      "a": "aqtk2",
+      "b": "aqtk10",
+      "r": 0.9927038321485157
+    }
+  ],
+  "speed": [
+    {
+      "engineId": "aqtk1",
+      "voice": "f1",
+      "label": "f1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "f14e6eea2af31867f3339628ea1007ab3aadbccfb9ca39033a0e1983be7b02e2"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "62b58f8dbb0aba73c8c38a4e71d42897b91297956cf805ee024dcd841dcab13a"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "261f0cb9d7531790c994f5f270b7bad3089f5e4328b0775b240d559bdb673b8e"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "1780233867cf2de42b87e9a1476b3968cab08f81bd7614139ada32c752291788"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "10d3fae5dcffa1497e61fe7538055b21d8aa1da1d7c1df07b43d606a1666fbc4"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "ed9f01ea7d18299a8c2cfc31195830f86405f5d9d739bbd3f643d1715364c435"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f2",
+      "label": "f2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "35921cf37c3a9d7b64a48edc4cf79efc0d99840335f4ba5f9a9e88231edd4b4e"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "ea2e2806eb68a21e3040f64a9141a87df6439f29d4ff3a96649d1ce742ca6527"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "92c53b90bc051c0bb30ff55c42fecb59e5cc24946f67bfe551657065ae2c319d"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "3cfcec6b9da4d1f5ba3d48f10231ba394b9ff3cd3e74e135f24d65482ec8e03a"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "f628513bd717d4fb9ff740ab6af99eb6caac7872026dd35b3f4a05c7de9e1af3"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "6bc2b931f3cd2f2a8ba1e08ef717ae754ac5a9f8ca2f0dcd15739ea5188b7379"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m1",
+      "label": "m1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "2165698bf9b7fc33889a82320218b01ec49c60f809069fa2055d6792447eb570"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "c9d6eaa5ea3fd42df6afef69a90ce4ab4da3f1b0e397a1253ff9e68d5b3e3606"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "3a2edc1e097fadae2b7fc41961376abf35f262fcca7584607447067830938c81"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "1dddb04de81da73425c8623b167f25e1a53f17d4b7f835879fce246f24fa3504"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "81b56185b193ba157ee5426731b80f424bf1ba3e8922291073c6eb1123ba70dd"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "2e1d8fe92dc494eaba9bb4f397a246918e31295389e2da60722c3c8ba71c3b0e"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m2",
+      "label": "m2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "120c0273fd766f4f47042963e7cfd06b470543ce93c158842723527f2cef99db"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "f5ab18f0f39b3905b3ed806ed2fd1dbb02a15fe72a22d1fe49df1ed3d9316624"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "3167c48976d6520617aa761285e2a3d1fc8f6d02e1a1281649bac3a40c5e567a"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "21dff0dd1ee9ed8843ac2421cfc2b6fff85e3f9780c6726083eea042c04573ba"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "d2566538f11cdd91189098bf92163a057c6f684eb1580ac54050115886c22cc4"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "8ef080ea3c05156541b8d5e2a6ecb04e7c6eaba729bf3ccb7251c0f0948b862b"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "r1",
+      "label": "r1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "68ed92784aa5b159dce2492255456ee806006b6df1076734831bbc355866cc67"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "d36e5ad728c94b34b6f1fca767b841f50adb28ce3c4fa0910918f35ec58f1542"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "140787b60b6e415a0ca345bf035c5356cab85e0539bd91495312f7a766cedceb"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "0e4fa3581097e203c08e5337548154fb45ec20cc3bc71d06f05ac8a6311786e4"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "bdb9d2320d254c1a842e402f3e8379f7799475c3d880a76d58c7e82f86ceebf8"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "5d7230ef5a6490e75b5db2a8e1681b110d2164b0a3e034cbb027c5bb020cfef0"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "imd1",
+      "label": "imd1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "99e256676477a39f5b2c76f9b0462a6fd28c9b31f95b66857e30d11051029c7d"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "0e49ad9fc78442c64f593c68ff82aed3084a56d0abafb552be160fd430a28580"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "0977d672d1ae24c8c28ee215cc0bfea6f0adfb339de44bd8bee080e14d04a718"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "1540f92d4bdd70ce004f313a3dcba612e33682cc87ccd233eb82868ff5ffcba2"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "620b624b723b1425181b4016a10c0b6472c39bca6f861fd3e5528e55e6e94587"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "7a4838503428e7cfb15fbe9a6bc6505e8f0edc380f6eaf59363716049221c4d6"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "jgr",
+      "label": "jgr",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "77f1b5b8516ac9aad3bd035866c6e5893155bd83a825f117ea7f37f1109faec0"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "2a0c2d75ac124ca4bc950b6b8a9c982f9cdb2dd063b6c25c55eaecfa81cc1401"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "5c26c996ba8b6a6b64404b0e8cbb023585ee9fb371fb9554cf5a6f053ffe91bd"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "8a0d0d0c848a3b9dad8a08750f2ed51f963dbd88af28f840e59bf4a564a5393b"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "cbc41f2227a8527e251891792aadaa41ecc2f6be5b2c067e47a59d09b3fa7c02"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "6459e326fe1e0aae48ada9b998434f92b6b37c412ed23290fa9df9bf5233d314"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "dvd",
+      "label": "dvd",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.302,
+          "bytes": 116876,
+          "hash": "dfe4524d0f3984e5eb5b71a4c4926bed42b1e587c9a15a283764367846f748ad"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 77596,
+          "hash": "83b7be803a076bc911256c72f7450ee2030ab27dffce00a45fdfefd5e996ad2f"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.667,
+          "bytes": 58716,
+          "hash": "c88f6c8d033140e9b123de8d9c085de1955b683e716db485723152310a807e9f"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.40525,
+          "bytes": 38528,
+          "hash": "fdfc6e8a2dd23303f9af006dd61d7476132d569843ab065b33d939f9e46a35e4"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.8495,
+          "bytes": 29636,
+          "hash": "e799d8cd02b73898d50607fb8f340dc35eb76e39bd11b82aaa2601b2fd46bf91"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.212,
+          "bytes": 19436,
+          "hash": "d718114e0ed070a38e273b584f0d369ef3b887a5c96da05b4c6336b71de856f4"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.024752475247524
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f3",
+      "label": "f3",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.892,
+          "bytes": 126316,
+          "hash": "51d1f2dc1fceb014dd9c6f500cb73b21701381eb1c6019dacc914c671f61ff67"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.237,
+          "bytes": 83836,
+          "hash": "21080be7dd6168ed05bdf99f7103b07d177779dba6363d837da8eb7f71e47bdd"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.962,
+          "bytes": 63436,
+          "hash": "80d90cbc4efc760e28b686963aa7cc5ca3eaecee4717ab8b58c630831009a0c0"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.597,
+          "bytes": 41596,
+          "hash": "780c7512129380f8dcec5d2cfd69c01c5391c4fd44ce3885e5620ffc2622e46d"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.997,
+          "bytes": 31996,
+          "hash": "31b7b0c65a3c4e5ea4fe3692ef649b1b8d8da39625b421e53893d714688e1325"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.307,
+          "bytes": 20956,
+          "hash": "d55a9d41aab8cff12c0b54032a19f7a9a559dcfcd2ab8fb9d5e8707b7af39611"
+        }
+      ],
+      "violations": [],
+      "ratio": 6.038255547054323
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "",
+      "label": "default",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.2345,
+          "bytes": 115796,
+          "hash": "3af036a21189f847513f99bf518bf0b0d2fbc30cc14e50d0e7f3489b0638451b"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.825375,
+          "bytes": 77250,
+          "hash": "09a975373da266e499b64b89bab75724d1cbc43ab87ac886bf8e45fbc33d8899"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.63325,
+          "bytes": 58176,
+          "hash": "c812a16b38f56c5c59938329fe1feda06a02595593c74415cbe5f2b932a326ec"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.421125,
+          "bytes": 38782,
+          "hash": "0b2b73f26ef1482af264f308e193f709c3e88034659b789e34e432923997da02"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.832625,
+          "bytes": 29366,
+          "hash": "96d61b566547b6eb00dc7bb58cbe660831ed10de2ffb80ada9c9058b20aea81a"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.224125,
+          "bytes": 19630,
+          "hash": "fbe65f67816ac2e21f2d6a9e0f547003d0b2c279f19b027a0d10267912a6f894"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.9099356683345246
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_defo1.phont",
+      "label": "aq_defo1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.363375,
+          "bytes": 117858,
+          "hash": "d01d68bd61562a544e8cb90b043694f3fffe187889302a8b635a4fa0458d452f"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.910625,
+          "bytes": 78614,
+          "hash": "86f843ecdb81d85bb5b3b10f6dd66a8393aa1f6c1de39cfe7fcb56bb6d4cf5d6"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.697375,
+          "bytes": 59202,
+          "hash": "fc2822d9f85fc68d2996254cbab43066c606a0a9f3fabf56cdec2672393360a3"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.462625,
+          "bytes": 39446,
+          "hash": "f084d7bcf9a77dcc2ef949d60ddec60c72663771401958ef1c23fd32eaaa13b4"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.86375,
+          "bytes": 29864,
+          "hash": "68151b2440a5a9f7b6af48ca51a1f32d5621ebfd8f6eba5d9f950ce6cbf005be"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.24525,
+          "bytes": 19968,
+          "hash": "835f52c3742ba5f584e65d345193c07cd1177c35169ec58babdd530f7584ae84"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.913170046175466
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rm.phont",
+      "label": "aq_rm",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "007ab8fb6021f485381bd15d0ebd0c75a5de0653a2c1788b24bcca1b3a6ae407"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "b3f7f21d47f9ad12e90327a517df391ee7c3bfbefa96e2257da9f0b016bef75d"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "79e01d7d4fe238f103fd524ed7e04efbedd31df9a1db9c7f65e2d01edade5ecc"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "0d29e7b0cc32d2c5bf2bb4b80fc6f590e9c58c38e513b7c168c473f8451c1a1e"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "cf4d43aef0446d9ecac8c950a1c527a93d65b4a19c390fc878a9bdfbd1049f6c"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "4b051d8c6419d0018edf72a3315b265f9174eb05c8fe6bde6613100dfd575abe"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f1c.phont",
+      "label": "aq_f1c",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "148c322bccad3e3cf66222877528eee30370ae23ffaf775716e45695e462e077"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "5d92c854e32dcb15f052f64d59ac65c400d445da361bb9cd25a76da0033bc917"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "d88ccfb5718dceff0a2659d9298d1b7a1a5d7c8f5933be3ecd15cd842e82482f"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "82d5c7c097a451916f6766139e313b6bca1506efdcc0b2432f1489c0c2c5ec57"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "af37e35fb08bfad8d92a2a41b0343c9f7c3d170c2cf3c686e9e0c1c7ef53e971"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "22ab240ffbc531a71de8a95c2bcd2aa98eaa9e08e1ad50c7166b9cb1cbc813ce"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f3a.phont",
+      "label": "aq_f3a",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "2e8af4df9dddced8a0dd0c803f1d66c41ccc0cef6590e937a7bbe134b70b62c7"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "66b1c62169dab186988ea8997c1fe17b0a0c58b125b6dbafd867c219688d935a"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "74ea5276daa04cd7e83b79c192fbee8cdde7777f5dc1989d3f1e541746f91416"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "b74503f2fdb56a0de16319a5c1f0bc9fcb204fd158e3285162aad69930e8c5f6"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "3202dbd42767ec494b4647eb1dcf33f113f86a8c30277e60fb380f0b17101ab2"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "b451edb709a32b163f197a3226ebefe4c68038e48b2ac19e6373143c8d7422ff"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_m4b.phont",
+      "label": "aq_m4b",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "251b6ad0439376fb3338743a3e3eca4a24e5cc213c1bcf9585dbc20a79d94e3d"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "f4e21a456d904aa227e1098a9b82b716e47c2a9418f87e7dceb085f84a6f50c2"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "203353b2e5d28bacda7c84d0daa92286c6bfd11b0a154b02c02975f7649875f3"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "1bcbe16078e2a74e56ee8896d45b62b29b7fef90f905ab5643fc1c855d937ef7"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "56d66280a9dd69d70e75d245bebd4773bd32503c7deca07d655753c829f55727"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "ce157abc65f0f5fe9657671861a1308bd473db8e59d891cb8a6f7465e07b654b"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_mf1.phont",
+      "label": "aq_mf1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "d6ea0bbf878499f596ce8be4d35178e03efcd22893c9761c6d18013fbd2d6046"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "b0ec645a834f5f3b2e16a5f159e709202b8fa9d38d61579ccbac4b84cc732551"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "73207d08f98fd3a49e552e1791fa270675d2055ec4ac9348f7eca534be7d6bf5"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "e1541a317766364079e80afc2231b3bdd56ec242a54120142c47aec8de37a75b"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "c5f91bd44cece4d10c0e456bca08696fdf08a5a4fcf7fbc5ca68d9b9a397923b"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "c702a62beb75d0b2a0a5641ad1dd8864ce9d67bafdbb260731a2f2cdce1d5f81"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_momo1.phont",
+      "label": "aq_momo1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.157125,
+          "bytes": 114558,
+          "hash": "fac4b7741104ae0fe1ed94c3b4efd7ef85bb7adb6b69575e98801b4e0478fdc0"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.774125,
+          "bytes": 76430,
+          "hash": "3a43c9de1c0febd73b3755de1e73702bc5daa1be733db3670ee20ee3f3c13d04"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.594375,
+          "bytes": 57554,
+          "hash": "c790d643c5825a22f6aac8fb3705c768fe998a292b8d7f89c5d7d2c5cd08855c"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.39575,
+          "bytes": 38376,
+          "hash": "c16de54f0bdf85d757d9accb410702ad2ba8d3c172c5fd3d9020cbf80518dfd8"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.811875,
+          "bytes": 29034,
+          "hash": "1ee0be029f922447989e132a452b199cf960cc69091040424491ff28f08bc900"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.2115,
+          "bytes": 19428,
+          "hash": "61c993186f0279e0061b3a19b7de81529c85ee713962d52e35cf53b2e38a770e"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.907655798596781
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_huskey.phont",
+      "label": "aq_huskey",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 8.94175,
+          "bytes": 143112,
+          "hash": "14e610fbc775e6e580e944fc35ddbd58a01cbde00493d9391942f2e99096d36f"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.963125,
+          "bytes": 95454,
+          "hash": "2cd92aff8ccbd3774618808264cb83ec6a96dad0e23760aafa0a78c0a2533769"
+        },
+        {
+          "speed": 100,
+          "seconds": 4.486375,
+          "bytes": 71826,
+          "hash": "2998280fb104137f4edd18a9f88b2b95f7d429f0767abbb7d1d202761e67c7c5"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.988125,
+          "bytes": 47854,
+          "hash": "424a2f96f7e5ac29ad392df4247c0e75ae9a6b8abf6b526392526048257ddab6"
+        },
+        {
+          "speed": 200,
+          "seconds": 2.257375,
+          "bytes": 36162,
+          "hash": "5379bc9496001d8d1453bf4d96ab398ac18ef2a2f217766be1e867438328c1cb"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.50775,
+          "bytes": 24168,
+          "hash": "65d247b74947aec0e053003f69b5fd60036d0a2e6cb85a9d590b1401ed44c8a8"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.930525617642183
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb2.phont",
+      "label": "aq_rb2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 6.682375,
+          "bytes": 106962,
+          "hash": "12df7b70806ec7096e9d9ea13abab7c08fc25abdeee3d4c7310e68cf4d24cb4d"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.457375,
+          "bytes": 71362,
+          "hash": "a7d62730dbaf7d5ef4d1817ad708333f6318c5bc7bf82f05d9f5090ca537d736"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.356875,
+          "bytes": 53754,
+          "hash": "2c9bbd70ee45adfe96d9dd91f6267fba170273128f32b28d962af54b9e19cea3"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.237625,
+          "bytes": 35846,
+          "hash": "e6917eed1a312bc298a24dcc20f877608d544e6bac6a167c2f9122f925945625"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.693375,
+          "bytes": 27138,
+          "hash": "5da42f1db3014dbabe1fc4a0697bbb0a4cd4e05b9833a33844e28cc8c2aa93ad"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.132,
+          "bytes": 18156,
+          "hash": "70253bcd3ada98f824078affad9c2430280133efd9a7cbf5765b072749079d5b"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.903158127208481
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb3.phont",
+      "label": "aq_rb3",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "b7b8a6a9740e3fe9d18f5cddb72dbcfb7f01232ffbdcd77ca617e4db822bd174"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "2287435fda9fa393e7ff03a6a70d864b065b52fc5b1688580d36a785c217955c"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "f7df977db451e354afcc2bf85cac139fd07cd961a1c3a06f3fcb4c98c883115f"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "3e9d90968668446495c4ddfd48ab1745dc94fe83a79bfbb09a82c3a01aefc079"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "5b3cc2621c1f38d9c95bebcfc7565efb29cc847ec0e193d6f01a854065e3e59d"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "cf15c932b21de9cbc79e398f5c4bebaaf6878fe59932b93cfa3ee3bc700f36b5"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_robo.phont",
+      "label": "aq_robo",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.712,
+          "bytes": 123436,
+          "hash": "e3aab78e9ef53e4bdb4f9928f255e2bbc47bd157bba154145def50940a20626c"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.142625,
+          "bytes": 82326,
+          "hash": "5d9cdff4c19985f2936053d9f2c6853a272f1a2e7baa36d91fe4a15727096dc6"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.872,
+          "bytes": 61996,
+          "hash": "58f5f2676b9948be857b2861628e1fded1610ce883e8d47b03785ddafb903650"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.579,
+          "bytes": 41308,
+          "hash": "ce7062ff2823ce02ea45bd992eff6c7824425304550b2630ed52bd867a97be72"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.952,
+          "bytes": 31276,
+          "hash": "85684f07788c433590f861a834dd7aaf0f8b6955418022cd79699f8d4871d1be"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.302625,
+          "bytes": 20886,
+          "hash": "026dce9803e2b881fcb1bfb7ab124899c6b3b558956b2aaf8f48e8c0eaeaf91f"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.920353133096632
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_teto1.phont",
+      "label": "aq_teto1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 6.855875,
+          "bytes": 109738,
+          "hash": "66f34ad6a56722655e2042bb0ff9459986b6fd94cd7f7ca8cdebee7e06e72ba2"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.57275,
+          "bytes": 73208,
+          "hash": "27a5cf69703f39d6f8834ed44a21bb8016acf4e2e40e8ae53e30e3a51a71dd4f"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.44375,
+          "bytes": 55144,
+          "hash": "8dea5014e46a6abb2b3b2b8913d19e9d06b56107f1c248f7c2eac97b2f4a3ce6"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.295,
+          "bytes": 36764,
+          "hash": "a5189d841925e47d9ce7bb2b0df437f98a581b3b0a8db5163a28e7a85ca6c34a"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.7365,
+          "bytes": 27828,
+          "hash": "19eb320924f1612e791313ab130e45fcaa4fbb4d42af67454813613e71422e72"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.16075,
+          "bytes": 18616,
+          "hash": "419f89ea85305a741e194c53690d6ceec65688be32bb1de409cb1ac9ba0a56e1"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.906418264053414
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_yukkuri.phont",
+      "label": "aq_yukkuri",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 8.71975,
+          "bytes": 139560,
+          "hash": "baca9b7e0455dd1b5a1e36330ec5b086663ff608047a67f48ddbcb8711476d22"
+        },
+        {
+          "speed": 75,
+          "seconds": 5.814625,
+          "bytes": 93078,
+          "hash": "21098d0634706f7122c1e093bdde46baac0130360e6e7a0ca70d9d8836ffd368"
+        },
+        {
+          "speed": 100,
+          "seconds": 4.3755,
+          "bytes": 70052,
+          "hash": "09855a61a6adb570b3df3e92b1893540e6d0371aab90fde54ff4e1682a8bd3bd"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.9145,
+          "bytes": 46676,
+          "hash": "3cf9e3e32bf121e45119eaa2b32f48f010403296ab7a19453931715e082393cb"
+        },
+        {
+          "speed": 200,
+          "seconds": 2.20275,
+          "bytes": 35288,
+          "hash": "63d63286d51d2c7b63acdd06136ffbcdff2d98537f43a2879f64f63ef7a64ab6"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.4705,
+          "bytes": 23572,
+          "hash": "767569d3796abe8fbcc2e029ec03722dd55146ac136cdba4459ef581d93dd2a0"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.929785787147229
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_f4.phont",
+      "label": "ar_f4",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.2345,
+          "bytes": 115796,
+          "hash": "3af036a21189f847513f99bf518bf0b0d2fbc30cc14e50d0e7f3489b0638451b"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.825375,
+          "bytes": 77250,
+          "hash": "09a975373da266e499b64b89bab75724d1cbc43ab87ac886bf8e45fbc33d8899"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.63325,
+          "bytes": 58176,
+          "hash": "c812a16b38f56c5c59938329fe1feda06a02595593c74415cbe5f2b932a326ec"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.421125,
+          "bytes": 38782,
+          "hash": "0b2b73f26ef1482af264f308e193f709c3e88034659b789e34e432923997da02"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.832625,
+          "bytes": 29366,
+          "hash": "96d61b566547b6eb00dc7bb58cbe660831ed10de2ffb80ada9c9058b20aea81a"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.224125,
+          "bytes": 19630,
+          "hash": "fbe65f67816ac2e21f2d6a9e0f547003d0b2c279f19b027a0d10267912a6f894"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.9099356683345246
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_m5.phont",
+      "label": "ar_m5",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.02675,
+          "bytes": 112472,
+          "hash": "b784df7d52eb781c12d1ab4d4a37edb6409f70e73e5ba5ede561ffb2b42f3fab"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.686875,
+          "bytes": 75034,
+          "hash": "363383f058a36defab072a1f89a115955a055ae81c3bc6068fd11ec3019b8a63"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.529125,
+          "bytes": 56510,
+          "hash": "5974ae6f094042be9612d7ac4490715c00c8e937447a16e91a4e670567d789b6"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.351125,
+          "bytes": 37662,
+          "hash": "6b5004fd834ccad53efddf6e5b1b63d1d3508b31c5fe5d041673c37a32821082"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.779,
+          "bytes": 28508,
+          "hash": "228168ad72e046eaa7b2645c406dc2f71313e22acc2ef7c9b97fdfe82d46f84d"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.189625,
+          "bytes": 19078,
+          "hash": "94fcfb2327bba4ab8587a408d4d938fdc0147076e8589c1a0859d1f9d6b2fc19"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.9066932856992755
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_mf2.phont",
+      "label": "ar_mf2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 6.184,
+          "bytes": 98988,
+          "hash": "820a9fc4a7544ef82d52e60c3565b3e695dd32b4a668214621bb92e8a653630d"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.126375,
+          "bytes": 66066,
+          "hash": "21d4236adf5d57afc25cfa7e5c4a636b471841621a9eaca04a07727448869da4"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.108,
+          "bytes": 49772,
+          "hash": "878af3db89088cea5f3ada2fb650f9d9bee6d7d473c87ab26736e60918675a49"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.073125,
+          "bytes": 33214,
+          "hash": "e9e96e407f39fbc6828954f7b28ab713d1a9fa4572a4e162c7d4070ad88722fb"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.57,
+          "bytes": 25164,
+          "hash": "fb40581ea9ecc39e5bdb975c0ed641177b1e4d4215c1f6316295cdf63bcb58bb"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.050375,
+          "bytes": 16850,
+          "hash": "726c7c89b9e0ceef4a8dd5b2d5c260f0353a3c80cd420b5d01dffbf954bf541c"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.8874211591098415
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_rm3.phont",
+      "label": "ar_rm3",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.2345,
+          "bytes": 115796,
+          "hash": "d2c9a04ce39673fd02c1799d5a724edb651f21e3b9ed4020331ec529af71c89f"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.825375,
+          "bytes": 77250,
+          "hash": "d56496a4db0cd9faa2aebf007764ae40b781994ba5696fd20358005ee588c44e"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.63325,
+          "bytes": 58176,
+          "hash": "5501d09208c84c1f9ccc8abdbcd419672da9c599a45c854bd99dd5d2d3e10631"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.421125,
+          "bytes": 38782,
+          "hash": "150d4b957534095298ee19dd4dd4a22d7a3c4ca0d8fca5f2009f7c69e54d3d58"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.832625,
+          "bytes": 29366,
+          "hash": "81b654b79f2c99387b5c46b6a91e266046daae1d0dc8ca24f9a77678c6f9fe42"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.224125,
+          "bytes": 19630,
+          "hash": "e25c2bb9bd90027467f3695e3f7757d5382e97ac180e8501150aad2245c9c4e6"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.9099356683345246
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F1",
+      "label": "F1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.292,
+          "bytes": 233388,
+          "hash": "cede9ebe05f356a52f26b4163ccb064c0bdbdfd1fb4a7b7c588ffa66b5803f12"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 155148,
+          "hash": "e958e029bc3bd4bb33bf9fa5d361139159b24952da08cf576cab903c8dfb1c45"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.662,
+          "bytes": 117228,
+          "hash": "cf06733a47549d3e4b8b6afd623e0a225ad37d07366921e21251a0c32ec90034"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.4348125,
+          "bytes": 77958,
+          "hash": "c21a91cec27899eb2c387e5746f6636f757720886c8f431dddcec2effb913ff6"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.847,
+          "bytes": 59148,
+          "hash": "ddfd1a4f8a455cfdbfb56593281f72773259020db557e39b299dc455a6565134"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.217,
+          "bytes": 38988,
+          "hash": "483dd12fa34530843c008341d836d75553322dae3571ae6fd34c04c7c529e114"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F2",
+      "label": "F2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.292,
+          "bytes": 233388,
+          "hash": "1dc78cb5a42dd969e16e6dd924d3660b34c91e875b3cfc9089f989c29077e539"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 155148,
+          "hash": "36cb8e02206f707143ae51a66d43dd8480998a4edc0af5b952f1f6e7b2a8e179"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.662,
+          "bytes": 117228,
+          "hash": "f2edd918e4a6f81c4e3189d64f2695f0fb05174658538471df6c46bfe65e7170"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.4348125,
+          "bytes": 77958,
+          "hash": "eb6471f790584daed77ac38571bdbf06d81260789be0efbae6d1936420532163"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.847,
+          "bytes": 59148,
+          "hash": "d752fc8bd89c0e34553c0f1d06cfdf2d76ad43901c1112c025b821642d26edf8"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.217,
+          "bytes": 38988,
+          "hash": "9c2135d35d27e20d147f8f65f84e8d0c8e6f35efaa6793e3bf39eff5226923f3"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F3",
+      "label": "F3",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 4.927027027027027,
+          "bytes": 233388,
+          "hash": "b6c76702b6057e82496c3917297069670914b8908b51cca08e12373e5a3e6461"
+        },
+        {
+          "speed": 75,
+          "seconds": 3.275,
+          "bytes": 155148,
+          "hash": "74a8734f4790dc32f4527a2e2fdb73712d6bf88fa2346f5bd2865dc242f18f01"
+        },
+        {
+          "speed": 100,
+          "seconds": 2.4743243243243245,
+          "bytes": 117228,
+          "hash": "6bdb59f1a38a383d3c7731cb13c39c7d86fa0cf6cfc90467981b778f75e969e8"
+        },
+        {
+          "speed": 150,
+          "seconds": 1.645143581081081,
+          "bytes": 77958,
+          "hash": "da07da148e8b08e99d08824b3a07cfbea12ae34e4f560932de47a09c1cf17f92"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.247972972972973,
+          "bytes": 59148,
+          "hash": "ac4adac06cadd586634f0c33fc7827392230e4091f331ee0de64a183384d1526"
+        },
+        {
+          "speed": 300,
+          "seconds": 0.8222972972972973,
+          "bytes": 38988,
+          "hash": "476407485723045cbfce4ba15fa6a183a9c6b7cc0837bf8df47090f76176eb76"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M1",
+      "label": "M1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.292,
+          "bytes": 233388,
+          "hash": "32ca755d7adbc57ce56033f56fc7ff679d8311ad5adba08df8b63aeb59fef005"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 155148,
+          "hash": "684ffe4a93a952a61fc4126b5f5dc433ea5d2b3f79ac591e1d120c22969f2a00"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.662,
+          "bytes": 117228,
+          "hash": "ebdfbafce389f9be6269d25b3452a5d51d26ed9076d27b802f937c37f1c5cc29"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.4348125,
+          "bytes": 77958,
+          "hash": "af2e88775d2701b483f0b9dc9a0be303de3ecba2bfe7a06576d0782389072c08"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.847,
+          "bytes": 59148,
+          "hash": "8b2989ea4c74ce9d65f6d8d2398e1063aea3cc9f5779e27d009438d89aceee9c"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.217,
+          "bytes": 38988,
+          "hash": "06f2863e9b001bccff924e8c847c1eed0b8bbdf36d6d5012a70d2c73d876b4ef"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M2",
+      "label": "M2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.292,
+          "bytes": 233388,
+          "hash": "51fbe2fd4398f86c9f208e35a9f6dedbb994cbbc7ed6767646df81be2e0acfd1"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 155148,
+          "hash": "7f0350da83aa948b9a58b7ab9e6c6c23782cf5cd66d0d52feec060fb942e70de"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.662,
+          "bytes": 117228,
+          "hash": "943ac5c3fb180bfdf0b3d305a389beef8a756afafe70627a1495ec1c89fcad12"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.4348125,
+          "bytes": 77958,
+          "hash": "7e770667f7e2bc7fb993521be8864cca711b41545184472e69948d2f39b792ef"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.847,
+          "bytes": 59148,
+          "hash": "750ecfed4b529c6bccea70f1a341b50a07aefa2cd0b2048c97ff30b01d5fbdb8"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.217,
+          "bytes": 38988,
+          "hash": "c678cffe48971fea4306c7577d77a6132ec11bb5c5dee6bc2bdc980cea0c467b"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R1",
+      "label": "R1",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 7.292,
+          "bytes": 233388,
+          "hash": "f53cedf32f6f558e3e49b0346c5247b7f78d981eec889af153a422c6d167b216"
+        },
+        {
+          "speed": 75,
+          "seconds": 4.847,
+          "bytes": 155148,
+          "hash": "1acdef0ee1cbb812b375f7d02018cf30e7a937169133ca55ef1d8b3d26bec971"
+        },
+        {
+          "speed": 100,
+          "seconds": 3.662,
+          "bytes": 117228,
+          "hash": "2d4bfc21fc4e22765fa63bf396eff540bdb7feef1205fd2ce6cfeec5353ba8f8"
+        },
+        {
+          "speed": 150,
+          "seconds": 2.4348125,
+          "bytes": 77958,
+          "hash": "62817749d65ffa99d004c2f6a32399e19d84917d2d0368eb3f4aad0069717e9e"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.847,
+          "bytes": 59148,
+          "hash": "dd65ed180522ce82e39ff25e98b61a86793dd0958922e4a15fbf1f70b8223e27"
+        },
+        {
+          "speed": 300,
+          "seconds": 1.217,
+          "bytes": 38988,
+          "hash": "3e51c0012b43c001a03d976a8c363bb368d02fd50211c845c309f26f4262574c"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R2",
+      "label": "R2",
+      "points": [
+        {
+          "speed": 50,
+          "seconds": 4.051111111111111,
+          "bytes": 233388,
+          "hash": "397eb09c7463fe17c6473286a5ec914edd467a8b8f8dcda6f3bc60bb09691f7d"
+        },
+        {
+          "speed": 75,
+          "seconds": 2.6927777777777777,
+          "bytes": 155148,
+          "hash": "6b32cd0f429ae28f54fd7e2a3767900de0324b0b308058cd4d6ee926dc37dbdc"
+        },
+        {
+          "speed": 100,
+          "seconds": 2.0344444444444445,
+          "bytes": 117228,
+          "hash": "e51bf4738d7b8f8a33eaaec919bc634eaf850ead7f9777baea3773c9771cc7c4"
+        },
+        {
+          "speed": 150,
+          "seconds": 1.352673611111111,
+          "bytes": 77958,
+          "hash": "9ed8f9d640ee0d014e3919be4d2933c964061529991bc7e85e875008068e97e7"
+        },
+        {
+          "speed": 200,
+          "seconds": 1.0261111111111112,
+          "bytes": 59148,
+          "hash": "cec9218c2304d4f851ec4f817883e75d56608c244ceb74f28a592cef2e4d9090"
+        },
+        {
+          "speed": 300,
+          "seconds": 0.6761111111111111,
+          "bytes": 38988,
+          "hash": "7bc87288670b0336fd926022844ad14aadf45016ac04467b5bfba11ecc7e35da"
+        }
+      ],
+      "violations": [],
+      "ratio": 5.991783073130649
+    }
+  ],
+  "invalid": {
+    "aqtk1": {
+      "accepted": 0,
+      "codes": [
+        "-2132573055",
+        "0",
+        "1",
+        "105",
+        "16",
+        "ERR"
+      ],
+      "cases": {
+        "invalid-empty": {
+          "accepted": [],
+          "codes": [
+            "ERR",
+            "-2132573055",
+            "0"
+          ]
+        },
+        "invalid-ascii": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-kanji": {
+          "accepted": [],
+          "codes": [
+            "1",
+            "105"
+          ]
+        },
+        "invalid-halfwidth": {
+          "accepted": [],
+          "codes": [
+            "1",
+            "105"
+          ]
+        },
+        "invalid-emoji": {
+          "accepted": [],
+          "codes": [
+            "16",
+            "105"
+          ]
+        },
+        "invalid-latin-mix": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-exclamation": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        }
+      }
+    },
+    "aqtk2": {
+      "accepted": 0,
+      "codes": [
+        "0",
+        "1",
+        "105",
+        "16",
+        "22"
+      ],
+      "cases": {
+        "invalid-empty": {
+          "accepted": [],
+          "codes": [
+            "0"
+          ]
+        },
+        "invalid-ascii": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-kanji": {
+          "accepted": [],
+          "codes": [
+            "1"
+          ]
+        },
+        "invalid-halfwidth": {
+          "accepted": [],
+          "codes": [
+            "1"
+          ]
+        },
+        "invalid-emoji": {
+          "accepted": [],
+          "codes": [
+            "16"
+          ]
+        },
+        "invalid-latin-mix": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-exclamation": {
+          "accepted": [],
+          "codes": [
+            "22"
+          ]
+        }
+      }
+    },
+    "aqtk10": {
+      "accepted": 0,
+      "codes": [
+        "104",
+        "105"
+      ],
+      "cases": {
+        "invalid-empty": {
+          "accepted": [],
+          "codes": [
+            "104"
+          ]
+        },
+        "invalid-ascii": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-kanji": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-halfwidth": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-emoji": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-latin-mix": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        },
+        "invalid-exclamation": {
+          "accepted": [],
+          "codes": [
+            "105"
+          ]
+        }
+      }
+    }
+  },
+  "emptyCodeRuns": {
+    "aqtk1": {
+      "fresh": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "warm": [
+        "-486505856",
+        "-486505856",
+        "-486505856",
+        "-486505856",
+        "-486505856"
+      ]
+    },
+    "aqtk2": {
+      "fresh": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "warm": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "aqtk10": {
+      "fresh": [
+        "104",
+        "104",
+        "104",
+        "104",
+        "104"
+      ],
+      "warm": [
+        "104",
+        "104",
+        "104",
+        "104",
+        "104"
+      ]
+    }
+  },
+  "divergent": {
+    "divergent-space": {
+      "note": "ASCII space",
+      "text": "こんにちは せかい。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "codes": [
+            "105"
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "codes": []
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "codes": [
+            "105"
+          ]
+        }
+      }
+    },
+    "divergent-sokuon-question": {
+      "note": "small tsu before a question mark",
+      "text": "えっ？そうなんですか。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "codes": [
+            "102"
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "codes": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "codes": []
+        }
+      }
+    }
+  },
+  "evaluation": [
+    {
+      "engineId": "aqtk1",
+      "voice": "f1",
+      "label": "f1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f2",
+      "label": "f2",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m1",
+      "label": "m1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m2",
+      "label": "m2",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "r1",
+      "label": "r1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "imd1",
+      "label": "imd1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "jgr",
+      "label": "jgr",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "dvd",
+      "label": "dvd",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f3",
+      "label": "f3",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "",
+      "label": "default",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_defo1.phont",
+      "label": "aq_defo1",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rm.phont",
+      "label": "aq_rm",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f1c.phont",
+      "label": "aq_f1c",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f3a.phont",
+      "label": "aq_f3a",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_m4b.phont",
+      "label": "aq_m4b",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_mf1.phont",
+      "label": "aq_mf1",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_momo1.phont",
+      "label": "aq_momo1",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_huskey.phont",
+      "label": "aq_huskey",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb2.phont",
+      "label": "aq_rb2",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb3.phont",
+      "label": "aq_rb3",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_robo.phont",
+      "label": "aq_robo",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_teto1.phont",
+      "label": "aq_teto1",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_yukkuri.phont",
+      "label": "aq_yukkuri",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_f4.phont",
+      "label": "ar_f4",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_m5.phont",
+      "label": "ar_m5",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_mf2.phont",
+      "label": "ar_mf2",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_rm3.phont",
+      "label": "ar_rm3",
+      "probes": 9,
+      "differences": 9,
+      "collapsed": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F1",
+      "label": "F1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F2",
+      "label": "F2",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F3",
+      "label": "F3",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M1",
+      "label": "M1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M2",
+      "label": "M2",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R1",
+      "label": "R1",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R2",
+      "label": "R2",
+      "probes": 9,
+      "differences": 0,
+      "collapsed": true,
+      "expected": true,
+      "ok": true
+    }
+  ],
+  "scripts": [
+    {
+      "id": "script-hello",
+      "engines": {
+        "aqtk1": {
+          "same": 0,
+          "different": 9,
+          "rejected": [],
+          "differentVoices": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ]
+        },
+        "aqtk2": {
+          "same": 0,
+          "different": 18,
+          "rejected": [],
+          "differentVoices": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ]
+        },
+        "aqtk10": {
+          "same": 0,
+          "different": 7,
+          "rejected": [],
+          "differentVoices": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "script-weather",
+      "engines": {
+        "aqtk1": {
+          "same": 9,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 7,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        }
+      }
+    },
+    {
+      "id": "script-food",
+      "engines": {
+        "aqtk1": {
+          "same": 9,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 7,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        }
+      }
+    },
+    {
+      "id": "script-transit",
+      "engines": {
+        "aqtk1": {
+          "same": 0,
+          "different": 9,
+          "rejected": [],
+          "differentVoices": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ]
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 0,
+          "different": 7,
+          "rejected": [],
+          "differentVoices": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "script-thanks",
+      "engines": {
+        "aqtk1": {
+          "same": 0,
+          "different": 9,
+          "rejected": [],
+          "differentVoices": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ]
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 0,
+          "different": 7,
+          "rejected": [],
+          "differentVoices": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "script-long",
+      "engines": {
+        "aqtk1": {
+          "same": 9,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 7,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        }
+      }
+    },
+    {
+      "id": "script-small",
+      "engines": {
+        "aqtk1": {
+          "same": 9,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 7,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        }
+      }
+    },
+    {
+      "id": "script-namagome",
+      "engines": {
+        "aqtk1": {
+          "same": 0,
+          "different": 9,
+          "rejected": [],
+          "differentVoices": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ]
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 0,
+          "different": 7,
+          "rejected": [],
+          "differentVoices": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "script-punct",
+      "engines": {
+        "aqtk1": {
+          "same": 0,
+          "different": 9,
+          "rejected": [],
+          "differentVoices": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ]
+        },
+        "aqtk2": {
+          "same": 0,
+          "different": 18,
+          "rejected": [],
+          "differentVoices": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ]
+        },
+        "aqtk10": {
+          "same": 0,
+          "different": 7,
+          "rejected": [],
+          "differentVoices": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "script-numbers",
+      "engines": {
+        "aqtk1": {
+          "same": 9,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk2": {
+          "same": 18,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        },
+        "aqtk10": {
+          "same": 7,
+          "different": 0,
+          "rejected": [],
+          "differentVoices": []
+        }
+      }
+    }
+  ],
+  "longInput": [
+    {
+      "engineId": "aqtk1",
+      "voice": "f1",
+      "bytes": 1267756,
+      "seconds": 79.232,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "",
+      "bytes": 1331756,
+      "seconds": 83.232,
+      "ok": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F1",
+      "bytes": 2551468,
+      "seconds": 79.732,
+      "ok": true
+    }
+  ],
+  "hardFailures": []
+}

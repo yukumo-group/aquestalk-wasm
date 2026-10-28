@@ -11,7 +11,8 @@ mkdir -p "$OUT"
 FLAGS="--target=wasm64-unknown-unknown -O2 -nostdlib -fno-strict-aliasing \
   -Wno-incompatible-pointer-types -Wno-pointer-sign -Wno-int-conversion \
   -Wno-implicit-function-declaration -Wno-shift-op-parentheses \
-  -Wno-return-mismatch -Wno-unused-value -DAQK2K_WASM -DAQK2K_LEAK -I$SRC"
+  -Wno-return-mismatch -Wno-unused-value -DAQK2K_WASM -I$SRC"
+if [ "${AQK2K_LEAK:-0}" = 1 ]; then FLAGS="$FLAGS -DAQK2K_LEAK"; fi
 
 $CC $FLAGS -c $SRC/runtime.c      -o $OUT/runtime.o
 $CC $FLAGS -c $SRC/shim.c         -o $OUT/shim.o

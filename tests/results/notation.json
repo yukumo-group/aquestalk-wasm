@@ -1,0 +1,7123 @@
+{
+  "ok": true,
+  "strict": false,
+  "generatedAt": "2026-10-28T05:08:14.643Z",
+  "durationMs": 5716,
+  "datasetProblems": [],
+  "spec": {
+    "title": "AquesTalk 音声記号列仕様書 Version 1.5",
+    "file": "engines/aquestalk2/aqtk2-lnx/siyo_onseikigou.pdf",
+    "sections": [
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.5",
+      "2.6",
+      "2.7",
+      "2.8",
+      "2.9",
+      "3.1",
+      "3.4",
+      "3.5",
+      "3.6",
+      "3.7",
+      "3.8",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  "summary": {
+    "engines": 3,
+    "voices": 34,
+    "readingSymbols": 161,
+    "validCases": 20,
+    "sampleCases": 17,
+    "invalidCases": 22,
+    "counters": 27,
+    "romanCases": 8,
+    "romanFailures": 1,
+    "symbolChecks": 5474,
+    "symbolFailures": 0,
+    "invalidAccepted": 367,
+    "invalidChecks": 748,
+    "invalidRejectionRate": 0.5093582887700534
+  },
+  "engines": [
+    {
+      "engineId": "aqtk1",
+      "engine": "AquesTalk1",
+      "voices": 9,
+      "symbols": 1449,
+      "validChecks": 180,
+      "validAccepted": 180,
+      "sampleChecks": 153,
+      "sampleAccepted": 145,
+      "invalidChecks": 198,
+      "invalidAccepted": 70,
+      "numericChecks": 243,
+      "numericAccepted": 243
+    },
+    {
+      "engineId": "aqtk2",
+      "engine": "AquesTalk2",
+      "voices": 18,
+      "symbols": 2898,
+      "validChecks": 360,
+      "validAccepted": 360,
+      "sampleChecks": 306,
+      "sampleAccepted": 278,
+      "invalidChecks": 396,
+      "invalidAccepted": 234,
+      "numericChecks": 486,
+      "numericAccepted": 389
+    },
+    {
+      "engineId": "aqtk10",
+      "engine": "AquesTalk10",
+      "voices": 7,
+      "symbols": 1127,
+      "validChecks": 140,
+      "validAccepted": 140,
+      "sampleChecks": 119,
+      "sampleAccepted": 119,
+      "invalidChecks": 154,
+      "invalidAccepted": 63,
+      "numericChecks": 189,
+      "numericAccepted": 189
+    }
+  ],
+  "symbolGroups": [
+    [
+      "basic",
+      72,
+      2448,
+      0
+    ],
+    [
+      "yoon",
+      63,
+      2142,
+      0
+    ],
+    [
+      "nasal",
+      9,
+      306,
+      0
+    ],
+    [
+      "devoiced",
+      17,
+      578,
+      0
+    ]
+  ],
+  "symbolFailures": [],
+  "valid": [
+    {
+      "id": "particle-ha",
+      "section": "2.1",
+      "text": "これわ、おんせーき'ごーです。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "accent-kare",
+      "section": "2.2",
+      "text": "か'れし。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "accent-kurabu",
+      "section": "2.2",
+      "text": "く'らぶ。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "accent-no-mark",
+      "section": "2.2",
+      "text": "かれし。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "accent-yoon",
+      "section": "2.2",
+      "text": "じゅ'んび、できたよ。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sep-semicolon",
+      "section": "2.3",
+      "text": "あ'くせんと;な'どの/かなめとな'る、",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sep-slash",
+      "section": "2.3",
+      "text": "あ'くせんと/な'どの/かなめとな'る、",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sep-plus",
+      "section": "2.3",
+      "text": "あ'くせんと+な'どの/かなめとな'る、",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sep-joined",
+      "section": "2.3",
+      "text": "あ'くせんとなどの/かなめとな'る、",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sep-full-comma",
+      "section": "2.4",
+      "text": "あ、い。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sep-half-comma",
+      "section": "2.4",
+      "text": "あ,い。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "terminal-comma",
+      "section": "2.5",
+      "text": "ふぁいるお/ほぞん、",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "terminal-question",
+      "section": "2.5",
+      "text": "ろくおん+しま'すか？",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "devoice-example",
+      "section": "2.6",
+      "text": "え'るめ_スの/あ'_クせさりー。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "voicing-katakana",
+      "section": "2.6",
+      "text": "よみあげまス。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "nasal-example",
+      "section": "2.7",
+      "text": "めだかの/カ゜っこーわ、かわの+な'か。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "num-phone",
+      "section": "2.8.1",
+      "text": "でんわば'んごーわ、<NUM VAL=01-2345-6789>です。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "num-pi",
+      "section": "2.8.1",
+      "text": "ぱ'いわ、<NUM VAL=3.1415926535897932>。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "numk-counter",
+      "section": "2.8.2",
+      "text": "のこり+じ'かんわ、あ'と/<NUMK VAL=10 COUNTER=ふん>です。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "multi-sentence",
+      "section": "2.9",
+      "text": "さんだるを、つっかけとゆう。ちょ'っと+ま'ってを、た'んまとゆう。",
+      "engines": {
+        "aqtk1": {
+          "accepted": 9,
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": 18,
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": 7,
+          "total": 7,
+          "errors": []
+        }
+      }
+    }
+  ],
+  "samples": [
+    {
+      "id": "sample-01",
+      "section": "4",
+      "text": "でんわば'んごーわ、<NUM VAL=01-2345-6789>です。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-02",
+      "section": "4",
+      "text": "さーばー;<NUM VAL=3512>の/はーどでぃ'_ス_クに、え'らー+はっせー。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-03",
+      "section": "4",
+      "text": "げつよ'ーの/<NUMK VAL=21 COUNTER=じ>から、<NUMK VAL=8 COUNTER=ちゃ'んねる>で/よやく+しま'した。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-04",
+      "section": "4",
+      "text": "りょ'ーきんわ;<NUMK VAL=550 COUNTER=えん>です。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_mf1",
+            "aq_huskey",
+            "aq_rb3",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "aq_m4b",
+              "code": 106
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 106
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 106
+            },
+            {
+              "voice": "aq_robo",
+              "code": 106
+            },
+            {
+              "voice": "ar_f4",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-05",
+      "section": "4",
+      "text": "すみませ'ん、<NUMK VAL=10 COUNTER=ふん>+おくれま'す。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-06",
+      "section": "4",
+      "text": "<NUMK VAL=20 COUNTER=ふん>に、え'きで/ま'ってます。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "aq_mf1",
+              "code": 106
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-07",
+      "section": "4",
+      "text": "あすのて'んき、とーきょー、はれ'のち+くもり、さいこーき'おん、<NUMK VAL=25 COUNTER=ど>。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "ar_m5",
+              "code": 106
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-08",
+      "section": "4",
+      "text": "<NUMK VAL=100 COUNTER=め'ーとる>さき、こーえんいりぐちの/こーさてんを+ひだりで'す。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb3",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "aq_rm",
+              "code": 106
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 106
+            },
+            {
+              "voice": "aq_robo",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-09",
+      "section": "4",
+      "text": "このさき;<NUMK VAL=3 COUNTER=きろ>/じゅーたいちゅー。つーかじ'かん;<NUMK VAL=10 COUNTER=ふん>、",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "ar_f4",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "aq_f1c",
+              "code": 106
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 106
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 106
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 106
+            },
+            {
+              "voice": "ar_m5",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-10",
+      "section": "4",
+      "text": "よろし'いですか？",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-11",
+      "section": "4",
+      "text": "これでい'い？",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-12",
+      "section": "4",
+      "text": "ばってりーの/じゅーでん+かんりょー。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-13",
+      "section": "4",
+      "text": "<NUM VAL=2006 COUNTER=ねん>、<NUM VAL=1 COUNTER=がつ>;<NUM VAL=15 COUNTER=にち>。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "ar_f4",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 106
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 106
+            },
+            {
+              "voice": "ar_m5",
+              "code": 106
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-14",
+      "section": "4",
+      "text": "<NUM VAL=16 COUNTER=じ>;<NUM VAL=5 COUNTER=ふん>/<NUM VAL=35 COUNTER=びょー>です。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_rb2",
+            "aq_robo",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "aq_defo1",
+              "code": 106
+            },
+            {
+              "voice": "aq_rm",
+              "code": 106
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 106
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 106
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-15",
+      "section": "4",
+      "text": "それから'わ、やまぐち'けんで;やとわれば'んとーお/するよ'ーに+な'り、か'ぞくの/もと'にわ、ほと'んど;もどれ'なく+なりま'した。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-16",
+      "section": "4",
+      "text": "ばくおんが、ぎんせ'かいの/こーげんに/ひろがる。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "sample-17",
+      "section": "2.8.2",
+      "text": "きの'ーわ、<NUMK VAL=321162567>+でした。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 100
+            },
+            {
+              "voice": "f2",
+              "code": 100
+            },
+            {
+              "voice": "m1",
+              "code": 100
+            },
+            {
+              "voice": "m2",
+              "code": 100
+            },
+            {
+              "voice": "r1",
+              "code": 100
+            },
+            {
+              "voice": "imd1",
+              "code": 100
+            },
+            {
+              "voice": "jgr",
+              "code": 100
+            },
+            {
+              "voice": "dvd",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 106
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "id": "accent-inside-yoon",
+      "section": "2.2",
+      "text": "じ'ゅんび、できたよ。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 105
+            },
+            {
+              "voice": "f2",
+              "code": 105
+            },
+            {
+              "voice": "m1",
+              "code": 105
+            },
+            {
+              "voice": "m2",
+              "code": 105
+            },
+            {
+              "voice": "r1",
+              "code": 105
+            },
+            {
+              "voice": "imd1",
+              "code": 105
+            },
+            {
+              "voice": "jgr",
+              "code": 105
+            },
+            {
+              "voice": "dvd",
+              "code": 105
+            },
+            {
+              "voice": "f3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 105
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_rm",
+              "code": 105
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 105
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 105
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 105
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 105
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 105
+            },
+            {
+              "voice": "aq_robo",
+              "code": 105
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 105
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 105
+            },
+            {
+              "voice": "ar_f4",
+              "code": 105
+            },
+            {
+              "voice": "ar_m5",
+              "code": 105
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 105
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 105
+            },
+            {
+              "voice": "F2",
+              "code": 105
+            },
+            {
+              "voice": "F3",
+              "code": 105
+            },
+            {
+              "voice": "M1",
+              "code": 105
+            },
+            {
+              "voice": "M2",
+              "code": 105
+            },
+            {
+              "voice": "R1",
+              "code": 105
+            },
+            {
+              "voice": "R2",
+              "code": 105
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "accent-multiple",
+      "section": "3.4",
+      "text": "ひと'つのあくせんと'くです。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "accent-multiple-2",
+      "section": "3.4",
+      "text": "あ'い'う。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "restriction-final-sokuon",
+      "section": "3.8.1",
+      "text": "あっ。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "restriction-final-sokuon-2",
+      "section": "3.8.1",
+      "text": "えっ、うそー。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "restriction-double-sokuon",
+      "section": "3.8.2",
+      "text": "えっっと。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 103
+            },
+            {
+              "voice": "F2",
+              "code": 103
+            },
+            {
+              "voice": "F3",
+              "code": 103
+            },
+            {
+              "voice": "M1",
+              "code": 103
+            },
+            {
+              "voice": "M2",
+              "code": 103
+            },
+            {
+              "voice": "R1",
+              "code": 103
+            },
+            {
+              "voice": "R2",
+              "code": 103
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "restriction-double-sokuon-2",
+      "section": "3.8.2",
+      "text": "えっッと。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 103
+            },
+            {
+              "voice": "F2",
+              "code": 103
+            },
+            {
+              "voice": "F3",
+              "code": 103
+            },
+            {
+              "voice": "M1",
+              "code": 103
+            },
+            {
+              "voice": "M2",
+              "code": 103
+            },
+            {
+              "voice": "R1",
+              "code": 103
+            },
+            {
+              "voice": "R2",
+              "code": 103
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "restriction-initial-long",
+      "section": "3.8.3",
+      "text": "ーか。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 103
+            },
+            {
+              "voice": "F2",
+              "code": 103
+            },
+            {
+              "voice": "F3",
+              "code": 103
+            },
+            {
+              "voice": "M1",
+              "code": 103
+            },
+            {
+              "voice": "M2",
+              "code": 103
+            },
+            {
+              "voice": "R1",
+              "code": 103
+            },
+            {
+              "voice": "R2",
+              "code": 103
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "restriction-initial-long-2",
+      "section": "3.8.3",
+      "text": "わたし;ーわ、",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "restriction-sokuon-long",
+      "section": "3.8.4",
+      "text": "えっー。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 103
+            },
+            {
+              "voice": "F2",
+              "code": 103
+            },
+            {
+              "voice": "F3",
+              "code": 103
+            },
+            {
+              "voice": "M1",
+              "code": 103
+            },
+            {
+              "voice": "M2",
+              "code": 103
+            },
+            {
+              "voice": "R1",
+              "code": 103
+            },
+            {
+              "voice": "R2",
+              "code": 103
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "restriction-devoice-long",
+      "section": "3.8.5",
+      "text": "ナイ_スー。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 102
+            },
+            {
+              "voice": "f2",
+              "code": 102
+            },
+            {
+              "voice": "m1",
+              "code": 102
+            },
+            {
+              "voice": "m2",
+              "code": 102
+            },
+            {
+              "voice": "r1",
+              "code": 102
+            },
+            {
+              "voice": "imd1",
+              "code": 102
+            },
+            {
+              "voice": "jgr",
+              "code": 102
+            },
+            {
+              "voice": "dvd",
+              "code": 102
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "restriction-devoice-vowel",
+      "section": "3.8.5",
+      "text": "あ_キや。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "devoice-hiragana",
+      "section": "2.6",
+      "text": "_す。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 105
+            },
+            {
+              "voice": "f2",
+              "code": 105
+            },
+            {
+              "voice": "m1",
+              "code": 105
+            },
+            {
+              "voice": "m2",
+              "code": 105
+            },
+            {
+              "voice": "r1",
+              "code": 105
+            },
+            {
+              "voice": "imd1",
+              "code": 105
+            },
+            {
+              "voice": "jgr",
+              "code": 105
+            },
+            {
+              "voice": "dvd",
+              "code": 105
+            },
+            {
+              "voice": "f3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 105
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_rm",
+              "code": 105
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 105
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 105
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 105
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 105
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 105
+            },
+            {
+              "voice": "aq_robo",
+              "code": 105
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 105
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 105
+            },
+            {
+              "voice": "ar_f4",
+              "code": 105
+            },
+            {
+              "voice": "ar_m5",
+              "code": 105
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 105
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 105
+            },
+            {
+              "voice": "F2",
+              "code": 105
+            },
+            {
+              "voice": "F3",
+              "code": 105
+            },
+            {
+              "voice": "M1",
+              "code": 105
+            },
+            {
+              "voice": "M2",
+              "code": 105
+            },
+            {
+              "voice": "R1",
+              "code": 105
+            },
+            {
+              "voice": "R2",
+              "code": 105
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nasal-hiragana",
+      "section": "2.7",
+      "text": "か゜。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 105
+            },
+            {
+              "voice": "f2",
+              "code": 105
+            },
+            {
+              "voice": "m1",
+              "code": 105
+            },
+            {
+              "voice": "m2",
+              "code": 105
+            },
+            {
+              "voice": "r1",
+              "code": 105
+            },
+            {
+              "voice": "imd1",
+              "code": 105
+            },
+            {
+              "voice": "jgr",
+              "code": 105
+            },
+            {
+              "voice": "dvd",
+              "code": 105
+            },
+            {
+              "voice": "f3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 105
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_rm",
+              "code": 105
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 105
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 105
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 105
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 105
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 105
+            },
+            {
+              "voice": "aq_robo",
+              "code": 105
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 105
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 105
+            },
+            {
+              "voice": "ar_f4",
+              "code": 105
+            },
+            {
+              "voice": "ar_m5",
+              "code": 105
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 105
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 105
+            },
+            {
+              "voice": "F2",
+              "code": 105
+            },
+            {
+              "voice": "F3",
+              "code": 105
+            },
+            {
+              "voice": "M1",
+              "code": 105
+            },
+            {
+              "voice": "M2",
+              "code": 105
+            },
+            {
+              "voice": "R1",
+              "code": 105
+            },
+            {
+              "voice": "R2",
+              "code": 105
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "num-alpha",
+      "section": "2.8.1",
+      "text": "<NUM VAL=12a>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 108
+            },
+            {
+              "voice": "f2",
+              "code": 108
+            },
+            {
+              "voice": "m1",
+              "code": 108
+            },
+            {
+              "voice": "m2",
+              "code": 108
+            },
+            {
+              "voice": "r1",
+              "code": 108
+            },
+            {
+              "voice": "imd1",
+              "code": 108
+            },
+            {
+              "voice": "jgr",
+              "code": 108
+            },
+            {
+              "voice": "dvd",
+              "code": 108
+            },
+            {
+              "voice": "f3",
+              "code": 108
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 108
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 108
+            },
+            {
+              "voice": "aq_rm",
+              "code": 108
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 108
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 108
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 108
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 108
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 108
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 108
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 108
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 108
+            },
+            {
+              "voice": "aq_robo",
+              "code": 108
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 108
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 108
+            },
+            {
+              "voice": "ar_f4",
+              "code": 108
+            },
+            {
+              "voice": "ar_m5",
+              "code": 108
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 108
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 108
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 108
+            },
+            {
+              "voice": "F2",
+              "code": 108
+            },
+            {
+              "voice": "F3",
+              "code": 108
+            },
+            {
+              "voice": "M1",
+              "code": 108
+            },
+            {
+              "voice": "M2",
+              "code": 108
+            },
+            {
+              "voice": "R1",
+              "code": 108
+            },
+            {
+              "voice": "R2",
+              "code": 108
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "num-unclosed",
+      "section": "3.6",
+      "text": "<NUM VAL=12",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 107
+            },
+            {
+              "voice": "f2",
+              "code": 107
+            },
+            {
+              "voice": "m1",
+              "code": 107
+            },
+            {
+              "voice": "m2",
+              "code": 107
+            },
+            {
+              "voice": "r1",
+              "code": 107
+            },
+            {
+              "voice": "imd1",
+              "code": 107
+            },
+            {
+              "voice": "jgr",
+              "code": 107
+            },
+            {
+              "voice": "dvd",
+              "code": 107
+            },
+            {
+              "voice": "f3",
+              "code": 107
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 107
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 107
+            },
+            {
+              "voice": "aq_rm",
+              "code": 107
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 107
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 107
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 107
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 107
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 107
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 107
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 107
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 107
+            },
+            {
+              "voice": "aq_robo",
+              "code": 107
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 107
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 107
+            },
+            {
+              "voice": "ar_f4",
+              "code": 107
+            },
+            {
+              "voice": "ar_m5",
+              "code": 107
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 107
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 107
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 107
+            },
+            {
+              "voice": "F2",
+              "code": 107
+            },
+            {
+              "voice": "F3",
+              "code": 107
+            },
+            {
+              "voice": "M1",
+              "code": 107
+            },
+            {
+              "voice": "M2",
+              "code": 107
+            },
+            {
+              "voice": "R1",
+              "code": 107
+            },
+            {
+              "voice": "R2",
+              "code": 107
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "num-fullwidth",
+      "section": "3.6",
+      "text": "<NUM VAL=１２>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 10
+            },
+            {
+              "voice": "f2",
+              "code": 10
+            },
+            {
+              "voice": "m1",
+              "code": 10
+            },
+            {
+              "voice": "m2",
+              "code": 10
+            },
+            {
+              "voice": "r1",
+              "code": 10
+            },
+            {
+              "voice": "imd1",
+              "code": 10
+            },
+            {
+              "voice": "jgr",
+              "code": 10
+            },
+            {
+              "voice": "dvd",
+              "code": 10
+            },
+            {
+              "voice": "f3",
+              "code": 108
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 10
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 10
+            },
+            {
+              "voice": "aq_rm",
+              "code": 10
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 10
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 10
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 10
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 10
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 10
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 10
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 10
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 10
+            },
+            {
+              "voice": "aq_robo",
+              "code": 10
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 10
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 10
+            },
+            {
+              "voice": "ar_f4",
+              "code": 10
+            },
+            {
+              "voice": "ar_m5",
+              "code": 10
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 10
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 10
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 108
+            },
+            {
+              "voice": "F2",
+              "code": 108
+            },
+            {
+              "voice": "F3",
+              "code": 108
+            },
+            {
+              "voice": "M1",
+              "code": 108
+            },
+            {
+              "voice": "M2",
+              "code": 108
+            },
+            {
+              "voice": "R1",
+              "code": 108
+            },
+            {
+              "voice": "R2",
+              "code": 108
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "tag-lowercase",
+      "section": "3.6",
+      "text": "<num VAL=12>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 106
+            },
+            {
+              "voice": "f2",
+              "code": 106
+            },
+            {
+              "voice": "m1",
+              "code": 106
+            },
+            {
+              "voice": "m2",
+              "code": 106
+            },
+            {
+              "voice": "r1",
+              "code": 106
+            },
+            {
+              "voice": "imd1",
+              "code": 106
+            },
+            {
+              "voice": "jgr",
+              "code": 106
+            },
+            {
+              "voice": "dvd",
+              "code": 106
+            },
+            {
+              "voice": "f3",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 106
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 106
+            },
+            {
+              "voice": "aq_rm",
+              "code": 106
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 106
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 106
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 106
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 106
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 106
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 106
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 106
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 106
+            },
+            {
+              "voice": "aq_robo",
+              "code": 106
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 106
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 106
+            },
+            {
+              "voice": "ar_f4",
+              "code": 106
+            },
+            {
+              "voice": "ar_m5",
+              "code": 106
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 106
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 106
+            },
+            {
+              "voice": "F2",
+              "code": 106
+            },
+            {
+              "voice": "F3",
+              "code": 106
+            },
+            {
+              "voice": "M1",
+              "code": 106
+            },
+            {
+              "voice": "M2",
+              "code": 106
+            },
+            {
+              "voice": "R1",
+              "code": 106
+            },
+            {
+              "voice": "R2",
+              "code": 106
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "tag-too-long",
+      "section": "3.6",
+      "text": "<NUM VAL=11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 100
+            },
+            {
+              "voice": "f2",
+              "code": 100
+            },
+            {
+              "voice": "m1",
+              "code": 100
+            },
+            {
+              "voice": "m2",
+              "code": 100
+            },
+            {
+              "voice": "r1",
+              "code": 100
+            },
+            {
+              "voice": "imd1",
+              "code": 100
+            },
+            {
+              "voice": "jgr",
+              "code": 100
+            },
+            {
+              "voice": "dvd",
+              "code": 100
+            },
+            {
+              "voice": "f3",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 100
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 100
+            },
+            {
+              "voice": "aq_rm",
+              "code": 100
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 100
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 100
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 100
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 100
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 100
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 100
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 100
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 100
+            },
+            {
+              "voice": "aq_robo",
+              "code": 100
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 100
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 100
+            },
+            {
+              "voice": "ar_f4",
+              "code": 100
+            },
+            {
+              "voice": "ar_m5",
+              "code": 100
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 100
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 100
+            },
+            {
+              "voice": "F2",
+              "code": 100
+            },
+            {
+              "voice": "F3",
+              "code": 100
+            },
+            {
+              "voice": "M1",
+              "code": 100
+            },
+            {
+              "voice": "M2",
+              "code": 100
+            },
+            {
+              "voice": "R1",
+              "code": 100
+            },
+            {
+              "voice": "R2",
+              "code": 100
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "input-newline",
+      "section": "3.1",
+      "text": "こんにちは\nせかい。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "input-tab",
+      "section": "3.1",
+      "text": "こんにちは\tせかい。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": []
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "undefined-foreign",
+      "section": "2.9",
+      "text": "ぐぃ。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 105
+            },
+            {
+              "voice": "aq_defo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_rm",
+              "code": 105
+            },
+            {
+              "voice": "aq_f1c",
+              "code": 105
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 105
+            },
+            {
+              "voice": "aq_m4b",
+              "code": 105
+            },
+            {
+              "voice": "aq_mf1",
+              "code": 105
+            },
+            {
+              "voice": "aq_momo1",
+              "code": 105
+            },
+            {
+              "voice": "aq_huskey",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb2",
+              "code": 105
+            },
+            {
+              "voice": "aq_rb3",
+              "code": 105
+            },
+            {
+              "voice": "aq_robo",
+              "code": 105
+            },
+            {
+              "voice": "aq_teto1",
+              "code": 105
+            },
+            {
+              "voice": "aq_yukkuri",
+              "code": 105
+            },
+            {
+              "voice": "ar_f4",
+              "code": 105
+            },
+            {
+              "voice": "ar_m5",
+              "code": 105
+            },
+            {
+              "voice": "ar_mf2",
+              "code": 105
+            },
+            {
+              "voice": "ar_rm3",
+              "code": 105
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [],
+          "total": 7,
+          "errors": [
+            {
+              "voice": "F1",
+              "code": 105
+            },
+            {
+              "voice": "F2",
+              "code": 105
+            },
+            {
+              "voice": "F3",
+              "code": 105
+            },
+            {
+              "voice": "M1",
+              "code": 105
+            },
+            {
+              "voice": "M2",
+              "code": 105
+            },
+            {
+              "voice": "R1",
+              "code": 105
+            },
+            {
+              "voice": "R2",
+              "code": 105
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "semantic": [
+    {
+      "id": "accent-changes-audio",
+      "section": "2.2",
+      "a": "か'れし。",
+      "b": "かれし。",
+      "expectation": "different",
+      "engines": {
+        "aqtk1": {
+          "different": 9,
+          "same": 0,
+          "total": 9,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk2": {
+          "different": 18,
+          "same": 0,
+          "total": 18,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk10": {
+          "different": 7,
+          "same": 0,
+          "total": 7,
+          "rejected": [],
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "devoice-marker-changes-audio",
+      "section": "2.6",
+      "a": "_キ。",
+      "b": "キ。",
+      "expectation": "different",
+      "engines": {
+        "aqtk1": {
+          "different": 9,
+          "same": 0,
+          "total": 9,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk2": {
+          "different": 18,
+          "same": 0,
+          "total": 18,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk10": {
+          "different": 7,
+          "same": 0,
+          "total": 7,
+          "rejected": [],
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "nasal-marker-changes-audio",
+      "section": "2.7",
+      "a": "カ゜。",
+      "b": "ガ。",
+      "expectation": "different",
+      "engines": {
+        "aqtk1": {
+          "different": 9,
+          "same": 0,
+          "total": 9,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk2": {
+          "different": 0,
+          "same": 18,
+          "total": 18,
+          "rejected": [],
+          "ok": false,
+          "known": "AquesTalk2 的手动鼻浊音记号与其破裂音输出相同"
+        },
+        "aqtk10": {
+          "different": 7,
+          "same": 0,
+          "total": 7,
+          "rejected": [],
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "question-raises-ending",
+      "section": "2.4",
+      "a": "あ？",
+      "b": "あ。",
+      "expectation": "different",
+      "engines": {
+        "aqtk1": {
+          "different": 9,
+          "same": 0,
+          "total": 9,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk2": {
+          "different": 18,
+          "same": 0,
+          "total": 18,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk10": {
+          "different": 7,
+          "same": 0,
+          "total": 7,
+          "rejected": [],
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "terminal-comma-vs-period",
+      "section": "2.5",
+      "a": "あ、",
+      "b": "あ。",
+      "expectation": "different",
+      "engines": {
+        "aqtk1": {
+          "different": 0,
+          "same": 9,
+          "total": 9,
+          "rejected": [],
+          "ok": false,
+          "known": "AquesTalk1 的句末「、」与「。」输出相同"
+        },
+        "aqtk2": {
+          "different": 18,
+          "same": 0,
+          "total": 18,
+          "rejected": [],
+          "ok": true
+        },
+        "aqtk10": {
+          "different": 0,
+          "same": 7,
+          "total": 7,
+          "rejected": [],
+          "ok": false,
+          "known": "AquesTalk10 的句末「、」与「。」输出相同"
+        }
+      }
+    }
+  ],
+  "pauses": [
+    {
+      "engineId": "aqtk1",
+      "voice": "f1",
+      "label": "f1",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f2",
+      "label": "f2",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m1",
+      "label": "m1",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "m2",
+      "label": "m2",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "r1",
+      "label": "r1",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "imd1",
+      "label": "imd1",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "jgr",
+      "label": "jgr",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "dvd",
+      "label": "dvd",
+      "durations": {
+        "long": 0.627,
+        "short": 0.46025,
+        "none": 0.317,
+        "semicolon": 0.317,
+        "plus": 0.317
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk1",
+      "voice": "f3",
+      "label": "f3",
+      "durations": {
+        "long": 0.852,
+        "short": 0.68525,
+        "none": 0.457,
+        "semicolon": 0.457,
+        "plus": 0.457
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "",
+      "label": "default",
+      "durations": {
+        "long": 0.7645,
+        "short": 0.502,
+        "none": 0.3195,
+        "semicolon": 0.3195,
+        "plus": 0.3195
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_defo1.phont",
+      "label": "aq_defo1",
+      "durations": {
+        "long": 0.83375,
+        "short": 0.57125,
+        "none": 0.392125,
+        "semicolon": 0.392125,
+        "plus": 0.392125
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rm.phont",
+      "label": "aq_rm",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f1c.phont",
+      "label": "aq_f1c",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_f3a.phont",
+      "label": "aq_f3a",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_m4b.phont",
+      "label": "aq_m4b",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_mf1.phont",
+      "label": "aq_mf1",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_momo1.phont",
+      "label": "aq_momo1",
+      "durations": {
+        "long": 0.81725,
+        "short": 0.55475,
+        "none": 0.378875,
+        "semicolon": 0.378875,
+        "plus": 0.378875
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_huskey.phont",
+      "label": "aq_huskey",
+      "durations": {
+        "long": 0.96025,
+        "short": 0.69775,
+        "none": 0.493,
+        "semicolon": 0.493,
+        "plus": 0.493
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb2.phont",
+      "label": "aq_rb2",
+      "durations": {
+        "long": 0.779,
+        "short": 0.5165,
+        "none": 0.3485,
+        "semicolon": 0.3485,
+        "plus": 0.3485
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_rb3.phont",
+      "label": "aq_rb3",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_robo.phont",
+      "label": "aq_robo",
+      "durations": {
+        "long": 0.862,
+        "short": 0.5995,
+        "none": 0.4145,
+        "semicolon": 0.4145,
+        "plus": 0.4145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_teto1.phont",
+      "label": "aq_teto1",
+      "durations": {
+        "long": 0.79275,
+        "short": 0.53025,
+        "none": 0.359625,
+        "semicolon": 0.359625,
+        "plus": 0.359625
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "aq_yukkuri.phont",
+      "label": "aq_yukkuri",
+      "durations": {
+        "long": 0.949875,
+        "short": 0.687375,
+        "none": 0.410625,
+        "semicolon": 0.410625,
+        "plus": 0.410625
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_f4.phont",
+      "label": "ar_f4",
+      "durations": {
+        "long": 0.7645,
+        "short": 0.502,
+        "none": 0.3195,
+        "semicolon": 0.3195,
+        "plus": 0.3195
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_m5.phont",
+      "label": "ar_m5",
+      "durations": {
+        "long": 0.745625,
+        "short": 0.483125,
+        "none": 0.305375,
+        "semicolon": 0.305375,
+        "plus": 0.305375
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_mf2.phont",
+      "label": "ar_mf2",
+      "durations": {
+        "long": 0.688,
+        "short": 0.4255,
+        "none": 0.262,
+        "semicolon": 0.262,
+        "plus": 0.262
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk2",
+      "voice": "ar_rm3.phont",
+      "label": "ar_rm3",
+      "durations": {
+        "long": 0.7645,
+        "short": 0.502,
+        "none": 0.3195,
+        "semicolon": 0.3195,
+        "plus": 0.3195
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F1",
+      "label": "F1",
+      "durations": {
+        "long": 0.567,
+        "short": 0.40025,
+        "none": 0.3145,
+        "semicolon": 0.3145,
+        "plus": 0.3145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F2",
+      "label": "F2",
+      "durations": {
+        "long": 0.567,
+        "short": 0.40025,
+        "none": 0.3145,
+        "semicolon": 0.3145,
+        "plus": 0.3145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "F3",
+      "label": "F3",
+      "durations": {
+        "long": 0.3831081081081081,
+        "short": 0.2704391891891892,
+        "none": 0.2125,
+        "semicolon": 0.2125,
+        "plus": 0.2125
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M1",
+      "label": "M1",
+      "durations": {
+        "long": 0.567,
+        "short": 0.40025,
+        "none": 0.3145,
+        "semicolon": 0.3145,
+        "plus": 0.3145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "M2",
+      "label": "M2",
+      "durations": {
+        "long": 0.567,
+        "short": 0.40025,
+        "none": 0.3145,
+        "semicolon": 0.3145,
+        "plus": 0.3145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R1",
+      "label": "R1",
+      "durations": {
+        "long": 0.567,
+        "short": 0.40025,
+        "none": 0.3145,
+        "semicolon": 0.3145,
+        "plus": 0.3145
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    },
+    {
+      "engineId": "aqtk10",
+      "voice": "R2",
+      "label": "R2",
+      "durations": {
+        "long": 0.315,
+        "short": 0.22236111111111112,
+        "none": 0.17472222222222222,
+        "semicolon": 0.17472222222222222,
+        "plus": 0.17472222222222222
+      },
+      "ordered": true,
+      "semicolonClose": true,
+      "plusClose": true
+    }
+  ],
+  "counters": [
+    {
+      "counter": "ねん",
+      "rejected": [
+        {
+          "counter": "ねん",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "ねん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "ねん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "がつ",
+      "rejected": [
+        {
+          "counter": "がつ",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "がつ",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "がつ",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "にち",
+      "rejected": [
+        {
+          "counter": "にち",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "にち",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "にち",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "じ",
+      "rejected": [
+        {
+          "counter": "じ",
+          "engineId": "aqtk2",
+          "voice": "aq_defo1",
+          "code": 106
+        },
+        {
+          "counter": "じ",
+          "engineId": "aqtk2",
+          "voice": "aq_huskey",
+          "code": 106
+        },
+        {
+          "counter": "じ",
+          "engineId": "aqtk2",
+          "voice": "aq_rb3",
+          "code": 106
+        },
+        {
+          "counter": "じ",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "じ",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "じ",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ふん",
+      "rejected": [
+        {
+          "counter": "ふん",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "ふん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "ふん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "びょー",
+      "rejected": [
+        {
+          "counter": "びょー",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "びょー",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "びょー",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "えん",
+      "rejected": [
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "aq_defo1",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "aq_rm",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "aq_m4b",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "aq_huskey",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "aq_rb2",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "aq_teto1",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "えん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "かい",
+      "rejected": [
+        {
+          "counter": "かい",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "かい",
+          "engineId": "aqtk2",
+          "voice": "aq_yukkuri",
+          "code": 106
+        },
+        {
+          "counter": "かい",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "かい",
+          "engineId": "aqtk2",
+          "voice": "ar_m5",
+          "code": 106
+        },
+        {
+          "counter": "かい",
+          "engineId": "aqtk2",
+          "voice": "ar_mf2",
+          "code": 106
+        },
+        {
+          "counter": "かい",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "か'い",
+      "rejected": [
+        {
+          "counter": "か'い",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "か'い",
+          "engineId": "aqtk2",
+          "voice": "aq_yukkuri",
+          "code": 106
+        },
+        {
+          "counter": "か'い",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "か'い",
+          "engineId": "aqtk2",
+          "voice": "ar_m5",
+          "code": 106
+        },
+        {
+          "counter": "か'い",
+          "engineId": "aqtk2",
+          "voice": "ar_mf2",
+          "code": 106
+        },
+        {
+          "counter": "か'い",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "か'げつ",
+      "rejected": [
+        {
+          "counter": "か'げつ",
+          "engineId": "aqtk2",
+          "voice": "aq_f3a",
+          "code": 106
+        },
+        {
+          "counter": "か'げつ",
+          "engineId": "aqtk2",
+          "voice": "aq_mf1",
+          "code": 106
+        },
+        {
+          "counter": "か'げつ",
+          "engineId": "aqtk2",
+          "voice": "ar_m5",
+          "code": 106
+        },
+        {
+          "counter": "か'げつ",
+          "engineId": "aqtk2",
+          "voice": "ar_mf2",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "か'ろりー",
+      "rejected": [
+        {
+          "counter": "か'ろりー",
+          "engineId": "aqtk2",
+          "voice": "aq_f3a",
+          "code": 106
+        },
+        {
+          "counter": "か'ろりー",
+          "engineId": "aqtk2",
+          "voice": "aq_mf1",
+          "code": 106
+        },
+        {
+          "counter": "か'ろりー",
+          "engineId": "aqtk2",
+          "voice": "ar_m5",
+          "code": 106
+        },
+        {
+          "counter": "か'ろりー",
+          "engineId": "aqtk2",
+          "voice": "ar_mf2",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "きゅー",
+      "rejected": [
+        {
+          "counter": "きゅー",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "きゅー",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "きゅー",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ぎょー",
+      "rejected": [
+        {
+          "counter": "ぎょー",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "ぎょー",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "ぎょー",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "きょく",
+      "rejected": [
+        {
+          "counter": "きょく",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "きょく",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "きょく",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "き'ろ",
+      "rejected": [
+        {
+          "counter": "き'ろ",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "き'ろ",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "き'ろ",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "けん",
+      "rejected": [
+        {
+          "counter": "けん",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "けん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "けん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "こ",
+      "rejected": [
+        {
+          "counter": "こ",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "こ",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "こ",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "にん",
+      "rejected": [
+        {
+          "counter": "にん",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "にん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "にん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "さい",
+      "rejected": [
+        {
+          "counter": "さい",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "さい",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "さい",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "じ'かん",
+      "rejected": [
+        {
+          "counter": "じ'かん",
+          "engineId": "aqtk2",
+          "voice": "aq_f3a",
+          "code": 106
+        },
+        {
+          "counter": "じ'かん",
+          "engineId": "aqtk2",
+          "voice": "aq_mf1",
+          "code": 106
+        },
+        {
+          "counter": "じ'かん",
+          "engineId": "aqtk2",
+          "voice": "aq_rb2",
+          "code": 106
+        },
+        {
+          "counter": "じ'かん",
+          "engineId": "aqtk2",
+          "voice": "ar_m5",
+          "code": 106
+        },
+        {
+          "counter": "じ'かん",
+          "engineId": "aqtk2",
+          "voice": "ar_mf2",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "だい",
+      "rejected": [
+        {
+          "counter": "だい",
+          "engineId": "aqtk2",
+          "voice": "aq_rm",
+          "code": 106
+        },
+        {
+          "counter": "だい",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "だい",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "だい",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ちょーめ",
+      "rejected": []
+    },
+    {
+      "counter": "つき",
+      "rejected": [
+        {
+          "counter": "つき",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "つき",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "つき",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ばん",
+      "rejected": [
+        {
+          "counter": "ばん",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "ばん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "ばん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ほん",
+      "rejected": [
+        {
+          "counter": "ほん",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "ほん",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "ほん",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ひき",
+      "rejected": [
+        {
+          "counter": "ひき",
+          "engineId": "aqtk2",
+          "voice": "aq_robo",
+          "code": 106
+        },
+        {
+          "counter": "ひき",
+          "engineId": "aqtk2",
+          "voice": "ar_f4",
+          "code": 106
+        },
+        {
+          "counter": "ひき",
+          "engineId": "aqtk2",
+          "voice": "ar_rm3",
+          "code": 106
+        }
+      ]
+    },
+    {
+      "counter": "ぱーせ'んと",
+      "rejected": [
+        {
+          "counter": "ぱーせ'んと",
+          "engineId": "aqtk2",
+          "voice": "aq_defo1",
+          "code": 106
+        },
+        {
+          "counter": "ぱーせ'んと",
+          "engineId": "aqtk2",
+          "voice": "aq_huskey",
+          "code": 106
+        },
+        {
+          "counter": "ぱーせ'んと",
+          "engineId": "aqtk2",
+          "voice": "aq_rb3",
+          "code": 106
+        }
+      ]
+    }
+  ],
+  "counterFailures": [
+    {
+      "counter": "ねん",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "ねん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "ねん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "がつ",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "がつ",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "がつ",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "にち",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "にち",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "にち",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "じ",
+      "engineId": "aqtk2",
+      "voice": "aq_defo1",
+      "code": 106
+    },
+    {
+      "counter": "じ",
+      "engineId": "aqtk2",
+      "voice": "aq_huskey",
+      "code": 106
+    },
+    {
+      "counter": "じ",
+      "engineId": "aqtk2",
+      "voice": "aq_rb3",
+      "code": 106
+    },
+    {
+      "counter": "じ",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "じ",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "じ",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "ふん",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "ふん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "ふん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "びょー",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "びょー",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "びょー",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "aq_defo1",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "aq_rm",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "aq_m4b",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "aq_huskey",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "aq_rb2",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "aq_teto1",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "えん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "かい",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "かい",
+      "engineId": "aqtk2",
+      "voice": "aq_yukkuri",
+      "code": 106
+    },
+    {
+      "counter": "かい",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "かい",
+      "engineId": "aqtk2",
+      "voice": "ar_m5",
+      "code": 106
+    },
+    {
+      "counter": "かい",
+      "engineId": "aqtk2",
+      "voice": "ar_mf2",
+      "code": 106
+    },
+    {
+      "counter": "かい",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "か'い",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "か'い",
+      "engineId": "aqtk2",
+      "voice": "aq_yukkuri",
+      "code": 106
+    },
+    {
+      "counter": "か'い",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "か'い",
+      "engineId": "aqtk2",
+      "voice": "ar_m5",
+      "code": 106
+    },
+    {
+      "counter": "か'い",
+      "engineId": "aqtk2",
+      "voice": "ar_mf2",
+      "code": 106
+    },
+    {
+      "counter": "か'い",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "か'げつ",
+      "engineId": "aqtk2",
+      "voice": "aq_f3a",
+      "code": 106
+    },
+    {
+      "counter": "か'げつ",
+      "engineId": "aqtk2",
+      "voice": "aq_mf1",
+      "code": 106
+    },
+    {
+      "counter": "か'げつ",
+      "engineId": "aqtk2",
+      "voice": "ar_m5",
+      "code": 106
+    },
+    {
+      "counter": "か'げつ",
+      "engineId": "aqtk2",
+      "voice": "ar_mf2",
+      "code": 106
+    },
+    {
+      "counter": "か'ろりー",
+      "engineId": "aqtk2",
+      "voice": "aq_f3a",
+      "code": 106
+    },
+    {
+      "counter": "か'ろりー",
+      "engineId": "aqtk2",
+      "voice": "aq_mf1",
+      "code": 106
+    },
+    {
+      "counter": "か'ろりー",
+      "engineId": "aqtk2",
+      "voice": "ar_m5",
+      "code": 106
+    },
+    {
+      "counter": "か'ろりー",
+      "engineId": "aqtk2",
+      "voice": "ar_mf2",
+      "code": 106
+    },
+    {
+      "counter": "きゅー",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "きゅー",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "きゅー",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "ぎょー",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "ぎょー",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "ぎょー",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "きょく",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "きょく",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "きょく",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "き'ろ",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "き'ろ",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "き'ろ",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "けん",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "けん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "けん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "こ",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "こ",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "こ",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "にん",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "にん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "にん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "さい",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "さい",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "さい",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "じ'かん",
+      "engineId": "aqtk2",
+      "voice": "aq_f3a",
+      "code": 106
+    },
+    {
+      "counter": "じ'かん",
+      "engineId": "aqtk2",
+      "voice": "aq_mf1",
+      "code": 106
+    },
+    {
+      "counter": "じ'かん",
+      "engineId": "aqtk2",
+      "voice": "aq_rb2",
+      "code": 106
+    },
+    {
+      "counter": "じ'かん",
+      "engineId": "aqtk2",
+      "voice": "ar_m5",
+      "code": 106
+    },
+    {
+      "counter": "じ'かん",
+      "engineId": "aqtk2",
+      "voice": "ar_mf2",
+      "code": 106
+    },
+    {
+      "counter": "だい",
+      "engineId": "aqtk2",
+      "voice": "aq_rm",
+      "code": 106
+    },
+    {
+      "counter": "だい",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "だい",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "だい",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "つき",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "つき",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "つき",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "ばん",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "ばん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "ばん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "ほん",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "ほん",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "ほん",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "ひき",
+      "engineId": "aqtk2",
+      "voice": "aq_robo",
+      "code": 106
+    },
+    {
+      "counter": "ひき",
+      "engineId": "aqtk2",
+      "voice": "ar_f4",
+      "code": 106
+    },
+    {
+      "counter": "ひき",
+      "engineId": "aqtk2",
+      "voice": "ar_rm3",
+      "code": 106
+    },
+    {
+      "counter": "ぱーせ'んと",
+      "engineId": "aqtk2",
+      "voice": "aq_defo1",
+      "code": 106
+    },
+    {
+      "counter": "ぱーせ'んと",
+      "engineId": "aqtk2",
+      "voice": "aq_huskey",
+      "code": 106
+    },
+    {
+      "counter": "ぱーせ'んと",
+      "engineId": "aqtk2",
+      "voice": "aq_rb3",
+      "code": 106
+    }
+  ],
+  "numk": [
+    {
+      "id": "numk-1000",
+      "text": "<NUMK VAL=1000>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f1",
+            "f2",
+            "m1",
+            "m2",
+            "r1",
+            "imd1",
+            "jgr",
+            "dvd",
+            "f3"
+          ],
+          "total": 9,
+          "errors": []
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "ar_mf2",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "numk-10000",
+      "text": "<NUMK VAL=10000>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 100
+            },
+            {
+              "voice": "f2",
+              "code": 100
+            },
+            {
+              "voice": "m1",
+              "code": 100
+            },
+            {
+              "voice": "m2",
+              "code": 100
+            },
+            {
+              "voice": "r1",
+              "code": 100
+            },
+            {
+              "voice": "imd1",
+              "code": 100
+            },
+            {
+              "voice": "jgr",
+              "code": 100
+            },
+            {
+              "voice": "dvd",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "ar_mf2",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "numk-321162567",
+      "text": "<NUMK VAL=321162567>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 100
+            },
+            {
+              "voice": "f2",
+              "code": 100
+            },
+            {
+              "voice": "m1",
+              "code": 100
+            },
+            {
+              "voice": "m2",
+              "code": 100
+            },
+            {
+              "voice": "r1",
+              "code": 100
+            },
+            {
+              "voice": "imd1",
+              "code": 100
+            },
+            {
+              "voice": "jgr",
+              "code": 100
+            },
+            {
+              "voice": "dvd",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "ar_mf2",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "numk-max",
+      "text": "<NUMK VAL=9999999999999999>",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 100
+            },
+            {
+              "voice": "f2",
+              "code": 100
+            },
+            {
+              "voice": "m1",
+              "code": 100
+            },
+            {
+              "voice": "m2",
+              "code": 100
+            },
+            {
+              "voice": "r1",
+              "code": 100
+            },
+            {
+              "voice": "imd1",
+              "code": 100
+            },
+            {
+              "voice": "jgr",
+              "code": 100
+            },
+            {
+              "voice": "dvd",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "default",
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_f3a",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "aq_teto1",
+              "code": 106
+            },
+            {
+              "voice": "ar_m5",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "numk-prefix",
+      "text": "きの'ーわ、<NUMK VAL=321162567>+でした。",
+      "engines": {
+        "aqtk1": {
+          "accepted": [
+            "f3"
+          ],
+          "total": 9,
+          "errors": [
+            {
+              "voice": "f1",
+              "code": 100
+            },
+            {
+              "voice": "f2",
+              "code": 100
+            },
+            {
+              "voice": "m1",
+              "code": 100
+            },
+            {
+              "voice": "m2",
+              "code": 100
+            },
+            {
+              "voice": "r1",
+              "code": 100
+            },
+            {
+              "voice": "imd1",
+              "code": 100
+            },
+            {
+              "voice": "jgr",
+              "code": 100
+            },
+            {
+              "voice": "dvd",
+              "code": 100
+            }
+          ]
+        },
+        "aqtk2": {
+          "accepted": [
+            "aq_defo1",
+            "aq_rm",
+            "aq_f1c",
+            "aq_m4b",
+            "aq_mf1",
+            "aq_momo1",
+            "aq_huskey",
+            "aq_rb2",
+            "aq_rb3",
+            "aq_robo",
+            "aq_teto1",
+            "aq_yukkuri",
+            "ar_f4",
+            "ar_m5",
+            "ar_mf2",
+            "ar_rm3"
+          ],
+          "total": 18,
+          "errors": [
+            {
+              "voice": "default",
+              "code": 106
+            },
+            {
+              "voice": "aq_f3a",
+              "code": 106
+            }
+          ]
+        },
+        "aqtk10": {
+          "accepted": [
+            "F1",
+            "F2",
+            "F3",
+            "M1",
+            "M2",
+            "R1",
+            "R2"
+          ],
+          "total": 7,
+          "errors": []
+        }
+      }
+    }
+  ],
+  "roman": [
+    {
+      "id": "roman-hello",
+      "section": "7.2",
+      "text": "konnichiwa",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-long",
+      "section": "7.2",
+      "text": "ohayo-",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-accent",
+      "section": "7.2",
+      "text": "o'nnse-",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-sokuon",
+      "section": "7.2",
+      "text": "gakko",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-tag",
+      "section": "7.2",
+      "text": "denwaba^ngo-wa <NUM VAL=01-2345-6789>desu.",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-sample-02",
+      "section": "7.2",
+      "text": "sa-ba-;<NUM VAL=3512>no/ha-dodhi^_su_kuni e^ra-+hasse-.",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-sample-03",
+      "section": "7.2",
+      "text": "getuyo'-no/<NUMK VAL=21 COUNTER=ji>kara,<NUMK VAL=8 COUNTER=cya'nnneru>de/yoyaku+sima'sita.",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [
+        {
+          "voice": "aq_teto1",
+          "code": 106
+        }
+      ],
+      "specInvalid": false
+    },
+    {
+      "id": "roman-tag-quoted",
+      "section": "7.1",
+      "text": "<NUMK VAL=\"10\" COUNTER=\"funn\">desu.",
+      "accepted": [
+        "default",
+        "aq_defo1",
+        "aq_rm",
+        "aq_f1c",
+        "aq_f3a",
+        "aq_m4b",
+        "aq_mf1",
+        "aq_momo1",
+        "aq_huskey",
+        "aq_rb2",
+        "aq_rb3",
+        "aq_robo",
+        "aq_teto1",
+        "aq_yukkuri",
+        "ar_f4",
+        "ar_m5",
+        "ar_mf2",
+        "ar_rm3"
+      ],
+      "total": 18,
+      "errors": [],
+      "specInvalid": true
+    },
+    {
+      "id": "equivalence",
+      "equivalence": [
+        {
+          "id": "roman-long",
+          "voice": "default",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_defo1",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_rm",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_f1c",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_f3a",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_m4b",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_mf1",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_momo1",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_huskey",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_rb2",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_rb3",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_robo",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_teto1",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "aq_yukkuri",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "ar_f4",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "ar_m5",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "ar_mf2",
+          "same": true
+        },
+        {
+          "id": "roman-long",
+          "voice": "ar_rm3",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "default",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_defo1",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_rm",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_f1c",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_f3a",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_m4b",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_mf1",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_momo1",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_huskey",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_rb2",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_rb3",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_robo",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_teto1",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "aq_yukkuri",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "ar_f4",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "ar_m5",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "ar_mf2",
+          "same": true
+        },
+        {
+          "id": "roman-accent",
+          "voice": "ar_rm3",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "default",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_defo1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_rm",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_f1c",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_f3a",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_m4b",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_mf1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_momo1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_huskey",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_rb2",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_rb3",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_robo",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_teto1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "aq_yukkuri",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "ar_f4",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "ar_m5",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "ar_mf2",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon",
+          "voice": "ar_rm3",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "default",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_defo1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_rm",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_f1c",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_f3a",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_m4b",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_mf1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_momo1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_huskey",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_rb2",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_rb3",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_robo",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_teto1",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "aq_yukkuri",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "ar_f4",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "ar_m5",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "ar_mf2",
+          "same": true
+        },
+        {
+          "id": "roman-sokuon-long",
+          "voice": "ar_rm3",
+          "same": true
+        }
+      ]
+    }
+  ],
+  "romanFailures": [
+    {
+      "caseId": "roman-sample-03",
+      "voice": "aq_teto1",
+      "code": 106
+    }
+  ],
+  "hardFailures": []
+}

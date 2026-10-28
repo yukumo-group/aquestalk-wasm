@@ -65,9 +65,10 @@ function convert(roman) {
   const text = document.getElementById('in').value;
   const inBytes = new TextEncoder().encode(text);
   const inP = alloc(inBytes);
-  const outP = e.aq_alloc(65536);
-  const r = roman ? e.aq_conv_roman(h, inP, outP, 65536)
-                  : e.aq_convert(h, inP, outP, 65536);
+  const outCap = Math.max(65536, inBytes.length * 12 + 4096);
+  const outP = e.aq_alloc(outCap);
+  const r = roman ? e.aq_conv_roman(h, inP, outP, outCap)
+                  : e.aq_convert(h, inP, outP, outCap);
   out.textContent = r ? ('error ' + r) : readCStr(outP);
   e.aq_free(inP); e.aq_free(outP);
 }

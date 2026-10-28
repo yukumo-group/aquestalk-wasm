@@ -23,6 +23,7 @@ import {
   VOICES as AQTK10_VOICES,
   AquesTalkError,
 } from '../engines/aquestalk10/port/web/aqtk10.js';
+import { DEMO_KANA_SAMPLES } from '../data/kana-corpus.js';
 
 export { AQTK10_VOICES };
 
@@ -44,17 +45,6 @@ function asset(path) {
 /* ------------------------------------------------------------------ */
 /* engine catalogue                                                     */
 /* ------------------------------------------------------------------ */
-
-const KANA_SAMPLES = [
-  'こんにちは、せかい。',
-  'おはようございます',
-  'ありがとう',
-  'きょうは いい てんき ですね',
-  'すもももももももものうち',
-  'えっ？そうなんですか！',
-  'おかあさん、おねえさん、おおきいとおおきい',
-  'なにぬねの まみむめも',
-];
 
 const KANJI_SAMPLES = [
   '音声合成テスト。東京は日本の首都です。',
@@ -120,7 +110,7 @@ export const ENGINES = [
       'Recompiled from the AquesTalk1 Linux engines (f1/f2/m1/m2/r1/imd1/jgr/dvd + f3). Nine built-in voices; 8 kHz / 16-bit / mono WAV.',
     voices: AQTK1_VOICES,
     defaultVoice: 'f1',
-    samples: KANA_SAMPLES,
+    samples: DEMO_KANA_SAMPLES,
   },
   {
     id: 'aqtk2',
@@ -134,7 +124,7 @@ export const ENGINES = [
       'Recompiled from the evaluation build of libAquesTalk2Eva.so.2.3. 18 switchable phonts; 8 kHz / 16-bit / mono WAV.',
     voices: AQTK2_VOICES,
     defaultVoice: '',
-    samples: KANA_SAMPLES,
+    samples: DEMO_KANA_SAMPLES,
   },
   {
     id: 'aqtk10',
@@ -148,7 +138,7 @@ export const ENGINES = [
       'Recompiled from libAquesTalk10.so.1.1. Seven voice presets plus bas / vol / pit / acc / lmd / fsc parameters.',
     voices: AQTK10_VOICE_INFO,
     defaultVoice: 'F1',
-    samples: KANA_SAMPLES,
+    samples: DEMO_KANA_SAMPLES,
     advanced: true,
   },
   {
@@ -256,6 +246,7 @@ async function makeAqtk1() {
 
   return {
     id: 'aqtk1',
+    voices() { return aq.voices(); },
     async synth(text, { voice = 'f1', speed = 100 } = {}) {
       if (current !== voice) {
         if (!aq.select(voice)) {
@@ -299,6 +290,14 @@ async function makeAqtk2() {
       if (!wav) throwEngineError('AquesTalk2', aq.lastError());
       return wav;
     },
+    /* Section 7 of the symbol specification: ASCII romanised input.
+     * Only the AquesTalk2 wrapper exposes a Roman entry point. */
+    async synthRoman(text, { voice = '', speed = 100 } = {}) {
+      const phont = await loadPhont(voice);
+      const wav = aq.syntheRoman(text, speed, phont);
+      if (!wav) throwEngineError('AquesTalk2', aq.lastError());
+      return wav;
+    },
   };
 }
 
@@ -330,8 +329,7 @@ async function makeAqtk10() {
 /* AqKanji2Koe                                                         */
 /* ------------------------------------------------------------------ */
 
-const K2K_OUT_CAP = 128 * 1024;
-const K2K_CALL_LIMIT = 32; // the wasm32 build uses an arena allocator
+const K2K_MIN_OUT_CAP = 128 * 1024;
 
 class Kanji2Koe {
   constructor(wasm, sys, user, lookup) {
@@ -341,7 +339,6 @@ class Kanji2Koe {
     this.lookup = lookup;
     this.e = null;
     this.h = 0;
-    this.calls = 0;
     this.chain = Promise.resolve();
   }
 
@@ -384,17 +381,21 @@ class Kanji2Koe {
 
     this.e = e;
     this.h = h;
-    this.calls = 0;
   }
 
   _convert(kind, text) {
     return this._enqueue(async () => {
-      if (!this.e || this.calls >= K2K_CALL_LIMIT) await this._boot();
+      // Reuse the wasm instance and dictionaries for the whole session.  The
+      // runtime's segregated free lists keep memory bounded across calls.
+      if (!this.e) await this._boot();
 
       const e = this.e;
       const input = encoder.encode(text);
+      // Readings are typically 3-6 UTF-8 bytes per input byte; leave room for
+      // NUMK tags and accent markers so long passages don't truncate.
+      const outCap = Math.max(K2K_MIN_OUT_CAP, input.length * 12 + 4096);
       const inPtr = e.aq_alloc(input.length + 1);
-      const outPtr = e.aq_alloc(K2K_OUT_CAP);
+      const outPtr = e.aq_alloc(outCap);
       if (!inPtr || !outPtr) {
         if (inPtr) e.aq_free(inPtr);
         if (outPtr) e.aq_free(outPtr);
@@ -406,20 +407,19 @@ class Kanji2Koe {
       bytes[inPtr + input.length] = 0;
 
       const rc = kind === 'roman'
-        ? e.aq_conv_roman(this.h, inPtr, outPtr, K2K_OUT_CAP)
-        : e.aq_convert(this.h, inPtr, outPtr, K2K_OUT_CAP);
+        ? e.aq_conv_roman(this.h, inPtr, outPtr, outCap)
+        : e.aq_convert(this.h, inPtr, outPtr, outCap);
 
       let out = '';
       if (!rc) {
         bytes = new Uint8Array(e.memory.buffer);
         let end = outPtr;
-        while (end < outPtr + K2K_OUT_CAP && bytes[end]) end++;
+        while (end < outPtr + outCap && bytes[end]) end++;
         out = new TextDecoder().decode(bytes.subarray(outPtr, end));
       }
 
       e.aq_free(inPtr);
       e.aq_free(outPtr);
-      this.calls++;
 
       if (rc) {
         throw new EngineError('AqKanji2Koe', rc,

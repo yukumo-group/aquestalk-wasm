@@ -1,5 +1,8 @@
 #!/bin/sh
-# Headless smoke test: every engine, the kanji converter, and the pipeline.
+# Headless tests: every engine, the kanji converter, the cross-voice corpus
+# and the 音声記号列仕様書 conformance suite.
 set -eu
 cd "$(dirname "$0")/.."
-exec node tests/smoke.mjs
+node tests/smoke.mjs
+node tests/consistency.mjs
+node tests/notation.mjs

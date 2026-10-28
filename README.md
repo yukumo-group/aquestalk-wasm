@@ -7,7 +7,7 @@
 | **AquesTalk1** | 规则语音合成 | `aquestalk1.wasm` (811 KB) | 9 个内置声库 | 8 kHz |
 | **AquesTalk2** | 规则语音合成 | `aquestalk2-core.wasm` (79 KB) | 18 个 phont | 8 kHz |
 | **AquesTalk10** | 规则语音合成 | `aqtk10.wasm` (362 KB) | 7 个预设 + 7 个参数 | 16 kHz（随 `fsc` 变化） |
-| **AqKanji2Koe** | 汉字假名混合文 → 假名/罗马字 | `aqk2k32.wasm` (230 KB) | — | — |
+| **AqKanji2Koe** | 汉字假名混合文 → 假名/罗马字 | `aqk2k32.wasm` (232 KB) | — | — |
 
 四个模块都是从 x86-64 机器码经 Ghidra 反编译成 C，再由
 `clang --target=wasm32` + `wasm-ld` 重新编译的 **裸 wasm**：没有 Emscripten、
@@ -35,7 +35,7 @@ python3 -m http.server 8000
 
 ### AqKanji2Koe 词典
 
-`aqdic.bin`（9.8 MB）和 `lookup.bin`（5.2 MB）是 AQUEST 的授权数据，**不提交到
+`aqdic.bin`（9.8 MB）和 `lookup.bin`（5.3 MB）是 AQUEST 的授权数据，**不提交到
 git**。本机工作区里已经有了；如果没有，把 `aqdic.bin` 放到：
 
 ```
@@ -72,6 +72,20 @@ node port/tools/gen_lookup.mjs \
 demo 的入口是 `demo/index.html`，适配器在 `demo/engines.js`，UI 在
 `demo/app.js`。
 
+### 统一 kana 数据集
+
+`data/kana-corpus.js` 是 demo 和所有无头测试共用的唯一 TTS 语料：
+
+- 151 条日常日语（问候、天气、饮食、购物、交通、工作、学校、家庭、健康、
+  数字、请求、片假名外来语、长句、标点、アクセント/句切），约 2600 字；
+- 全部直接写成假名，不需要 AqKanji2Koe 词典；AquesTalk1/2/10 使用同一份文本；
+- 另有平/片假名对、评价版探针、无效输入、空格/促音探针、语速探针；
+- demo 的 8 个示例按钮通过 `DEMO_KANA_SAMPLES` 从这份语料取，不再单独维护。
+
+`data/notation-corpus.js` 把 `音声記号列仕様書`（v1.5）转成可执行数据：
+読み記号表、アクセント、句切記号、無声化、ガ行鼻濁音、`NUM`/`NUMK` 标签、
+助数词和ローマ字表記。
+
 ## 目录
 
 ```
@@ -81,6 +95,9 @@ aquestalk-wasm/
 │   ├── aquestalk2/      # 同上（统一 demo 的 UI 基础）
 │   ├── aquestalk10/     # 同上
 │   └── aqk2k/           # AqKanji2Koe 源、wasm32 构建、词典目录
+├── data/                # demo 和测试共用的 kana / 記号列语料
+│   ├── kana-corpus.js   # 151 条日常日语 + 行为探针
+│   └── notation-corpus.js # 音声記号列仕様書 v1.5 用例
 ├── demo/                # 统一前端 demo
 │   ├── index.html
 │   ├── style.css
@@ -90,8 +107,16 @@ aquestalk-wasm/
 │   ├── serve.sh
 │   └── test.sh
 ├── tests/
+│   ├── lib/             # 临时 HTTP 服务、WAV 解析、声库目录
 │   ├── smoke.mjs        # Node 冒烟测试（无浏览器）
-│   └── browser.mjs      # 可选 Playwright 测试
+│   ├── consistency.mjs  # 34 声库 × 151 句行为一致性
+│   ├── notation.mjs     # 音声記号列仕様書 v1.5 符合性
+│   ├── browser.mjs      # 可选 Playwright 测试
+│   └── results/         # 机器可读结果
+├── docs/
+│   ├── demo.png
+│   ├── consistency-report.md
+│   └── notation-report.md
 ├── package.json
 ├── NOTICE.md
 └── README.md
@@ -103,15 +128,49 @@ aquestalk-wasm/
 ## 测试
 
 ```bash
-npm test            # 等价于 ./scripts/test.sh
+npm test                 # smoke + consistency + notation
+npm run test:consistency # 34 个声库 × 151 条日常语料
+npm run test:notation    # 音声記号列仕様書 v1.5
+npm run test:strict      # notation 的严格模式：任何规范偏差都失败
+npm run test:parity      # 与原始 .so 对拍（含已知差异也失败）
+node engines/aqk2k/tests/soak.mjs  # k2k 长会话 / 大批量 / 长文压力测试
 ```
 
-`tests/smoke.mjs` 自带一个临时 HTTP 服务，依次验证：
+`tests/smoke.mjs` 用共享语料做快速冒烟：
 
 - AquesTalk1 f1/f3、AquesTalk2 内置 phont 和 `aq_rm.phont`、AquesTalk10 F1/F3；
 - 每个 WAV 的 RIFF/WAVE 头、采样率、时长；
-- AqKanji2Koe 假名转换、罗马字转换、连续 40 次转换（覆盖 arena 重建）；
+- AqKanji2Koe 假名转换、罗马字转换、连续 200 次转换和 24k 字长文；
 - AqKanji2Koe → AquesTalk2 的完整流水线。
+
+`tests/consistency.mjs` 把 `data/kana-corpus.js` 的全部 151 条语料跑过
+AquesTalk1/2/10 的 **34 个声库**（9 + 18 + 7）：
+
+- 5134 次合成；WAV 格式/采样率/时长、逐字节确定性、语速单调性；
+- 34 个声库的成功/失败一致性、时长相关性、声库区分度；
+- 平/片假名、评价版ナ/マ行折叠、空格/促音+疑问符、无效输入错误码等探针；
+- 结果写到 `tests/results/consistency.json` 和 `docs/consistency-report.md`。
+
+同一批日常语料和 50–300% 语速探针还会送进原始 Linux `.so`
+（`tests/lib/native_reference.py`，ctypes 调用，不修改原生库）逐字节对拍：
+
+- 日常语料 **5120/5134**、语速 **204/204** 与原始 `.so` 完全一致；
+- 已知差异 **14** 个，全部集中在 `prosody-05`（`ありがとう'ございます。`）
+  的アクセント处理：AquesTalk1 f3 + AquesTalk2 的 13 个外部 `aq_*.phont`；
+- AquesTalk1 的 `.so` 不在本仓库，默认从相邻 SDK
+  `../aquestalk1/aqtk1_lnx/lib64` 读取，也可用 `AQTK1_LIB64` 指定；
+  设置 `REQUIRE_NATIVE=1` 时缺少原生库会失败；
+- `npm run test:parity` 会把上述已知差异也当作失败，便于 CI 跟踪修复。
+
+`tests/notation.mjs` 按 `engines/aquestalk2/aqtk2-lnx/siyo_onseikigou.pdf`
+验证：
+
+- section 5 的 161 个読み記号 × 34 声库；
+- section 2.2–3.7 的合法记法、section 4 的 17 个示例；
+- section 3.8 的禁止组合、section 3.1 的换行/Tab、section 3.6 的标签格式；
+- section 6 的 27 个助数词、section 7 的ローマ字（AquesTalk2）；
+- アクセント/無声化/鼻濁音/句切記号是否真的改变音频；
+- 结果写到 `tests/results/notation.json` 和 `docs/notation-report.md`。
 
 可选的真实浏览器测试：
 
@@ -148,7 +207,7 @@ cd engines/aqk2k && ./port/build_wasm32.sh
 
 - AquesTalk2：原生与 wasm 各 **512/512** 逐字节一致；SHA-256 回归 130/130。
 - AquesTalk10：**252/252** 逐字节一致（84 句 × 7 声种 × 3 编码）。
-- AqKanji2Koe：原生 **265/303 (87.5%)** 完全一致；wasm32 公共语料 **11/11**。
+- AqKanji2Koe：原生 **303/303 (100%)** 完全一致；wasm32 全量语料 **303/303**，公共语料 **11/11**。
 - AquesTalk1：与 Linux SDK 的多声库对拍通过。
 
 本仓库额外做了：
@@ -156,7 +215,23 @@ cd engines/aqk2k && ./port/build_wasm32.sh
 - 修复 wasm32 下 `AqKanji2Koe_ConvRoman` 的 16 字节表步长问题（wasm32 指针是
   4 字节，反编译代码按 LP64 的 8 字节步长走会错位）。修复后
   `音声合成テスト。` → `onnse-go-se-te'_suto.`，与原生 64 位库一致。
-- `tests/smoke.mjs` 和 Playwright 浏览器测试覆盖四个标签和 k2k 流水线。
+- 统一 kana 数据集：**151 条日常日语 × 34 个声库 = 5134 次合成全部成功**，
+  WAV 格式、采样率、确定性和 50–300% 语速单调性均通过；详见
+  [consistency-report.md](docs/consistency-report.md)。
+- 与原始 `.so` 逐字节对拍：**5120/5134** 条日常语料、**204/204** 个语速探针一致；
+  已知差异 14 个（`prosody-05` 的アクセント + AQ1 f3 / AQ2 外部 phont），
+  无其他意外差异；详见 [consistency-report.md](docs/consistency-report.md)。
+- 音声記号列仕様書 v1.5：**161 个読み記号 × 34 声库 = 5474 次全部接受**；
+  20 个合法记法全部接受；27 个助数词在 AquesTalk1/10 全通过，AquesTalk2
+  有少量 phont 相关的 106 错误；详见
+  [notation-report.md](docs/notation-report.md)。
+- AqKanji2Koe 的 `<NUMK VAL="…" COUNTER="…">` / `<NUM VAL="…">` 数字标签、
+  句末标点、连词与重音位置已对齐原库：303 条差分语料逐字节一致。
+- AqKanji2Koe 的 wasm32 运行时改用分段 free list（不再使用 arena），
+  长会话与大批量输入可复用同一实例；`engines/aqk2k/tests/soak.mjs`
+  验证 3030 次连续转换、24k 字长文、句柄重建和内存上限。
+- `tests/smoke.mjs`、`tests/consistency.mjs`、`tests/notation.mjs` 和
+  Playwright 浏览器测试覆盖四个标签、k2k 流水线、日常语料和記号列规范。
 
 ## 已知限制
 
@@ -165,11 +240,14 @@ cd engines/aqk2k && ./port/build_wasm32.sh
   因此 AquesTalk2 会正常区分（详见 `engines/aquestalk2/README.md`）。demo 不提供
   开发/使用许可证密钥输入，也没有绕过限制。需要产品行为请向 AQUEST 购买相应
   许可证并调用 `AquesTalk_SetDevKey` / `AqKanji2Koe_SetDevKey`。
-- AqKanji2Koe 的数字 `<NUMK>`/`<NUM>` 标签、句末标点、少数重音位置与原库仍有
-  差异（见 `engines/aqk2k/README.md`）。
-- AqKanji2Koe 的 wasm32 构建使用 arena 分配器（`-DAQK2K_LEAK`）；统一适配层
-  每 32 次转换重建一次实例，避免内存无限增长。
+- AqKanji2Koe 的 wasm32 构建默认使用可回收的分段 free list；`AQK2K_LEAK=1`
+  仍可切回短生命周期的 bump arena。单次超长文本（数万字）是 CPU 密集型，
+  已测到 24k 字、72k 字不崩溃；极长文本建议按段落切分。
 - AquesTalk1 的 f3 使用独立的 recompiled f3 引擎（另一套音声记号词汇）。
+- 当前 wasm 与原始 `.so` 的唯一已知字节差异是 `prosody-05`
+  （`ありがとう'ございます。`）的アクセント路径：AQ1 f3 与 AQ2 的 13 个
+  外部 `aq_*.phont` 输出长度相同但字节不同；其余日常语料和全部语速探针
+  逐字节一致。该差异已纳入 `npm run test:parity` 与一致性报告。
 - Safari 不支持 memory64，因此 AqKanji2Koe 使用 wasm32 构建（保留 LP64 字段
   布局）。
 

@@ -86,6 +86,14 @@ def main():
         s = s.replace(f'{v}.p[', f'((uint16_t *)(uintptr_t){v}.p)[')
         s = s.replace(f'*{v}.p', f'*((uint16_t *)(uintptr_t){v}.p)')
 
+    # AqU16::p is a 64-bit cell holding a 32-bit address and points at
+    # uint16_t.  On the host `p + n` advances 2*n bytes, but after the type
+    # substitution above it would advance n bytes.  Rewrite the remaining
+    # additions explicitly in byte units.
+    for v, n in (('sb', 'sb.len'), ('sb', 'uVar18')):
+        s = re.sub(r'\b%s\.p \+ %s\b' % (v, re.escape(n)),
+                   r'(uint16_t *)((uintptr_t)%s.p + (%s) * 2)' % (v, n), s)
+
     # FUN_00109e90 (kana -> roman table walk) indexes an array of 16-byte
     # entries: { const char *kana; const char *roman; }.  The decompiled
     # source uses pointer arithmetic, which is 8 bytes per step on LP64 but

@@ -5,8 +5,9 @@ Usage:
   python3 tests/run_diff.py [port_output.txt]
 
 If no output file is given, the native CLI is run on tests/corpus_diff.txt.
-The last 24 lines of the corpus are hand-written common sentences (must match);
-the first part is random dictionary words (stress test, known WIP).
+The last 24 lines are hand-written common sentences; the earlier lines are
+random dictionary words, generated sentences, and fixed edge cases including
+numbers, punctuation, and ASCII text.  All 303 lines must match.
 """
 import os, subprocess, sys
 

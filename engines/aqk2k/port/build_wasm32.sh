@@ -9,7 +9,8 @@ OUT=build-wasm32
 FLAGS="--target=wasm32-unknown-unknown -O2 -nostdlib -fno-strict-aliasing \
  -Wno-incompatible-pointer-types -Wno-pointer-sign -Wno-int-conversion \
  -Wno-implicit-function-declaration -Wno-shift-op-parentheses \
- -Wno-return-mismatch -Wno-unused-value -DAQK2K_WASM -DAQK2K_LEAK -I$GEN"
+ -Wno-return-mismatch -Wno-unused-value -DAQK2K_WASM -I$GEN"
+if [ "${AQK2K_LEAK:-0}" = 1 ]; then FLAGS="$FLAGS -DAQK2K_LEAK"; fi
 for f in runtime shim image cold_stubs decomp api_raw lookup_c; do
   $CC $FLAGS -c "$GEN/$f.c" -o "$OUT/$f.o"
 done

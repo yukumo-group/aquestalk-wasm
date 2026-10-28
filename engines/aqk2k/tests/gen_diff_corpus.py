@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Build a differential-test corpus from lookup.bin + fixed edge cases."""
+"""Build a fresh differential-test corpus from lookup.bin + fixed edge cases.
+
+The checked-in tests/corpus_diff.txt and tests/expected64.txt are the
+regression baseline.  Re-running this script changes the random dictionary
+sample, so tests/expected64.txt must be re-captured from the original 64-bit
+SDK afterwards.
+"""
 import random, struct, sys, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -7,7 +13,8 @@ LOOKUP = os.path.join(ROOT, "aqk2k_lnx", "aq_dic", "lookup.bin")
 
 def read_keys(path):
     d = open(path, "rb").read()
-    assert d[:4] == b"K2KL"
+    assert d[:4] in (b"K2KL", b"K2K2")
+    # Both formats start with the MSTD count at +4 and its entries at +12.
     n = struct.unpack_from("<I", d, 4)[0]
     off = 12
     keys = []

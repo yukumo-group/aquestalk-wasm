@@ -24,6 +24,7 @@ struct AqHandle {
     void *sysDic;
     void *userDic;
     void *analyzer;
+    bool ownsDictionaries;
 };
 
 static void *aq_load_file(const char *path, unsigned int *pSize)
@@ -90,17 +91,29 @@ static std::string aq_u16_to_utf8(const uint16_t *p, size_t n)
     return out;
 }
 
-static AqHandle *aq_create_from_buffers(void *sysDic, void *userDic, int *pErr)
+static AqHandle *aq_create_from_buffers(void *sysDic, void *userDic, int *pErr,
+                                        bool ownsDictionaries)
 {
     AqHandle *h = (AqHandle *)calloc(1, sizeof(AqHandle));
-    if (!h) { *pErr = 0x65; return nullptr; }
+    if (!h) {
+        if (ownsDictionaries) { free(sysDic); free(userDic); }
+        *pErr = 0x65;
+        return nullptr;
+    }
     h->sysDic = sysDic;
     h->userDic = userDic;
+    h->ownsDictionaries = ownsDictionaries;
     h->analyzer = operator_new(0x100);
     FUN_0010c650((undefined1 *)h->analyzer);
     int err = (int)FUN_0010c6d0((undefined1 *)h->analyzer, (char *)sysDic,
                                 (undefined8)(uintptr_t)userDic);
     if (err != 0) {
+        if (h->ownsDictionaries) {
+            free(h->sysDic);
+            free(h->userDic);
+            h->sysDic = nullptr;
+            h->userDic = nullptr;
+        }
         AqKanji2Koe_Release(h);
         *pErr = err;
         return nullptr;
@@ -136,13 +149,8 @@ void *AqKanji2Koe_Create(const char *pathDic, int *pErr)
     std::string userPath = base + "aq_user.dic";
     void *user = aq_load_file(userPath.c_str(), &userSize);
 
-    AqHandle *h = aq_create_from_buffers(sys, user, pErr);
-    if (!h) {
-        free(sys);
-        free(user);
-        return nullptr;
-    }
-    return h;
+    /* aq_create_from_buffers takes ownership (and frees on failure). */
+    return aq_create_from_buffers(sys, user, pErr, true);
 }
 
 void *AqKanji2Koe_Create_Ptr(const void *pSysDic, const void *pUserDic, int *pErr)
@@ -152,7 +160,7 @@ void *AqKanji2Koe_Create_Ptr(const void *pSysDic, const void *pUserDic, int *pEr
         if (pErr) *pErr = 0x65;
         return nullptr;
     }
-    return aq_create_from_buffers((void *)pSysDic, (void *)pUserDic, pErr);
+    return aq_create_from_buffers((void *)pSysDic, (void *)pUserDic, pErr, false);
 }
 
 void AqKanji2Koe_Release(void *h)
@@ -160,8 +168,10 @@ void AqKanji2Koe_Release(void *h)
     AqHandle *a = (AqHandle *)h;
     if (!a)
         return;
-    free(a->sysDic);
-    free(a->userDic);
+    if (a->ownsDictionaries) {
+        free(a->sysDic);
+        free(a->userDic);
+    }
     if (a->analyzer) {
         FUN_0010c6a0((undefined1 *)a->analyzer);
         operator_delete(a->analyzer);

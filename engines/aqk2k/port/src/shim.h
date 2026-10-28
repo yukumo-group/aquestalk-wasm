@@ -64,6 +64,20 @@ typedef struct AqStr {
     } u;
 } AqStr;
 
+/* Accessors that hide the wasm32 (64-bit pointer cell) vs native layout.
+ * AQSTR_INIT matches libstdc++'s small-string initialisation. */
+#if defined(__wasm32__)
+#define AQSTR_INIT(s) do { (s).p = (uint64_t)(uintptr_t)(s).u.buf; \
+                           (s).len = 0; (s).u.buf[0] = 0; } while (0)
+#define AQSTR_DATA(s) ((void *)(uintptr_t)(s).p)
+#define AQSTR_LOCAL(s) ((s).p == (uint64_t)(uintptr_t)(s).u.buf)
+#else
+#define AQSTR_INIT(s) do { (s).p = (s).u.buf; \
+                           (s).len = 0; (s).u.buf[0] = 0; } while (0)
+#define AQSTR_DATA(s) ((void *)(s).p)
+#define AQSTR_LOCAL(s) ((s).p == (s).u.buf)
+#endif
+
 /* libstdc++ std::u16string layout, 32 bytes. */
 typedef struct AqU16 {
     uint16_t *p;
@@ -73,6 +87,12 @@ typedef struct AqU16 {
         size_t cap;
     } u;
 } AqU16;
+
+#if defined(__wasm32__)
+#define AQU16_DATA(s) ((uint16_t *)(uintptr_t)(s).p)
+#else
+#define AQU16_DATA(s) ((uint16_t *)(s).p)
+#endif
 
 /* 16 byte SSE register value (only used by one sorting routine). */
 typedef struct { unsigned char b[16]; } aq_v16;
@@ -87,8 +107,11 @@ extern const unsigned aq_num_relocs;
 void aq_init_image(void);
 int aq_lookup_load(const char *path);
 int aq_lookup_prefix(const uint16_t *key, int units, int *outLen, uint32_t *outId);
+int aq_lookup_prefix_after(int kind, const uint16_t *key, int units, int after,
+                           int *outLen, uint32_t *outId);
 int aq_lookup_ready(void);
-void aq_lookup_register_slot(void *slot);
+void aq_lookup_register_slot(void *slot, int kind);
+int aq_lookup_slot_kind(void *slot);
 int aq_lookup_slot_ok(void *slot);
 
 /* Original data-global used as thread pointer base for the stack canary. */

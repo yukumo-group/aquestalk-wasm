@@ -6,6 +6,12 @@
   "description": "AquesTalk1/2/10 + AqKanji2Koe WebAssembly ports in one repository, with a unified browser demo.",
   "scripts": {
     "serve": "python3 -m http.server 8000 --bind 127.0.0.1",
-    "test": "node tests/smoke.mjs"
+    "test": "node tests/smoke.mjs && node tests/consistency.mjs && node tests/notation.mjs",
+    "test:smoke": "node tests/smoke.mjs",
+    "test:consistency": "node tests/consistency.mjs",
+    "test:notation": "node tests/notation.mjs",
+    "test:strict": "node tests/notation.mjs --strict",
+    "test:k2k-soak": "node engines/aqk2k/tests/soak.mjs",
+    "test:parity": "node tests/consistency.mjs --strict"
   }
 }

@@ -2,15 +2,14 @@
 /* Headless smoke test for the unified engine adapters.
  *
  * Serves the repository over a tiny HTTP server (the adapters use fetch),
- * then synthesizes with every engine and runs the AqKanji2Koe converter.
+ * synthesizes with every engine from the shared kana corpus, and runs the
+ * AqKanji2Koe converter.
  *
  *   npm test
  */
-import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import { fileURLToPath } from 'node:url';
 
 import {
   ENGINES,
@@ -18,82 +17,40 @@ import {
   loadEngine,
   loadKanji2Koe,
 } from '../demo/engines.js';
+import { startStaticServer, REPO_ROOT } from './lib/static-server.mjs';
+import { parseWav } from './lib/wav.mjs';
+import { expectedRate } from './lib/voices.mjs';
+import { DEMO_KANA_SAMPLES, KANA_CORPUS } from '../data/kana-corpus.js';
 
-const ROOT = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
-const MIME = {
-  '.html': 'text/html; charset=utf-8',
-  '.js': 'text/javascript; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.wasm': 'application/wasm',
-  '.json': 'application/json',
-  '.phont': 'application/octet-stream',
-  '.bin': 'application/octet-stream',
-  '.dic': 'application/octet-stream',
-};
-
-const server = http.createServer((req, res) => {
-  const url = new URL(req.url, 'http://127.0.0.1');
-  const file = path.join(ROOT, decodeURIComponent(url.pathname));
-  if (!file.startsWith(ROOT + path.sep)) {
-    res.writeHead(403).end();
-    return;
-  }
-  fs.readFile(file, (err, data) => {
-    if (err) {
-      res.writeHead(404).end('not found');
-      return;
-    }
-    res.writeHead(200, { 'content-type': MIME[path.extname(file)] || 'application/octet-stream' });
-    res.end(data);
-  });
-});
-
-await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
-const { port } = server.address();
-setEngineRoot(`http://127.0.0.1:${port}/engines/`);
-
-function wavInfo(bytes) {
-  assert.ok(bytes instanceof Uint8Array, 'WAV must be a Uint8Array');
-  assert.equal(new TextDecoder().decode(bytes.subarray(0, 4)), 'RIFF');
-  assert.equal(new TextDecoder().decode(bytes.subarray(8, 12)), 'WAVE');
-  const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
-  let off = 12;
-  let fmt = null;
-  let data = 0;
-  while (off + 8 <= bytes.length) {
-    const id = new TextDecoder().decode(bytes.subarray(off, off + 4));
-    const size = dv.getUint32(off + 4, true);
-    if (id === 'fmt ') {
-      fmt = {
-        channels: dv.getUint16(off + 10, true),
-        rate: dv.getUint32(off + 12, true),
-        bits: dv.getUint16(off + 22, true),
-      };
-    } else if (id === 'data') {
-      data = Math.min(size, bytes.length - off - 8);
-      break;
-    }
-    off += 8 + size + (size & 1);
-  }
-  assert.ok(fmt, 'fmt chunk');
-  assert.ok(data > 0, 'data chunk');
-  const seconds = data / (fmt.rate * fmt.channels * (fmt.bits / 8));
-  return { ...fmt, data, seconds };
-}
+const server = await startStaticServer(REPO_ROOT);
+setEngineRoot(`${server.url}/engines/`);
 
 const results = [];
+
+function wavInfo(bytes) {
+  const info = parseWav(bytes);
+  assert.ok(info.seconds > 0.3, 'WAV too short');
+  return info;
+}
 
 async function testTts(id, voice, speed, params, label) {
   const info = ENGINES.find((e) => e.id === id);
   const engine = await loadEngine(id);
-  const wav = await engine.synth('こんにちは、せかい。', { voice, speed, params });
-  const infoWav = wavInfo(wav);
-  assert.ok(infoWav.seconds > 0.3, `${id}: too short`);
-  results.push(`${info.name}${label ? ` (${label})` : ''}: ${wav.length} B, ${infoWav.rate} Hz, ${infoWav.seconds.toFixed(2)} s`);
+  const text = DEMO_KANA_SAMPLES[0];
+  const wav = await engine.synth(text, { voice, speed, params });
+  const wavInfoResult = wavInfo(wav);
+  assert.equal(wavInfoResult.rate, expectedRate(id, voice), 'sample rate');
+  results.push(
+    `${info.name}${label ? ` (${label})` : ''}: ${wav.length} B, ` +
+    `${wavInfoResult.rate} Hz, ${wavInfoResult.seconds.toFixed(2)} s`,
+  );
   return wav;
 }
 
 try {
+  assert.ok(KANA_CORPUS.length >= 100, 'shared corpus should be broad');
+  assert.equal(DEMO_KANA_SAMPLES.length, 8, 'demo samples come from the corpus');
+
   await testTts('aqtk1', 'f1', 100, undefined, 'f1');
   await testTts('aqtk1', 'f3', 100, undefined, 'f3');
   await testTts('aqtk2', '', 100, undefined, 'built-in phont');
@@ -101,7 +58,7 @@ try {
   await testTts('aqtk10', 'F1', 100, undefined, 'F1');
   await testTts('aqtk10', 'F3', 120, undefined, 'F3 @120');
 
-  const dic = path.join(ROOT, 'engines/aqk2k/aqk2k_lnx/aq_dic');
+  const dic = path.join(REPO_ROOT, 'engines/aqk2k/aqk2k_lnx/aq_dic');
   const hasDict = ['aqdic.bin', 'lookup.bin', 'aq_user.dic']
     .every((f) => fs.existsSync(path.join(dic, f)));
 
@@ -114,11 +71,23 @@ try {
     const roman = await k2k.convertRoman('音声合成テスト。');
     assert.equal(roman, "onnse-go-se-te'_suto.");
 
-    // Exercise the arena-reload path (every 32 conversions).
-    for (let i = 0; i < 40; i++) {
+    // Long session: one wasm instance and one dictionary load, no periodic
+    // arena rebuild.  The runtime recycles freed blocks.
+    for (let i = 0; i < 200; i++) {
       const out = await k2k.convert('明日の天気は晴れでしょう。');
       assert.match(out, /テ.ンキ/);
     }
+
+    // NUMK tags and sentence-final punctuation now match the original.
+    assert.equal(await k2k.convert('100円'), '<NUMK VAL="100" COUNTER="エン">。');
+    assert.equal(await k2k.convert('一人'), '<NUMK VAL="1" COUNTER="にん">。');
+    assert.equal(await k2k.convert('こんにちは。'), "コンヌチワ'。");
+
+    // A single large passage should also complete without truncation.
+    const longText = '東京は日本の首都です。明日の天気は晴れでしょう。'.repeat(500);
+    const longOut = await k2k.convert(longText);
+    assert.ok(longOut.length > 20000, 'long conversion output');
+    assert.match(longOut, /トーキョー/);
 
     const tts = await loadEngine('aqtk2');
     const wav = await tts.synth(kana, { voice: '', speed: 100 });
@@ -135,5 +104,5 @@ try {
   console.log('PASS');
   for (const line of results) console.log('  ' + line);
 } finally {
-  server.close();
+  await server.close();
 }

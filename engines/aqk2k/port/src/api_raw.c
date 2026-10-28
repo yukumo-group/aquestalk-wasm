@@ -7,6 +7,7 @@ typedef struct AqHandle {
     void *sysDic;
     void *userDic;
     void *analyzer;
+    int ownsDictionaries;
 } AqHandle;
 
 extern int aq_lookup_init(const void *data, unsigned size);
@@ -96,6 +97,7 @@ void *aq_create(const void *sysDic, const void *userDic, int *pErr)
     if (!h) { *pErr = 0x65; return 0; }
     h->sysDic = (void *)sysDic;
     h->userDic = (void *)userDic;
+    h->ownsDictionaries = 0;   /* caller owns aq_alloc'd dictionary buffers */
     h->analyzer = operator_new(0x100);
     FUN_0010c650((undefined1 *)h->analyzer);
     int err = (int)FUN_0010c6d0((undefined1 *)h->analyzer, (char *)sysDic,
@@ -114,8 +116,10 @@ void aq_release(void *handle)
     AqHandle *h = (AqHandle *)handle;
     if (!h)
         return;
-    free(h->sysDic);
-    free(h->userDic);
+    if (h->ownsDictionaries) {
+        free(h->sysDic);
+        free(h->userDic);
+    }
     if (h->analyzer) {
         FUN_0010c6a0((undefined1 *)h->analyzer);
         operator_delete(h->analyzer);

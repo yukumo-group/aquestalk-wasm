@@ -4,6 +4,10 @@
 The output is a (close to) mechanical translation of the original
 libAqKanji2Koe.so machine code.  It is *not* an emulator: every function is
 real C code that clang compiles to native machine code / wasm.
+
+NOTE: the checked-in port/src/decomp.c is authoritative and contains a few
+older hand fixes that this generator does not reproduce yet.  If you regenerate
+it, diff against git and port any missing fixes before rebuilding.
 """
 import re
 import sys
@@ -96,6 +100,12 @@ def normalize_common(text):
     # SSE pshuflw(...,0x1b) -> helper
     text = re.sub(r'\bundefined1 (auVar\d+) \[16\];', r'aq_v16 \1;', text)
     text = re.sub(r'(\w+) = pshuflw\(\1,\1,0x1b\);', r'\1 = aq_pshuflw(\1);', text)
+    # Ghidra types the signed 64-bit range test against -2147483649 as
+    # `-0x80000001`; in C that literal is unsigned, so the test is always
+    # false.  It guards the "same length" branch of the inlined
+    # std::u16string::replace calls (NUMK counter suffix normalization).
+    text = re.sub(r'\(\(([A-Za-z_]\w*) < 0x80000000\) && \(-0x80000001 < \1\)\) && \(\(int\)\1 == 0\)',
+                  r'((long)\1 == 0)', text)
     return text
 
 
@@ -119,6 +129,154 @@ def fix_string_calls(text, fname):
         text = text.replace('uVar5 = local_60 & 0xffffffff;',
                             'uVar5 = ((AqStr *)&local_68)->len;')
     return text
+
+
+def fix_stack_string(fname, body):
+    """Keep an inlined std::string temporary in one contiguous AqStr.
+
+    Ghidra split the 32-byte object into `local_68` (p), `local_60` (len) and
+    `local_58` (buffer).  A C compiler is free to reorder those stack slots,
+    so passing &local_68 as a std::string* reads garbage.  Re-emit them as one
+    AqStr; this path is used for English-word transliteration and crashed on
+    inputs such as "hello"."""
+    if fname != 'FUN_0010d610':
+        return body
+    body = body.replace(
+        '  undefined1 *local_68;\n  ulong local_60;\n  undefined1 local_58 [24];\n',
+        '  AqStr local_str;\n')
+    body = body.replace(
+        '            local_60 = 0;\n'
+        '            local_58[0] = 0;\n'
+        '            local_80 = (long)uVar6 >> 1;\n'
+        '            local_68 = local_58;\n'
+        '            FUN_0010c520(local_88,&local_68);\n'
+        '            FUN_0010b2c0(plVar9,local_68,local_60 & 0xffffffff);\n'
+        '            if (local_68 != local_58) {\n'
+        '              operator_delete(local_68);\n'
+        '            }\n',
+        '            AQSTR_INIT(local_str);\n'
+        '            local_80 = (long)uVar6 >> 1;\n'
+        '            FUN_0010c520(local_88,(undefined8)(uintptr_t)&local_str);\n'
+        '            FUN_0010b2c0(plVar9,AQSTR_DATA(local_str),\n'
+        '                         (int)(local_str.len & 0xffffffff));\n'
+        '            if (!AQSTR_LOCAL(local_str)) {\n'
+        '              operator_delete(AQSTR_DATA(local_str));\n'
+        '            }\n')
+    return body
+
+
+def fix_port_specifics(fname, body):
+    """Hand-maintained replacements that must survive regeneration."""
+    if fname == 'FUN_0010e830':
+        # The table stores UTF-16 code units; Ghidra typed the parameter as
+        # signed `short`, which never compares equal to values >= 0x8000
+        # (e.g. the fullwidth digits 0xff10..0xff19).  That signedness issue
+        # disabled the whole <NUMK>/<NUM> pipeline.
+        body = body.replace('short param_2', 'ushort param_2')
+    if fname == 'FUN_0010b080':
+        # Register both MARISA tries used by the port: the master dictionary
+        # (kind 0) and the single-character reading dictionary (kind 1).
+        old = ('        if (strncmp((char *)*param_1, "AqK2K Ver2 system dic.", 22) == 0)\n'
+               '          aq_lookup_register_slot(param_1 + 3);')
+        new = ('        if (strncmp((char *)*param_1, "AqK2K Ver2 system dic.", 22) == 0)\n'
+               '          aq_lookup_register_slot(param_1 + 3, 0);\n'
+               '        else if (strncmp((char *)*param_1, "MICHIGO.DIC", 11) == 0)\n'
+               '          aq_lookup_register_slot(param_1 + 3, 1);')
+        if old in body:
+            body = body.replace(old, new)
+    if fname == 'FUN_00116cc0':
+        # The decompiled MARISA search is LP64-only; use the precomputed
+        # MSTD/MCGD hash tables and enumerate common prefixes shortest-first.
+        marker = '  if (*param_1 == 0) {'
+        if marker in body:
+            shortcut = (
+                '  int kind = aq_lookup_slot_kind(param_1);\n'
+                '  if (aq_lookup_ready() && kind >= 0) {\n'
+                '    uint16_t *q = *(uint16_t **)param_2;\n'
+                '    long bytes = *(long *)(param_2 + 8);\n'
+                '    long qlen = bytes / 2;\n'
+                '    if (*(long *)(param_2 + 0x10) != (long)q || *(long *)(param_2 + 0x18) != bytes) {\n'
+                '      *(long *)(param_2 + 0x10) = (long)q;\n'
+                '      *(long *)(param_2 + 0x18) = bytes;\n'
+                '      *(unsigned int *)(param_2 + 0x20) = 0;\n'
+                '    }\n'
+                '    int after = (int)(*(unsigned int *)(param_2 + 0x20) / 2);\n'
+                '    int mlen = 0;\n'
+                '    uint32_t id = 0;\n'
+                '    if (aq_lookup_prefix_after(kind, q, (int)qlen, after, &mlen, &id)) {\n'
+                '      *(unsigned int *)(param_2 + 0x20) = (unsigned int)(mlen * 2);\n'
+                '      *(unsigned int *)(param_2 + 0x24) = id;\n'
+                '      return 1;\n'
+                '    }\n'
+                '    return 0;\n'
+                '  }\n')
+            body = body.replace(marker, shortcut + marker, 1)
+    return body
+
+
+def fix_numk_suffix(fname, body):
+    """Replace the inlined std::u16string::replace in the NUMK counter
+    normaliser with the runtime helper.
+
+    Ghidra expanded three `sb.replace(0, sb.size(), L"..." )` calls into
+    hundreds of lines of pointer arithmetic.  Besides being hard to follow,
+    the overlap branches assume LP64 pointer sizes and corrupt the counter
+    string in the wasm32 build.  All three calls replace the whole counter
+    reading with a fixed two-character string, which FUN_0010d130 does
+    directly."""
+    if fname != 'FUN_0010ef60':
+        return body
+    marker = 'if (((long)lVar11 == 0)) {'
+    pos = 0
+    chunks = []
+    targets = []
+    while True:
+        idx = body.find(marker, pos)
+        if idx < 0:
+            break
+        line_start = body.rfind('\n', 0, idx) + 1
+        brace = body.find('{', idx)
+        depth = 1
+        j = brace + 1
+        in_str = False
+        esc = False
+        while depth > 0 and j < len(body):
+            c = body[j]
+            if in_str:
+                if esc:
+                    esc = False
+                elif c == '\\':
+                    esc = True
+                elif c == '"':
+                    in_str = False
+            else:
+                if c == '"':
+                    in_str = True
+                elif c == '{':
+                    depth += 1
+                elif c == '}':
+                    depth -= 1
+            j += 1
+        block = body[idx:j]
+        m = re.search(r'&DAT_001182(?:d4|e0|ec)', block)
+        if not m:
+            raise RuntimeError('NUMK suffix block without target constant')
+        target = m.group(0)
+        targets.append(target)
+        indent = body[line_start:idx]
+        chunks.append(body[pos:line_start])
+        chunks.append(
+            f"{indent}if ((long)lVar11 == 0) {{\n"
+            f"{indent}  FUN_0010d130((undefined8 *)&sb,0,sb.len,{target},2);\n"
+            f"{indent}  sb.len = 2;\n"
+            f"{indent}  AQU16_DATA(sb)[2] = 0;\n"
+            f"{indent}  goto LAB_0010f757;\n"
+            f"{indent}}}")
+        pos = j
+    chunks.append(body[pos:])
+    if len(targets) != 3:
+        raise RuntimeError('expected 3 NUMK suffix replacements, got %d' % len(targets))
+    return ''.join(chunks)
 
 
 def fix_u16string(fname, body):
@@ -157,6 +315,9 @@ def main():
             body = body.replace('thunk_%s(' % target, target + '(')
         body = normalize_common(body)
         body = fix_u16string(f['name'], body)
+        body = fix_stack_string(f['name'], body)
+        body = fix_port_specifics(f['name'], body)
+        body = fix_numk_suffix(f['name'], body)
         body = fix_string_calls(body, f['name'])
         # body must end with the closing brace already
         out_funcs.append((f['name'], body))
