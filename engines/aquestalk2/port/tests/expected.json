@@ -1,0 +1,1026 @@
+{
+ "source": "libAquesTalk2Eva.so.2.3",
+ "cases": [
+  {
+   "text": "accent.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 26036,
+   "sha256": "49b21984af506759770086c916a716757fe2660f818fa8e26abbd67fc87902f4"
+  },
+  {
+   "text": "accent.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 26036,
+   "sha256": "49b21984af506759770086c916a716757fe2660f818fa8e26abbd67fc87902f4"
+  },
+  {
+   "text": "accent.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 26036,
+   "sha256": "49b21984af506759770086c916a716757fe2660f818fa8e26abbd67fc87902f4"
+  },
+  {
+   "text": "accent.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 26036,
+   "sha256": "49b21984af506759770086c916a716757fe2660f818fa8e26abbd67fc87902f4"
+  },
+  {
+   "text": "aiueo.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 9516,
+   "sha256": "8fb9a3e51845d45e6c056734468011e75165ae88941cd95caa15a53fee54be17"
+  },
+  {
+   "text": "aiueo.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 9516,
+   "sha256": "8fb9a3e51845d45e6c056734468011e75165ae88941cd95caa15a53fee54be17"
+  },
+  {
+   "text": "aiueo.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 9516,
+   "sha256": "8fb9a3e51845d45e6c056734468011e75165ae88941cd95caa15a53fee54be17"
+  },
+  {
+   "text": "aiueo.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 9516,
+   "sha256": "8fb9a3e51845d45e6c056734468011e75165ae88941cd95caa15a53fee54be17"
+  },
+  {
+   "text": "arigato.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 10836,
+   "sha256": "df61b653ae3097e6321abd4a9b1d420c81ac55b05f26c8b0af29425b33704f7c"
+  },
+  {
+   "text": "arigato.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 10836,
+   "sha256": "df61b653ae3097e6321abd4a9b1d420c81ac55b05f26c8b0af29425b33704f7c"
+  },
+  {
+   "text": "arigato.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 10836,
+   "sha256": "df61b653ae3097e6321abd4a9b1d420c81ac55b05f26c8b0af29425b33704f7c"
+  },
+  {
+   "text": "arigato.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 10836,
+   "sha256": "df61b653ae3097e6321abd4a9b1d420c81ac55b05f26c8b0af29425b33704f7c"
+  },
+  {
+   "text": "ascii.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "ascii.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "ascii.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "ascii.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "dakuon.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 23396,
+   "sha256": "059bad69002d38f2ff41edc5e776ad81c86841c14d45453483557e6042bdf375"
+  },
+  {
+   "text": "dakuon.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 23396,
+   "sha256": "059bad69002d38f2ff41edc5e776ad81c86841c14d45453483557e6042bdf375"
+  },
+  {
+   "text": "dakuon.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 23396,
+   "sha256": "059bad69002d38f2ff41edc5e776ad81c86841c14d45453483557e6042bdf375"
+  },
+  {
+   "text": "dakuon.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 23396,
+   "sha256": "059bad69002d38f2ff41edc5e776ad81c86841c14d45453483557e6042bdf375"
+  },
+  {
+   "text": "empty.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 0"
+  },
+  {
+   "text": "empty.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 0"
+  },
+  {
+   "text": "empty.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 0"
+  },
+  {
+   "text": "empty.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 0"
+  },
+  {
+   "text": "handaku.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 13556,
+   "sha256": "2761b288d5838995e50b268e15b905dc4339497ae1685fe52386f46164d3f245"
+  },
+  {
+   "text": "handaku.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 13556,
+   "sha256": "2761b288d5838995e50b268e15b905dc4339497ae1685fe52386f46164d3f245"
+  },
+  {
+   "text": "handaku.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 13556,
+   "sha256": "2761b288d5838995e50b268e15b905dc4339497ae1685fe52386f46164d3f245"
+  },
+  {
+   "text": "handaku.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 13556,
+   "sha256": "2761b288d5838995e50b268e15b905dc4339497ae1685fe52386f46164d3f245"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 12636,
+   "sha256": "e7a49fca1751bc22a3cdd945cfd04a53d9c4ab3b56e42182882b3fd728bb7fe7"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 12636,
+   "sha256": "e7a49fca1751bc22a3cdd945cfd04a53d9c4ab3b56e42182882b3fd728bb7fe7"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 12636,
+   "sha256": "e7a49fca1751bc22a3cdd945cfd04a53d9c4ab3b56e42182882b3fd728bb7fe7"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 12636,
+   "sha256": "e7a49fca1751bc22a3cdd945cfd04a53d9c4ab3b56e42182882b3fd728bb7fe7"
+  },
+  {
+   "text": "katakana.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 13196,
+   "sha256": "62063b2270e0dd99e54d7657d515a76d91b13b32918732ce2ef12806c115497d"
+  },
+  {
+   "text": "katakana.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 13196,
+   "sha256": "62063b2270e0dd99e54d7657d515a76d91b13b32918732ce2ef12806c115497d"
+  },
+  {
+   "text": "katakana.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 13196,
+   "sha256": "62063b2270e0dd99e54d7657d515a76d91b13b32918732ce2ef12806c115497d"
+  },
+  {
+   "text": "katakana.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 13196,
+   "sha256": "62063b2270e0dd99e54d7657d515a76d91b13b32918732ce2ef12806c115497d"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 46796,
+   "sha256": "0980021c366c11cbee6f5405248e2f9313919a985044b07455db973ab423ac34"
+  },
+  {
+   "text": "long.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 46796,
+   "sha256": "0980021c366c11cbee6f5405248e2f9313919a985044b07455db973ab423ac34"
+  },
+  {
+   "text": "long.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 46796,
+   "sha256": "0980021c366c11cbee6f5405248e2f9313919a985044b07455db973ab423ac34"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 46796,
+   "sha256": "0980021c366c11cbee6f5405248e2f9313919a985044b07455db973ab423ac34"
+  },
+  {
+   "text": "mixed.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "mixed.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "mixed.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "mixed.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "momomo.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 26596,
+   "sha256": "1184fe0da0b0cfc51ab8c4902a4d61f4b59667e2fa61e7db33a25f8a3686d9dd"
+  },
+  {
+   "text": "momomo.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 26596,
+   "sha256": "1184fe0da0b0cfc51ab8c4902a4d61f4b59667e2fa61e7db33a25f8a3686d9dd"
+  },
+  {
+   "text": "momomo.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 26596,
+   "sha256": "1184fe0da0b0cfc51ab8c4902a4d61f4b59667e2fa61e7db33a25f8a3686d9dd"
+  },
+  {
+   "text": "momomo.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 26596,
+   "sha256": "1184fe0da0b0cfc51ab8c4902a4d61f4b59667e2fa61e7db33a25f8a3686d9dd"
+  },
+  {
+   "text": "nv.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 22196,
+   "sha256": "32b83e3abc77c62d926d42e75cd940ac11ffef21635cdbb263702c1d2490c85d"
+  },
+  {
+   "text": "nv.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 22196,
+   "sha256": "32b83e3abc77c62d926d42e75cd940ac11ffef21635cdbb263702c1d2490c85d"
+  },
+  {
+   "text": "nv.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 22196,
+   "sha256": "32b83e3abc77c62d926d42e75cd940ac11ffef21635cdbb263702c1d2490c85d"
+  },
+  {
+   "text": "nv.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 22196,
+   "sha256": "32b83e3abc77c62d926d42e75cd940ac11ffef21635cdbb263702c1d2490c85d"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 19916,
+   "sha256": "b60a3c0ba5177a6791a2dd1846103230749c0658e46feb83735facc45131aabc"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 19916,
+   "sha256": "b60a3c0ba5177a6791a2dd1846103230749c0658e46feb83735facc45131aabc"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 19916,
+   "sha256": "b60a3c0ba5177a6791a2dd1846103230749c0658e46feb83735facc45131aabc"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 19916,
+   "sha256": "b60a3c0ba5177a6791a2dd1846103230749c0658e46feb83735facc45131aabc"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 31"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 105"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 21"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "error": "ERR 11"
+  },
+  {
+   "text": "sekai.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 25276,
+   "sha256": "88e38bdf54ab9383720d9c7e81ae621638c27f7ed5e32b3ea2d8fa848d0e8480"
+  },
+  {
+   "text": "sekai.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 25276,
+   "sha256": "88e38bdf54ab9383720d9c7e81ae621638c27f7ed5e32b3ea2d8fa848d0e8480"
+  },
+  {
+   "text": "sekai.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 25276,
+   "sha256": "88e38bdf54ab9383720d9c7e81ae621638c27f7ed5e32b3ea2d8fa848d0e8480"
+  },
+  {
+   "text": "sekai.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 25276,
+   "sha256": "88e38bdf54ab9383720d9c7e81ae621638c27f7ed5e32b3ea2d8fa848d0e8480"
+  },
+  {
+   "text": "small.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 18136,
+   "sha256": "076b5c8e2d1b639b00fa9d9d53a1155a01adce87d6529e53198001d8f424e0fc"
+  },
+  {
+   "text": "small.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 18136,
+   "sha256": "076b5c8e2d1b639b00fa9d9d53a1155a01adce87d6529e53198001d8f424e0fc"
+  },
+  {
+   "text": "small.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 18136,
+   "sha256": "076b5c8e2d1b639b00fa9d9d53a1155a01adce87d6529e53198001d8f424e0fc"
+  },
+  {
+   "text": "small.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 18136,
+   "sha256": "076b5c8e2d1b639b00fa9d9d53a1155a01adce87d6529e53198001d8f424e0fc"
+  },
+  {
+   "text": "tenki.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": null,
+   "size": 23416,
+   "sha256": "e19ba512e17316cf12b8e12e75b150ddaf83854e965788be473beee96951ef3b"
+  },
+  {
+   "text": "tenki.txt",
+   "enc": "sjis",
+   "speed": 100,
+   "phont": null,
+   "size": 23416,
+   "sha256": "e19ba512e17316cf12b8e12e75b150ddaf83854e965788be473beee96951ef3b"
+  },
+  {
+   "text": "tenki.txt",
+   "enc": "euc",
+   "speed": 100,
+   "phont": null,
+   "size": 23416,
+   "sha256": "e19ba512e17316cf12b8e12e75b150ddaf83854e965788be473beee96951ef3b"
+  },
+  {
+   "text": "tenki.txt",
+   "enc": "utf16",
+   "speed": 100,
+   "phont": null,
+   "size": 23416,
+   "sha256": "e19ba512e17316cf12b8e12e75b150ddaf83854e965788be473beee96951ef3b"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 50,
+   "phont": null,
+   "size": 24716,
+   "sha256": "bf865ecf07b9d1de0f259b4e655de3ac48ffd038e375adbfd06a2b683df1b7b2"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 150,
+   "phont": null,
+   "size": 8566,
+   "sha256": "f4b4d9ca9155b9b4fb811b4021eb198d1cc282ef86ec72017416dd5def827891"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 300,
+   "phont": null,
+   "size": 4550,
+   "sha256": "78af72deece6dad4df261275bb04300820118278bf62ff91f815fe35ea882489"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "utf8",
+   "speed": 50,
+   "phont": null,
+   "size": 39276,
+   "sha256": "3ccfe8fcf3d82268865269553b689e4b3d024bc3560b1a7f0152eae123413fc2"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "utf8",
+   "speed": 150,
+   "phont": null,
+   "size": 13394,
+   "sha256": "971db7eccfe7eca7baa067020a068ebf0330c6bb34f303ccc720d0cfe2c5debe"
+  },
+  {
+   "text": "ohayo.txt",
+   "enc": "utf8",
+   "speed": 300,
+   "phont": null,
+   "size": 6958,
+   "sha256": "3ba22adb851ec57d08cc617f746aa01af4eb1e5cd8e5dd951692cee7cd2f994f"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 50,
+   "phont": null,
+   "size": 93036,
+   "sha256": "604cf6592ab9d18f62c69a3ad3886963ec51c25cfc945cce09bea406b74c810d"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 150,
+   "phont": null,
+   "size": 31232,
+   "sha256": "a6f647a3c011cbcd1ba41e81f4ec5fa8a0381be3d3a5c997928754e64bf4ef9c"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 300,
+   "phont": null,
+   "size": 15860,
+   "sha256": "2e9532d12c0ff57774553e505d41fce1993daf4e80867bedc2202c79da296810"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "utf8",
+   "speed": 50,
+   "phont": null,
+   "error": "ERR 31"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "utf8",
+   "speed": 150,
+   "phont": null,
+   "error": "ERR 31"
+  },
+  {
+   "text": "punct.txt",
+   "enc": "utf8",
+   "speed": 300,
+   "phont": null,
+   "error": "ERR 31"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_defo1.phont",
+   "size": 12418,
+   "sha256": "c1719780ea729fbd670f5ac2b8164df7084556ea1bca0eec4ceb7baa4d4ee618"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_defo1.phont",
+   "size": 50062,
+   "sha256": "64a88a7d79bd4d6f2c8f0d885190c69d966d5536a47b68a2406ee911a2144e0b"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_f1c.phont",
+   "size": 12796,
+   "sha256": "d18ed4ecc5af1d186cf974fd68a81e6474635582e5f4dcecfbd292f71cc25b17"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_f1c.phont",
+   "size": 52436,
+   "sha256": "c0a14dce2ffb0107ef6bfccda48d7ed2f1aecde231b7b3d444eefa4e4a41e3ab"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_f3a.phont",
+   "size": 12796,
+   "sha256": "00d3068212f7f269f9b3aa46a70ca73b0fd999fc90d64cd59c6701ec734dc529"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_f3a.phont",
+   "size": 52436,
+   "sha256": "e64c47d3b2146417437450bee38a4a4faf9f0fda02076cff0bc572b5f1634c35"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_huskey.phont",
+   "size": 15742,
+   "sha256": "a69ee83be9ba94d9b02b8ba090ca22b230651c50c5ff863ca00bcafb2adb37da"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_huskey.phont",
+   "size": 60796,
+   "sha256": "050ef4d96d6044b0f08ca56ad67cdc4f08bdaeaba76885f6a6977980babdefd6"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_m4b.phont",
+   "size": 13156,
+   "sha256": "b524bbbaf8b14d01e171b827c639da8853e0d541e0848a04e7b92a766ec09d5e"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_m4b.phont",
+   "size": 52436,
+   "sha256": "7ba155e8d0f564f5644bb4d97e512f6514381333cdc1befa526fd7fc8c5d10f2"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_mf1.phont",
+   "size": 12796,
+   "sha256": "8af43ac8a0288b7d8ec1c0ed6e2ff43bf62646d78264194624e84be8f0ea9eff"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_mf1.phont",
+   "size": 52436,
+   "sha256": "a7bd814ce1e8b769853e0ce6ce974409e073656849dec7687829e46ce0b023af"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_momo1.phont",
+   "size": 11986,
+   "sha256": "d3d72d8a21f3972a205f718dacbffe4bf88ed94e6ecc426a72e83953778a6e58"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_momo1.phont",
+   "size": 48656,
+   "sha256": "24c25140e89485a43b0c1d8b2a40b48a387b41ec67dcd1295533d1ad48fd6897"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_rb2.phont",
+   "size": 10988,
+   "sha256": "aa5e4f9b998dd8dc0aca63f0bcb413551866e5916de14f6fbe6f30750d369da8"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_rb2.phont",
+   "size": 45422,
+   "sha256": "2294fd8542eb978eb9d87c6c07843cb1c681bc77b9562133733f10a8972c2492"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_rb3.phont",
+   "size": 12796,
+   "sha256": "bcef771540d8370fa067bf71ebf7b4b93d70de2feb75bbe205e80ea2eb133879"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_rb3.phont",
+   "size": 52436,
+   "sha256": "43d46b7127869924578a68e6f15d14c5d248b0a20183aeae80dcdeb5e9f46067"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_rm.phont",
+   "size": 13156,
+   "sha256": "a2f42b9442a2fc43de635f947400361ccea6f4d9e1943a6e06a772b29bc5bbe1"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_rm.phont",
+   "size": 52436,
+   "sha256": "cad69a25dbcb4b15144f3a1a710e982725c0430c24bd2dc8837520e13e7a2a4b"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_robo.phont",
+   "size": 13156,
+   "sha256": "8b7ea5f09af9e2df6266264dbc3dfe164404d88131233b34acd3b62ee9822e84"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_robo.phont",
+   "size": 52436,
+   "sha256": "bd9a5029e943c012f318a45b4fd492b6854bb63c72ef4402afa93f2ee3b27ce3"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_teto1.phont",
+   "size": 11352,
+   "sha256": "1eb8e38449e6e6826e5c8a1c21edc1888839e7535259ea00fd6111b0745aa2d0"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_teto1.phont",
+   "size": 46606,
+   "sha256": "2a8e25033280e70aee786237a3093d259e41059414aedd3277c7d84fc13fa64f"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_yukkuri.phont",
+   "size": 16260,
+   "sha256": "d0c49f832a65f1e5935a1a5fdf2780974629e165af89d0fcf2a2a97becd7320a"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "aq_yukkuri.phont",
+   "size": 55074,
+   "sha256": "80607c4a0bccd89b5b90d2c6d8749d3d2d23885c0779409fd60d2ec17803d678"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_f4.phont",
+   "size": 12636,
+   "sha256": "e7a49fca1751bc22a3cdd945cfd04a53d9c4ab3b56e42182882b3fd728bb7fe7"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_f4.phont",
+   "size": 46796,
+   "sha256": "0980021c366c11cbee6f5405248e2f9313919a985044b07455db973ab423ac34"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_m5.phont",
+   "size": 12048,
+   "sha256": "607a52f6204ba70781429f51796c364e2ee685372de27334251c74ab7542ab8b"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_m5.phont",
+   "size": 46038,
+   "sha256": "8128f8d68363da1fe3e7a185240c0e7f46ba3610c30e2dea0cd30f519db37602"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_mf2.phont",
+   "size": 10220,
+   "sha256": "d4b2b339bc92bc3ae7ece7add02853fab859bc5b194ea71e764b415b2406ed6f"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_mf2.phont",
+   "size": 40588,
+   "sha256": "7e0235136c1bc4af55e1062129c72961c4c91dbf8b45205a5a8751942cbc7f79"
+  },
+  {
+   "text": "hello.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_rm3.phont",
+   "size": 12636,
+   "sha256": "cba178080c55103584b7cdf4450c3c7dfd265696ed2d2146ab99baf50283b7bb"
+  },
+  {
+   "text": "long.txt",
+   "enc": "utf8",
+   "speed": 100,
+   "phont": "ar_rm3.phont",
+   "size": 46796,
+   "sha256": "36c2951a9beb10e5d34611cd53cea2c9df52408c3324c940a117aa09112916ac"
+  },
+  {
+   "text": "roman/arigatou.txt",
+   "enc": "roman",
+   "speed": 80,
+   "phont": null,
+   "size": 13406,
+   "sha256": "dc49760fba848ac959c6f584c17b9f53725e8bea7ed32587d5324a147e91bb7c"
+  },
+  {
+   "text": "roman/arigatou.txt",
+   "enc": "roman",
+   "speed": 100,
+   "phont": null,
+   "size": 10836,
+   "sha256": "df61b653ae3097e6321abd4a9b1d420c81ac55b05f26c8b0af29425b33704f7c"
+  },
+  {
+   "text": "roman/arigatou.txt",
+   "enc": "roman",
+   "speed": 200,
+   "phont": null,
+   "size": 5696,
+   "sha256": "2a6ce970350e3b691b5bd525fa26ed53ff9c10b9756875dc62746d761f848384"
+  },
+  {
+   "text": "roman/konnichiwa.txt",
+   "enc": "roman",
+   "speed": 80,
+   "phont": null,
+   "size": 14956,
+   "sha256": "6eea6e18657a4cd094e7b9fc80f8462a0c125106a93c34d380ad58e198ff0727"
+  },
+  {
+   "text": "roman/konnichiwa.txt",
+   "enc": "roman",
+   "speed": 100,
+   "phont": null,
+   "size": 12076,
+   "sha256": "6f0a54653ada7fcc994152d274cb8e2f75ccd204db06d28624cf882f861c99e2"
+  },
+  {
+   "text": "roman/konnichiwa.txt",
+   "enc": "roman",
+   "speed": 200,
+   "phont": null,
+   "size": 6316,
+   "sha256": "987606d3f95574712111ec91a7acbd447bdb1343198bc6f34a902cc35587cdcc"
+  },
+  {
+   "text": "roman/ohayou.txt",
+   "enc": "roman",
+   "speed": 80,
+   "phont": null,
+   "size": 11806,
+   "sha256": "8d4e4998678351255dddf13d6e2c59e1e0ed082c0a2d498c489a0b2ae88b3238"
+  },
+  {
+   "text": "roman/ohayou.txt",
+   "enc": "roman",
+   "speed": 100,
+   "phont": null,
+   "size": 9556,
+   "sha256": "0df7413212cb5fe483400c1c18b7e750ab6ccd6dab1f0289ac7a77154205c14f"
+  },
+  {
+   "text": "roman/ohayou.txt",
+   "enc": "roman",
+   "speed": 200,
+   "phont": null,
+   "size": 5056,
+   "sha256": "b196ae27d4ef18c2a8fd57143c79d36501b1f95b5067a4d0a628c22bffed1cb8"
+  },
+  {
+   "text": "roman/tokyo.txt",
+   "enc": "roman",
+   "speed": 80,
+   "phont": null,
+   "size": 9456,
+   "sha256": "26a8d4c3ba8a2b48e5c8df4a37ccc4884fb62239c30da9d7651c2fc97ce759db"
+  },
+  {
+   "text": "roman/tokyo.txt",
+   "enc": "roman",
+   "speed": 100,
+   "phont": null,
+   "size": 7676,
+   "sha256": "d96600da449e39af9919d3418f13764c426067c5d8ad6a9a1eefd8070c2dcd45"
+  },
+  {
+   "text": "roman/tokyo.txt",
+   "enc": "roman",
+   "speed": 200,
+   "phont": null,
+   "size": 4116,
+   "sha256": "cf69479336a8fd93b8988a1ac0a817e13dbf79d61ce7050ad8bbcf7e0da0547d"
+  }
+ ]
+}

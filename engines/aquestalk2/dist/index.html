@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AquesTalk2 — WebAssembly port</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>AquesTalk2 <span>WebAssembly</span></h1>
+    <p class="sub">
+      規則音声合成エンジン <code>libAquesTalk2Eva.so.2.3</code> の再コンパイル版。
+      Ghidra で復元した C を <code>clang --target=wasm32</code> + <code>wasm-ld</code>
+      で直接 wasm にしています（Emscripten・embind 不使用、imports ゼロ）。
+    </p>
+  </header>
+
+  <section class="card">
+    <label class="field">
+      <span>音声記号列（ひらがな・カタカナ）</span>
+      <textarea id="text" rows="3" spellcheck="false">こんにちは、せかい。</textarea>
+    </label>
+
+    <div class="samples" id="samples"></div>
+
+    <div class="row">
+      <label class="field grow">
+        <span>声質</span>
+        <select id="voice">
+          <option value="">内蔵デフォルト (aq_defo1)</option>
+        </select>
+      </label>
+      <label class="field grow">
+        <span>話速 <output id="speedOut">100</output> %</span>
+        <input id="speed" type="range" min="50" max="300" step="1" value="100">
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="play" class="primary">合成して再生</button>
+      <button id="stop" disabled>停止</button>
+      <button id="download" disabled>WAV を保存</button>
+    </div>
+
+    <p id="status" class="status">モジュールは最初の合成時に読み込まれます。</p>
+    <div class="meta">
+      <span id="metaSize"></span>
+      <span id="metaTime"></span>
+      <span id="metaVoice"></span>
+    </div>
+    <canvas id="wave" width="960" height="120" aria-label="waveform"></canvas>
+    <audio id="audio" preload="none"></audio>
+  </section>
+
+  <footer>
+    <p>
+      API: <code>synthe(text, speed)</code> /
+      <code>syntheWithPhont(text, speed, phontBytes)</code> /
+      <code>syntheSjis</code> / <code>syntheEuc</code> / <code>syntheUtf16</code> /
+      <code>syntheRoman</code>. 失敗時は <code>null</code> を返し
+      <code>lastError()</code> にエラーコードが入ります。
+    </p>
+    <p class="fine">
+      AquesTalk2 は株式会社アクエストの製品です。このリポジトリは評価用 SDK の
+      バイナリを技術検証のために移植したもので、音声ライブラリの利用には
+      アクエスト社のライセンスが必要です。
+    </p>
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
