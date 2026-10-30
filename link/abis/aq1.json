@@ -1,0 +1,15 @@
+{
+  "engine": "AquesTalk1",
+  "prefix": "aq1_",
+  "archive": "libaq1.a",
+  "build": "engines/aquestalk1/recovered/wasm/build-reloc.sh",
+  "api": {
+    "aq_alloc": "aq1_alloc",
+    "aq_free": "aq1_free",
+    "aq_select_voice": "aq1_select_voice",
+    "aq_voice_count": "aq1_voice_count",
+    "aq_voice_name": "aq1_voice_name",
+    "aq_synthe_utf8": "aq1_synthe_utf8",
+    "aq_free_wave": "aq1_free_wave"
+  }
+}

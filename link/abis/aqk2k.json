@@ -1,0 +1,17 @@
+{
+  "engine": "AqKanji2Koe",
+  "prefix": "aqk2k_",
+  "archive": "libaqk2k.a",
+  "build": "engines/aqk2k/port/build_reloc.sh",
+  "api": {
+    "aq_init": "aqk2k_init",
+    "aq_alloc": "aqk2k_alloc",
+    "aq_free": "aqk2k_free",
+    "aq_set_lookup": "aqk2k_set_lookup",
+    "aq_create": "aqk2k_create",
+    "aq_release": "aqk2k_release",
+    "aq_convert": "aqk2k_convert",
+    "aq_conv_roman": "aqk2k_conv_roman",
+    "aq_set_devkey": "aqk2k_set_devkey"
+  }
+}

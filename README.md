@@ -105,7 +105,13 @@ aquestalk-wasm/
 │   └── engines.js       # 四个引擎的统一适配层
 ├── scripts/
 │   ├── serve.sh
-│   └── test.sh
+│   ├── test.sh
+│   └── build-reloc.sh   # 5 个引擎 .a + Rust host -> dist/aquestalk.wasm
+├── link/                # 单内存链接套件（ABI、符号前缀、host shim、对拍）
+│   ├── abis/            # 每个引擎的公开符号映射
+│   ├── host/            # Rust malloc/free + C string/stdio/trap
+│   ├── tools/           # gen_prefix.py / exports.py / reloc.sh
+│   └── test/reloc.mjs   # 与原独立 wasm 逐字节对拍
 ├── tests/
 │   ├── lib/             # 临时 HTTP 服务、WAV 解析、声库目录
 │   ├── smoke.mjs        # Node 冒烟测试（无浏览器）
@@ -113,6 +119,8 @@ aquestalk-wasm/
 │   ├── notation.mjs     # 音声記号列仕様書 v1.5 符合性
 │   ├── browser.mjs      # 可选 Playwright 测试
 │   └── results/         # 机器可读结果
+├── dist/                # ./scripts/build-reloc.sh 的产物（git 忽略）
+│   └── aquestalk.wasm   # 0 imports、1 memory 的单模块
 ├── docs/
 │   ├── demo.png
 │   ├── consistency-report.md
@@ -200,6 +208,33 @@ cd engines/aqk2k && ./port/build_wasm32.sh
 更细的生成/对拍步骤见各子项目的 `README.md`。注意 AquesTalk10 的
 `port/src/image.c` 和 AqKanji2Koe 的 `aqdic.bin`/`lookup.bin` 是生成/授权数据，
 不在 git 里。
+
+### 可重定位对象与单内存打包
+
+除了上面四个独立 wasm，每个引擎还能构建成**可重定位的 `.o`/`.a`**，由
+`wasm-ld` 和 Rust 代码链接进**同一个模块、同一块内存**——浏览器不支持
+multi-memory，这是把引擎嵌进 Rust 宿主的唯一可移植方式：
+
+```bash
+./scripts/build-reloc.sh          # 5 个引擎 + Rust host -> dist/aquestalk.wasm
+npm run test:reloc                # 与原独立 wasm 逐字节对拍
+```
+
+- 产物：`dist/reloc/libaq1.a`、`libaq2.a`、`libaq10.a`、`libaqk2k.a`、
+  `libaqusr.a`、`libaqhost.a` 和单模块 `dist/aquestalk.wasm`（0 imports、
+  1 个 memory、1 个 table）。
+- 命名空间：每个引擎的全局符号在编译期加上 `aq1_`/`aq2_`/… 前缀，避免
+  `FUN_0010…`、`aqstr_*`、`__cxa_throw` 等重名；公开入口名见
+  `link/abis/*.json`。
+- 内存：去掉各引擎自带的 `__heap_base` 分配器，统一用 Rust 的全局分配器；
+  `malloc`/`free` 由 `link/host` 提供，字符串/stdio/trap 由 `aq_host.c` 提供。
+- Rust 侧接入方式（`cargo`/rust-lld、`--whole-archive`、导出清单）见
+  [link/README.md](link/README.md)；Yukw 的 `aq-wasm` 用 `static-engines`
+  feature 复用同一套归档。
+
+对拍覆盖：AquesTalk1 9 声库 × 4 句 × 3 语速、AquesTalk2 4 个 phont、
+AquesTalk10 7 个预设、AqKanji2Koe 假名/罗马字、AqUsrDic Check 与
+Import/Export，全部与原来的独立 wasm 字节一致。
 
 ## 验证结果
 

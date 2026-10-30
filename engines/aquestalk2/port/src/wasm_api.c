@@ -8,7 +8,7 @@
  */
 #include "shim.h"
 
-#ifdef __wasm__
+#if defined(__wasm__) && !defined(AQ_RELOC)
 #define AQ_EXPORT(name) __attribute__((export_name(#name)))
 #else
 #define AQ_EXPORT(name)

@@ -12,6 +12,8 @@
     "test:notation": "node tests/notation.mjs",
     "test:strict": "node tests/notation.mjs --strict",
     "test:k2k-soak": "node engines/aqk2k/tests/soak.mjs",
-    "test:parity": "node tests/consistency.mjs --strict"
+    "test:parity": "node tests/consistency.mjs --strict",
+    "build:reloc": "./scripts/build-reloc.sh",
+    "test:reloc": "node link/test/reloc.mjs"
   }
 }

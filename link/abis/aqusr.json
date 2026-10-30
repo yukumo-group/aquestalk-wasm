@@ -1,0 +1,16 @@
+{
+  "engine": "AqUsrDic",
+  "prefix": "aqusr_",
+  "archive": "libaqusr.a",
+  "build": "engines/aqk2k/port_usr/build_reloc.sh",
+  "api": {
+    "aus_init": "aqusr_init",
+    "aus_check": "aqusr_check",
+    "aus_error": "aqusr_error",
+    "aus_set_system_dic": "aqusr_set_system_dic",
+    "aus_import": "aqusr_import",
+    "aus_export": "aqusr_export",
+    "aq_alloc": "aqusr_alloc",
+    "aq_free": "aqusr_free"
+  }
+}

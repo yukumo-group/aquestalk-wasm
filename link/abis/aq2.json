@@ -1,0 +1,19 @@
+{
+  "engine": "AquesTalk2",
+  "prefix": "aq2_",
+  "archive": "libaq2.a",
+  "build": "engines/aquestalk2/port/build-reloc.sh",
+  "api": {
+    "AquesTalk2_Synthe": "aq2_synthe",
+    "AquesTalk2_Synthe_Euc": "aq2_synthe_euc",
+    "AquesTalk2_Synthe_Utf8": "aq2_synthe_utf8",
+    "AquesTalk2_Synthe_Utf16": "aq2_synthe_utf16",
+    "AquesTalk2_Synthe_Roman": "aq2_synthe_roman",
+    "AquesTalk2_FreeWave": "aq2_free_wave",
+    "aq_malloc": "aq2_alloc",
+    "aq_free": "aq2_free",
+    "aq_last_error": "aq2_last_error",
+    "aq_sample_rate": "aq2_sample_rate",
+    "aq_image_base": "aq2_image_base"
+  }
+}

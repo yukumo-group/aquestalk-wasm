@@ -1,0 +1,18 @@
+{
+  "engine": "AquesTalk10",
+  "prefix": "aq10_",
+  "archive": "libaq10.a",
+  "build": "engines/aquestalk10/port/build-reloc.sh",
+  "api": {
+    "aqtk_init": "aq10_init",
+    "aqtk_malloc": "aq10_alloc",
+    "aqtk_free": "aq10_free",
+    "aqtk_synthe_utf8": "aq10_synthe_utf8",
+    "aqtk_synthe_sjis": "aq10_synthe_sjis",
+    "aqtk_synthe_utf16": "aq10_synthe_utf16",
+    "aqtk_synthe_utf8_default": "aq10_synthe_utf8_default",
+    "aqtk_free_wave": "aq10_free_wave",
+    "aqtk_set_dev_key": "aq10_set_dev_key",
+    "aqtk_set_usr_key": "aq10_set_usr_key"
+  }
+}

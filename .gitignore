@@ -17,3 +17,8 @@ Thumbs.db
 # local aqk2k debugging artifacts
 /engines/aqk2k/.tmp/
 /engines/aqk2k/port/build-native-dbg/
+
+# relocatable single-memory build
+/dist/
+**/.reloc-tmp/
+/link/host/target/
