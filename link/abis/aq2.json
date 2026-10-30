@@ -14,6 +14,7 @@
     "aq_free": "aq2_free",
     "aq_last_error": "aq2_last_error",
     "aq_sample_rate": "aq2_sample_rate",
-    "aq_image_base": "aq2_image_base"
+    "aq_image_base": "aq2_image_base",
+    "aq_builtin_phont": "aq2_builtin_phont"
   }
 }

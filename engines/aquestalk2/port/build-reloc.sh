@@ -4,6 +4,9 @@
 # src/runtime.c is intentionally not compiled: the final module supplies
 # malloc/mem* through the link kit.  link/tools/reloc.sh compiles twice so the
 # engine's globals are namespaced before the archive is created.
+#
+# The Aq2Preset phont files are compiled into this archive (aq_builtin_phont).
+# The standalone web build still loads them at runtime.
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
@@ -24,7 +27,11 @@ CFLAGS=(
 )
 
 shopt -s nullglob
-sources=(src/decomp.c src/image.c src/shim.c src/wasm_api.c)
+mkdir -p "$RELOC_TMP"
+python3 tools/gen_builtin_phonts.py \
+  "$ENGINE/aqtk2-lnx/phont" \
+  "$RELOC_TMP/builtin_phonts.c"
+sources=(src/decomp.c src/image.c src/shim.c src/wasm_api.c "$RELOC_TMP/builtin_phonts.c")
 
 compile_one() {
   local src=$1 out=$2 pass=$3
