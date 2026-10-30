@@ -103,9 +103,9 @@ then the Rust archive that provides `malloc`.  A convenient recipe is
 `--whole-archive` around the engine archives (they are all wanted anyway), then
 `--no-whole-archive` for the host and Rust archives.
 
-`Yukw`'s `aq-wasm` crate uses exactly this layout behind its
-`static-engines` Cargo feature; see its `build.rs` for the `cargo:rustc-link-arg`
-lines.
+`Yukw`'s `aq-wasm` crate uses exactly this layout: its `build.rs` links the
+same archives with `cargo:rustc-link-arg` (defaulting to a sibling
+`../aquestalk-wasm/dist/reloc`, overridable with `AQTK_RELOC_DIR`).
 
 ## Symbol map
 
