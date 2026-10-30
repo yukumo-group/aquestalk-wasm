@@ -51,12 +51,12 @@ CSV is UTF-8, one `surface,yomi,posCode` record per line, no header.
 
 ## Compatibility note
 
-The generated `aq_user.dic` is a standard marisa-trie dictionary and is read
-correctly by AqKanji2Koe (including the native port) and by this module's own
-Export.  The **original AqUsrDic 4.1 `Export`** uses a modified
-`marisa_u` reader that currently does not accept standard marisa-built tries;
-round-tripping through the original AqUsrDic `.so` still needs the fork's
-builder.  Reading original AqUsrDic user dictionaries works.
+The `TRI1` section is a marisa-trie dictionary.  AqKanji2Koe and this module
+read it with ordinary lookup.  AqUsrDic `Export` walks each trie key through
+`MAP1` into `TOK1`, and keeps reading the next packed record until bit 7 of
+the POS high byte is set.  That bit marks the last reading of the surface.
+Import sets it on the last reading of each surface (several CSV rows may
+share one surface) and leaves it clear on the readings that precede it.
 
 ## Layout
 

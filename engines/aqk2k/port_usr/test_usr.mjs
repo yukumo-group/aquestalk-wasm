@@ -41,6 +41,17 @@ exLen = new DataView(e.memory.buffer).getUint32(exLenPtr, true);
 const origOut = dec.decode(mem().subarray(ex, ex + exLen));
 console.log('export original:', rc, exLen, 'lines-equal:', lit(origOut) === lit(CSV));
 
+const MULTI = '森ビル,モリビル,6\n菅,スガ,3\n森ビル,シンジュク,6\n森ビル,モリビル,0\n';
+const mp = putStr(MULTI);
+const multiImp = e.aus_import(mp, enc.encode(MULTI).length, out, cap, outLenPtr);
+const multiLen = new DataView(e.memory.buffer).getUint32(outLenPtr, true);
+rc = e.aus_export(out, multiLen, ex, cap, exLenPtr);
+exLen = new DataView(e.memory.buffer).getUint32(exLenPtr, true);
+const multiOut = dec.decode(mem().subarray(ex, ex + exLen));
+const multiOk = multiImp === 0 && rc === 0 && lit(multiOut) === lit(MULTI);
+console.log('multi reading:', multiImp, rc, multiLen, 'lines-equal:', multiOk);
+writeFileSync(new URL('build-wasm32/wasm_multi.dic', root), mem().subarray(out, out + multiLen));
+
 const cases = JSON.parse(readFileSync(new URL('tests/check_cases.json', root), 'utf8'));
 const expected = JSON.parse(readFileSync(new URL('tests/check_expected.json', root), 'utf8'));
 let bad = 0;
@@ -53,4 +64,4 @@ for (let i = 0; i < cases.length; i++) {
   }
 }
 console.log(`check: ${cases.length - bad}/${cases.length}`);
-process.exit((bad || lit(round) !== lit(CSV)) ? 1 : 0);
+process.exit((bad || lit(round) !== lit(CSV) || lit(origOut) !== lit(CSV) || !multiOk) ? 1 : 0);

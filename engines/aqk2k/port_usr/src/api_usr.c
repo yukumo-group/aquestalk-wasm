@@ -248,33 +248,49 @@ int aus_import(const char *csv, unsigned csv_len, void *out, unsigned out_cap, u
 
   const void **keys = (const void **)malloc(n * sizeof(void *));
   unsigned *lens = (unsigned *)malloc(n * sizeof(unsigned));
+  unsigned *ids = (unsigned *)malloc(n * sizeof(unsigned));
+  if (!keys || !lens || !ids) {
+    free(keys); free(lens); free(ids); free_ents(ents, n);
+    FUN_00108cf0(0xc9, 0); return 0xc9;
+  }
+  /* Every CSV row is inserted. Repeated surfaces share one terminal and add weight. */
   for (unsigned i = 0; i < n; i++) { keys[i] = ents[i].key; lens[i] = ents[i].keylen; }
   void *tri = 0; unsigned tril = 0;
-  if (mfs_build_alloc(keys, lens, n, &tri, &tril)) { free(keys); free(lens); free_ents(ents, n); FUN_00108cf0(0x194, 0); return 0x194; }
+  if (mfs_build_alloc(keys, lens, n, &tri, &tril)) {
+    free(keys); free(lens); free(ids); free_ents(ents, n);
+    FUN_00108cf0(0x194, 0); return 0x194;
+  }
   free(keys); free(lens);
-
-  unsigned *map = (unsigned *)malloc(n * sizeof(unsigned));
-  Ent **by_id = (Ent **)malloc(n * sizeof(Ent *));
+  unsigned nkeys = mfs_num_keys();
+  unsigned *map = (unsigned *)malloc((nkeys ? nkeys : 1) * sizeof(unsigned));
   Buf tok = {0, 0, 0};
-  for (unsigned i = 0; i < n; i++) {
+  if (!map || nkeys == 0 || nkeys > n) err = 0x194;
+  for (unsigned i = 0; !err && i < n; i++) {
     int id = -1;
-    if (mfs_lookup(ents[i].key, ents[i].keylen, &id) || id < 0 || (unsigned)id >= n) { err = 0x194; break; }
-    by_id[id] = &ents[i];
+    if (mfs_lookup(ents[i].key, ents[i].keylen, &id) || id < 0 || (unsigned)id >= nkeys) err = 0x194;
+    else ids[i] = (unsigned)id;
   }
-  for (unsigned id = 0; !err && id < n; id++) {
-    Ent *e = by_id[id];
+  for (unsigned id = 0; !err && id < nkeys; id++) {
+    int last = -1;
+    for (unsigned i = 0; i < n; i++) if (ids[i] == id) last = (int)i;
+    if (last < 0) { err = 0x194; break; }
     map[id] = tok.len;
-    unsigned char rec[7 + 32];
-    rec[0] = (unsigned char)(e->internal & 0xff);
-    rec[1] = (unsigned char)((e->internal >> 8) & 0x7f);
-    rec[2] = rec[3] = 0;
-    rec[4] = 0x40;
-    rec[5] = (unsigned char)(e->count | 0x80);
-    rec[6] = (unsigned char)(e->accent | 0x80);
-    memcpy(rec + 7, e->codes, e->count);
-    if (buf_add(&tok, rec, 7 + e->count)) err = 0xc9;
+    for (unsigned i = 0; !err && i < n; i++) {
+      if (ids[i] != id) continue;
+      Ent *e = &ents[i];
+      unsigned char rec[7 + 32];
+      rec[0] = (unsigned char)(e->internal & 0xff);
+      /* Bit 7 marks the last reading of this surface. Clear means another record follows. */
+      rec[1] = (unsigned char)(((e->internal >> 8) & 0x7f) | ((int)i == last ? 0x80 : 0));
+      rec[2] = rec[3] = 0;
+      rec[4] = 0x40;
+      rec[5] = (unsigned char)(e->count | 0x80);
+      rec[6] = (unsigned char)(e->accent | 0x80);
+      memcpy(rec + 7, e->codes, e->count);
+      if (buf_add(&tok, rec, 7 + e->count)) err = 0xc9;
+    }
   }
-  free(by_id);
+  free(ids);
   mfs_close();
   if (err) { free(map); free(tok.p); free(tri); free_ents(ents, n); FUN_00108cf0(err, 0); return err; }
 
@@ -286,8 +302,8 @@ int aus_import(const char *csv, unsigned csv_len, void *out, unsigned out_cap, u
   unsigned tri_pad = (4 - (tril & 3)) & 3;
   buf_add(&outb, "TRI1", 4); buf_u32(&outb, 4 + tril + tri_pad); buf_u32(&outb, tril); buf_add(&outb, tri, tril);
   for (unsigned i = 0; i < tri_pad; i++) { unsigned char z = 0; buf_add(&outb, &z, 1); }
-  buf_add(&outb, "MAP1", 4); buf_u32(&outb, n * 4);
-  for (unsigned i = 0; i < n; i++) buf_u32(&outb, map[i]);
+  buf_add(&outb, "MAP1", 4); buf_u32(&outb, nkeys * 4);
+  for (unsigned i = 0; i < nkeys; i++) buf_u32(&outb, map[i]);
   unsigned tok_pad = (4 - (tok.len & 3)) & 3;
   buf_add(&outb, "TOK1", 4); buf_u32(&outb, tok.len + tok_pad); buf_add(&outb, tok.p, tok.len);
   for (unsigned i = 0; i < tok_pad; i++) { unsigned char z = 0; buf_add(&outb, &z, 1); }
@@ -325,49 +341,61 @@ int aus_export(const void *dic, unsigned dic_len, char *out, unsigned out_cap, u
   if (mfs_open(tri + 4, tril)) { FUN_00108cf0(0xd3, 0); return 0xd3; }
   unsigned nk = mfs_num_keys();
   if (maps < nk * 4) { mfs_close(); FUN_00108cf0(0xd3, 0); return 0xd3; }
-  XRec *recs = (XRec *)malloc(nk * sizeof(XRec));
+  XRec *recs = 0;
+  unsigned nr = 0, rcap = 0;
   int err = 0;
-  for (unsigned i = 0; i < nk; i++) {
+  for (unsigned i = 0; !err && i < nk; i++) {
     unsigned char kbuf[256]; unsigned kl;
-    if (mfs_reverse_copy(i, kbuf, sizeof(kbuf), &kl)) { err = 0xd3; break; }
-    const void *kp = kbuf;
-    unsigned off = rd32(map + i * 4);
-    if (off + 7 > toks) { err = 0xd3; break; }
-    const unsigned char *r = tok + off;
-    unsigned type = r[4], count = r[5] & 0x1f, accent = r[6] & 0x3f;
-    unsigned start = 7 + ((type & 4) ? 3 : 0);
-    if ((type & 0xf8) != 0x40 || start + count > toks - off) { err = 0xd3; break; }
-    /* key bytes are UTF-16LE */
+    if (mfs_reverse_copy(i, kbuf, sizeof(kbuf), &kl) || (kl & 1)) { err = 0xd3; break; }
     unsigned kn = kl / 2;
     uint16_t *ks = (uint16_t *)malloc((kn + 1) * 2);
-    for (unsigned j = 0; j < kn; j++) ks[j] = (uint16_t)(((const unsigned char *)kp)[j*2] | (((const unsigned char *)kp)[j*2+1] << 8));
+    if (!ks) { err = 0xc9; break; }
+    for (unsigned j = 0; j < kn; j++) ks[j] = (uint16_t)(kbuf[j * 2] | (kbuf[j * 2 + 1] << 8));
     ks[kn] = 0;
-    char *surf = 0; unsigned sl = 0;
-    if (u16_to_utf8(ks, kn, &surf, &sl)) { free(ks); err = 0xc9; break; }
+    unsigned off = rd32(map + i * 4);
+    while (!err) {
+      if (off + 7 > toks) { err = 0xd3; break; }
+      const unsigned char *r = tok + off;
+      unsigned type = r[4], count = r[5] & 0x1f, accent = r[6] & 0x3f;
+      unsigned start = 7 + ((type & 4) ? 3 : 0);
+      unsigned recsz = start + count + (type & 3);
+      if ((type & 0xf8) != 0x40 || off + recsz > toks) { err = 0xd3; break; }
+      char *surf = 0; unsigned sl = 0;
+      if (u16_to_utf8(ks, kn, &surf, &sl)) { err = 0xc9; break; }
+      uint16_t yom[32 * 2 + 1]; unsigned yn = 0;
+      if (decode_codes(r + start, count, accent, yom, &yn)) { free(surf); err = 0xd3; break; }
+      char *yomi = 0; unsigned yl = 0;
+      if (u16_to_utf8(yom, yn, &yomi, &yl)) { free(surf); err = 0xc9; break; }
+      unsigned internal = (r[1] & 0x7f) * 256 + r[0];
+      int pub = -1;
+      for (int j = 0; j < 28; j++) if ((unsigned)g_pos[j] == internal) { pub = j; break; }
+      if (pub < 0) { free(surf); free(yomi); err = 0xd3; break; }
+      if (nr == rcap) {
+        unsigned nc = rcap ? rcap * 2 : 8;
+        XRec *np = (XRec *)realloc(recs, nc * sizeof(XRec));
+        if (!np) { free(surf); free(yomi); err = 0xc9; break; }
+        recs = np; rcap = nc;
+      }
+      recs[nr].off = off; recs[nr].surface = surf; recs[nr].yomi = yomi; recs[nr].pos = pub;
+      nr++;
+      off += recsz;
+      if (r[1] & 0x80) break;
+    }
     free(ks);
-    uint16_t yom[32 * 2 + 1]; unsigned yn = 0;
-    if (decode_codes(r + start, count, accent, yom, &yn)) { free(surf); err = 0xd3; break; }
-    char *yomi = 0; unsigned yl = 0;
-    if (u16_to_utf8(yom, yn, &yomi, &yl)) { free(surf); err = 0xc9; break; }
-    unsigned internal = (r[1] & 0x7f) * 256 + r[0];
-    int pub = -1;
-    for (int j = 0; j < 28; j++) if ((unsigned)g_pos[j] == internal) { pub = j; break; }
-    if (pub < 0) { free(surf); free(yomi); err = 0xd3; break; }
-    recs[i].off = off; recs[i].surface = surf; recs[i].yomi = yomi; recs[i].pos = pub;
   }
   mfs_close();
   if (err) {
-    for (unsigned i = 0; i < nk; i++) { free(recs[i].surface); free(recs[i].yomi); }
+    for (unsigned i = 0; i < nr; i++) { free(recs[i].surface); free(recs[i].yomi); }
     free(recs); FUN_00108cf0(err, 0); return err;
   }
-  for (unsigned i = 1; i < nk; i++) {
+  for (unsigned i = 1; i < nr; i++) {
     XRec key = recs[i];
     unsigned j = i;
     while (j > 0 && recs[j-1].off > key.off) { recs[j] = recs[j-1]; j--; }
     recs[j] = key;
   }
   Buf o = {0, 0, 0};
-  for (unsigned i = 0; i < nk; i++) {
+  for (unsigned i = 0; i < nr; i++) {
     buf_add(&o, recs[i].surface, (unsigned)strlen(recs[i].surface));
     buf_add(&o, ",", 1);
     buf_add(&o, recs[i].yomi, (unsigned)strlen(recs[i].yomi));
