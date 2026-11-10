@@ -12,6 +12,9 @@ scripts/build-reloc.sh            ->  dist/aquestalk.wasm  (all five + Rust host
 link/test/reloc.mjs               ->  byte-for-byte parity with the old modules
 ```
 
+A PowerShell version of the whole chain (`.ps1` next to every `.sh`) builds the
+same archives on Windows.
+
 ## Quick start
 
 ```bash
@@ -20,8 +23,20 @@ link/test/reloc.mjs               ->  byte-for-byte parity with the old modules
 node link/test/reloc.mjs          # parity only (uses the existing bundle)
 ```
 
+```powershell
+./scripts/build-reloc.ps1         # build archives, link, run parity tests
+./scripts/build-reloc.ps1 -NoTest # build only (--no-test also works)
+```
+
 Requirements: LLVM with the `wasm32` target (`clang`, `wasm-ld`, `llvm-ar`,
-`llvm-nm`), Rust with `wasm32-unknown-unknown`, Node.js 18+.
+`llvm-nm`), Rust with `wasm32-unknown-unknown`, Node.js 18+, Python 3.
+
+On Windows, install the official LLVM release (its `bin` directory contains
+the wasm32 target) and put it on `PATH`, or pass
+`-Cc 'C:\Program Files\LLVM\bin\clang.exe'`; `wasm-ld`, `llvm-ar` and
+`llvm-nm` are then found next to clang.  The PowerShell build enables
+`PYTHONUTF8=1`, because the generators read the UTF-8 engine sources without
+an explicit encoding (Windows Python would otherwise use the ANSI code page).
 
 ## What the bundle contains
 
@@ -116,7 +131,9 @@ list.  Regenerate both with the build script.
 ## Adding an engine
 
 1. Add `link/abis/<name>.json` with the prefix and the public API mapping.
-2. Add `engines/<engine>/build-reloc.sh` that compiles the sources (without the
-   engine's allocator runtime) into `sources[]`, defines `compile_one`, sources
-   `link/tools/reloc.sh` and calls `reloc_archive`.
-3. Add the engine to `scripts/build-reloc.sh` and to the parity test.
+2. Add `engines/<engine>/build-reloc.sh` (and a `.ps1` twin for Windows) that
+   compiles the sources (without the engine's allocator runtime) into
+   `sources[]`, defines `compile_one`, sources `link/tools/reloc.sh` and calls
+   `reloc_archive`.
+3. Add the engine to `scripts/build-reloc.sh` and `scripts/build-reloc.ps1`,
+   and to the parity test.
