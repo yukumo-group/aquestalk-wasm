@@ -14,6 +14,7 @@
     "test:k2k-soak": "node engines/aqk2k/tests/soak.mjs",
     "test:parity": "node tests/consistency.mjs --strict",
     "build:reloc": "./scripts/build-reloc.sh",
+    "build:reloc:ps": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build-reloc.ps1",
     "test:reloc": "node link/test/reloc.mjs"
   }
 }

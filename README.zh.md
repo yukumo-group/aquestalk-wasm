@@ -108,11 +108,12 @@ aquestalk-wasm/
 ├── scripts/
 │   ├── serve.sh
 │   ├── test.sh
-│   └── build-reloc.sh   # 5 个引擎 .a + Rust host -> dist/aquestalk.wasm
+│   ├── build-reloc.sh   # 5 个引擎 .a + Rust host -> dist/aquestalk.wasm
+│   └── build-reloc.ps1  # 同样的构建，Windows PowerShell 版
 ├── link/                # 单内存链接套件（ABI、符号前缀、host shim、对拍）
 │   ├── abis/            # 每个引擎的公开符号映射
 │   ├── host/            # Rust malloc/free + C string/stdio/trap
-│   ├── tools/           # gen_prefix.py / exports.py / reloc.sh
+│   ├── tools/           # gen_prefix.py / exports.py / reloc.sh / reloc.ps1
 │   └── test/reloc.mjs   # 与原独立 wasm 逐字节对拍
 ├── tests/
 │   ├── lib/             # 临时 HTTP 服务、WAV 解析、声库目录
@@ -221,6 +222,13 @@ multi-memory，这是把引擎嵌进 Rust 宿主的唯一可移植方式：
 ```bash
 ./scripts/build-reloc.sh          # 5 个引擎 + Rust host -> dist/aquestalk.wasm
 npm run test:reloc                # 与原独立 wasm 逐字节对拍
+```
+
+Windows 上可直接用 PowerShell 版（官方 LLVM 发行版已包含 wasm32 目标；
+`clang.exe` 不在 PATH 时用 `-Cc` 指定）：
+
+```powershell
+./scripts/build-reloc.ps1 -NoTest # 省略 -NoTest 则同时跑对拍
 ```
 
 - 产物：`dist/reloc/libaq1.a`、`libaq2.a`、`libaq10.a`、`libaqk2k.a`、

@@ -123,11 +123,12 @@ aquestalk-wasm/
 ├── scripts/
 │   ├── serve.sh
 │   ├── test.sh
-│   └── build-reloc.sh   # 5 engines .a + Rust host -> dist/aquestalk.wasm
+│   ├── build-reloc.sh   # 5 engines .a + Rust host -> dist/aquestalk.wasm
+│   └── build-reloc.ps1  # same build for Windows PowerShell
 ├── link/                # single-memory link kit (ABI, symbol prefixing, host shims, parity)
 │   ├── abis/            # public symbol map per engine
 │   ├── host/            # Rust malloc/free + C string/stdio/trap
-│   ├── tools/           # gen_prefix.py / exports.py / reloc.sh
+│   ├── tools/           # gen_prefix.py / exports.py / reloc.sh / reloc.ps1
 │   └── test/reloc.mjs   # byte-for-byte parity with the standalone wasm
 ├── tests/
 │   ├── lib/             # temporary HTTP server, WAV parser, voice catalog
@@ -253,6 +254,13 @@ portable way to embed the engines in a Rust host:
 ```bash
 ./scripts/build-reloc.sh          # 5 engines + Rust host -> dist/aquestalk.wasm
 npm run test:reloc                # byte-for-byte parity with the standalone wasm
+```
+
+On Windows the same build runs in PowerShell (the official LLVM release
+includes the wasm32 target; pass `-Cc` if `clang.exe` is not on `PATH`):
+
+```powershell
+./scripts/build-reloc.ps1 -NoTest # omit -NoTest to run the parity test too
 ```
 
 - Outputs: `dist/reloc/libaq1.a`, `libaq2.a`, `libaq10.a`, `libaqk2k.a`,

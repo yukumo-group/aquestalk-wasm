@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -52,8 +53,14 @@ RUNTIME_ABI = re.compile(
 def defined_symbols(objects: list[Path]) -> list[str]:
     if not objects:
         raise SystemExit("gen_prefix: no objects")
+    # shutil.which honours PATHEXT on Windows, so llvm-nm.exe and wrapper
+    # scripts (llvm-nm.cmd) are both found.  subprocess alone only appends
+    # ".exe" when the name has no extension.
+    llvm_nm = shutil.which("llvm-nm")
+    if llvm_nm is None:
+        raise SystemExit("gen_prefix: llvm-nm not found in PATH")
     proc = subprocess.run(
-        ["llvm-nm", "--defined-only", "--extern-only", *map(str, objects)],
+        [llvm_nm, "--defined-only", "--extern-only", *map(str, objects)],
         check=True,
         text=True,
         capture_output=True,
