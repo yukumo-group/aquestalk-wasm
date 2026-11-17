@@ -10,6 +10,10 @@ src/runtime.c is intentionally not compiled: the final module supplies
 malloc/mem* through the link kit.  link/tools/reloc.ps1 compiles twice so the
 engine's globals are namespaced before the archive is created.
 
+The Aq2Preset phont files are compiled into this archive when
+tools/gen_builtin_phonts.py is present (aq_builtin_phont).  The standalone
+web build still loads them at runtime.
+
 .PARAMETER Out
 Archive directory.  Defaults to $env:OUT or engines/aquestalk2/dist/reloc.
 
@@ -60,12 +64,28 @@ $compileOne = {
 
 Push-Location -LiteralPath $Here
 try {
-    $sources = Expand-RelocSources -Patterns @(
+    $patterns = @(
         'src/decomp.c'
         'src/image.c'
         'src/shim.c'
         'src/wasm_api.c'
     )
+
+    # Current main compiles the preset phonts into the archive.  Older
+    # branches have no generator and keep the four sources above.
+    $builtinPhontsTool = Join-Path $Here 'tools/gen_builtin_phonts.py'
+    if (Test-Path -LiteralPath $builtinPhontsTool -PathType Leaf) {
+        New-Item -ItemType Directory -Force -Path $RelocTmp | Out-Null
+        $builtinPhonts = Join-Path $RelocTmp 'builtin_phonts.c'
+        Invoke-Native -FilePath $Python -ArgumentList @(
+            $builtinPhontsTool,
+            (Join-Path $Engine 'aqtk2-lnx/phont'),
+            $builtinPhonts
+        )
+        $patterns += $builtinPhonts
+    }
+
+    $sources = Expand-RelocSources -Patterns $patterns
 
     Write-Host "AquesTalk2 -> $(Join-Path $Out 'libaq2.a')"
     Invoke-RelocArchive `
