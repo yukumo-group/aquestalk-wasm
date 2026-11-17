@@ -3,6 +3,8 @@ node_modules/
 .npm-cache/
 .playwright-browsers/
 .test-artifacts/
+__pycache__/
+*.py[cod]
 
 # OS noise
 .DS_Store
@@ -22,3 +24,10 @@ Thumbs.db
 /dist/
 **/.reloc-tmp/
 /link/host/target/
+
+# default outputs of the per-engine build-reloc scripts
+/engines/aquestalk1/dist/reloc/
+/engines/aquestalk2/dist/reloc/
+/engines/aquestalk10/port/web/reloc/
+/engines/aqk2k/port/build-wasm32/reloc/
+/engines/aqk2k/port_usr/build-wasm32/reloc/
